@@ -6,15 +6,19 @@ let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => 
 	if (command == 'ffserti') {
 		let link = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + text;
 	} else if (command == 'ffserti2') {
-		let link = 'https://onlydevcity.xyz/FFSerti2/img.php?nama=' + text;
+		let link1 = 'https://onlydevcity.xyz/FFSerti2/img.php?nama=' + text;
+		conn.sendFile(m.chat, link1, 'SDGC-BOT.png', '*SGDC-BOT*', m)
 	} else if (command == 'ffserti3') {
-		let link = 'https://onlydevcity.xyz/FFSerti3/img.php?nama=' + text;
+		let link2 = 'https://onlydevcity.xyz/FFSerti3/img.php?nama=' + text;
+		conn.sendFile(m.chat, link2, 'SDGC-BOT.png', '*SGDC-BOT*', m)
 	} else if (command == 'ffserti4') {
-        let link = 'https://onlydevcity.xyz/FFSerti4/img.php?nama=' + text;
+                let link3 = 'https://onlydevcity.xyz/FFSerti4/img.php?nama=' + text;
+		conn.sendFile(m.chat, link3, 'SDGC-BOT.png', '*SGDC-BOT*', m)
     } else if (command == 'ffserti5') {
-    	let link = 'https://onlydevcity.xyz/FFSerti4/img.php?nama=' + text;
+                let link4 = 'https://onlydevcity.xyz/FFSerti4/img.php?nama=' + text;
+	    conn.sendFile(m.chat, link4, 'SDGC-BOT.png', '*SGDC-BOT*', m)
     } else throw '_Stress_'
-    conn.sendFile(m.chat, link, 'SDGC-BOT.png', '*SGDC-BOT*', m)
+  //  conn.sendFile(m.chat, link, 'SDGC-BOT.png', '*SGDC-BOT*', m)
 } catch (e) {
    m.reply('```Error```')
   }
