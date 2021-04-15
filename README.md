@@ -3,7 +3,7 @@
 SIMPLE WHATSAPP BOT GRETONGERS
 
  JOIN
-[`WhatsApp`](https://chat.whatsapp.com/JTqD3cJLmrlJPfxYZMtju8)
+[`WhatsApp`](https://chat.whatsapp.com/C6JvFUMrWpBJ5THI0Bz3QM)
 [`Telegram`](https://t.me/SGDC_TEAM)
 [`Channel`](https://t.me/SobatGretong)
 
