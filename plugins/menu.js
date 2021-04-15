@@ -45,7 +45,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let reg = Object.values(global.DATABASE._data.users).filter(user => user.registered == false).length
     let own = '6282252655313@s.whatsapp.net'
     let mmk = m.sender
-    let poto = 'src/SGDC_BOT.jpg'
+    //let poto = 'src/SGDC_BOT.jpg'
     let mn = `
 *━━━━━━━━━━━━━━━━━━━━*
 _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
@@ -64,6 +64,7 @@ _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 ❍ *Performa ${bname} Saat Ini* ❍
 ❏ ~> ${ping}
 
+*╰══════════════════╯*
 *━━━━━━━━━━━━━━━━━━━━*
 ${readMore}
 *┏━━━━━━━━━━━━━━━━━━┓*
@@ -112,7 +113,7 @@ ${readMore}
 *┃║ ${_p}nulis2*  _Teks_
 *┃║ ${_p}nulis3*  _Teks_
 *┃╰════════════════╯*
-*┃                     SERTI MAKER*
+*┃                     SERTI MAKER* (Proses)
 *┃╭════════════════╮*
 *┃║ ${_p}pubgserti*  _Nama_
 *┃║ ${_p}pubgserti2*  _Nama_
@@ -158,6 +159,7 @@ ${readMore}
 *┃║ ${_p}snbg*  _Image/Reply_ (Remove Error)
 *┃║ ${_p}sticgif*  _Image/Reply_ (-5 s)
 *┃║ ${_p}sticker*  _Image/Reply_
+*┃║ ${_p}stickerwm*  _Image/Reply_
 *┃║ ${_p}takestic*  _Reply Sticker_
 *┃║ ${_p}stimg*  _Reply Sticker_
 *┃╰════════════════╯*
@@ -297,7 +299,6 @@ ${readMore}
 *┃║ ${_p}lirik*  _Judul Lagu_
 *┃║ ${_p}chord*  _Judul Lagu_
 *┃║ ${_p}artimimpi*  _Teks_
-*┃║ ${_p}kodepos*  _Kota_
 *┃║ ${_p}cuaca*  _Daerah_
 *┃║ ${_p}waktu*  _Daerah_
 *┃║ ${_p}jadwaltv*  _Channel_
