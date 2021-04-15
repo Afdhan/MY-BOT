@@ -18,9 +18,9 @@ let handler  = async (m, { conn, args, command }) => {
    else throw '_Terjadi Kesalahan Pada Saat Mengonversi!_'
     }
   }
-   } catch (e) {
+  /* } catch (e) {
   	m.reply('```Error```')
-  }
+  }*/
 }
 
 handler.command = /^(s(tic?ker)?(gif)?|s)$/i
