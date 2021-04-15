@@ -20,8 +20,8 @@ let handler  = async (m, { conn, args, command }) => {
   }
   /* } catch (e) {
   	m.reply('```Error```')
-  }*/
-}
+  }
+}*/
 
 handler.command = /^(s(tic?ker)?(gif)?|s)$/i
 
