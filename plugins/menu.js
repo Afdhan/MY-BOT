@@ -44,11 +44,11 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let uptime = clockString(_uptime)
     let reg = Object.values(global.DATABASE._data.users).filter(user => user.registered == false).length
     let own = '6282252655313@s.whatsapp.net'
-    let kntl = m.sender
+    let mmk = m.sender
     let poto = 'src/SGDC_BOT.jpg'
     let mn = `
 *━━━━━━━━━━━━━━━━━━━━*
-_Hai, Selamat ${cpn} Kak @${kntl.split("@")[0]}_
+_Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 
 *╭══════════════════╮*
 
@@ -393,7 +393,7 @@ ${readMore}
     }) */
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
-            mentionedJid: [kntl, own]
+            mentionedJid: [mmk, own]
         }
     }) 
   conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*MENU GRETONGAN SGDC-TEAM*')
