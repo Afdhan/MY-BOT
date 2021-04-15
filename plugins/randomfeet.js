@@ -7,7 +7,7 @@ let chat = global.DATABASE.data.chats[m.chat]
   	await m.reply(global.wait)
       let link = 'http://lolhuman.herokuapp.com/api/random2/feet?apikey=' + api;
       conn.sendFile(m.chat, link, 'SGDC-BOT.png', 'No Colay:v\n\n*SGDC-BOT*', m)
-   } else if {
+   } else {
         m.reply('```Perlu Mengaktifkan Mode NSFW```')
    }
  } 
