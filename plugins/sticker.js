@@ -16,8 +16,10 @@ let handler  = async (m, { conn, args, command }) => {
       quoted: m
     })
    else throw '_Terjadi Kesalahan Pada Saat Mengonversi!_'
-    }
+    } catch (e) {
+   	m.reply('```Error```')
   }
+ }
   /* } catch (e) {
   	m.reply('```Error```')
   }
