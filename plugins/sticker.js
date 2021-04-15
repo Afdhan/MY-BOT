@@ -23,7 +23,7 @@ let handler  = async (m, { conn, args, command }) => {
   }
 }
 
-handler.command = /^(sticker|stiker|s(tic)?)$/i
+handler.command = /^(s(tic?ker)?(gif)?|s)$/i
 
 module.exports = handler
 
