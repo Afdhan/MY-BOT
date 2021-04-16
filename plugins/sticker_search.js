@@ -15,10 +15,10 @@ try {
         let img = stk[Math.floor(Math.random() * stk.length)];
         let stiker = await sticker(img, false, global.packname, global.author)
    
-conn.reply(m.chat, `${stic.stickerlist[i]}`, m)
-       conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+       conn.reply(m.chat, `${stic.stickerlist[i]}`, m)
+     /*  conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
-        })
+        })*/
   }
 
    } catch (e) {
