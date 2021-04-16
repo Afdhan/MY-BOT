@@ -5,7 +5,7 @@ let kntl = require("../src/kntl.json")
 let handler = async(m, { conn, args, text }) => {
 	let api = (kntl.xteam)
 	if (!text) throw '_Masukkan Teks_'
-try {
+//try {
     await m.reply(global.wait)
 	axios.get(`https://api.xteam.xyz/sticker/stickerly?q=${text}&APIKEY=${api}`)
     .then ((res) => {
@@ -17,9 +17,9 @@ try {
     quoted: m
         })
      }
-   } catch (e) {
+   /*} catch (e) {
   	m.reply('```Error```')
-  }
+  }*/
 }
 handler.command = /^(stickersearch|ssearch)$/i
 handler.owner = false
