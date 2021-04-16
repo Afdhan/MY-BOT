@@ -12,13 +12,15 @@ let handler = async(m, { conn, args, text }) => {
 //let b = stic.data  //JSON.parse(JSON.stringify(stic.data));
 	for (let i = 0; i < stic.stickerlist.length; i++) {
         let stk = stic.stickerlist[i]
-        let img =  stk[Math.floor(Math.random() * stk.length)];
-        let stiker = await sticker(img)  //, false, global.packname, global.author)
+        let img = stk[Math.floor(Math.random() * stk.length)];
+        let stiker = await sticker(img)//, false, global.packname, global.author)
+   
 //conn.reply(m.chat, b, m)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
         })
-     }
+  }
+}
    /*} catch (e) {
   	m.reply('```Error```')*/
  /* }
