@@ -18,7 +18,7 @@ let handler = async(m, { conn, text }) => {
 *Channel:* ${res.data.result.channel}
 *Views:* ${res.data.result.views}
 *Source:* ${res.data.result.source}
-${res.data.result.video.data.url}
+${res.data.result.video.url}
 _Download Sendiri, Jangan Manja :v_
 
 `.trim()
