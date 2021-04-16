@@ -3,7 +3,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) =>  {
 *┏━━━━━━━━━━━━━━━━━━━┓*
 *┃                         SGDC-BOT*
 *┃╭═════════════════╮*
-*┃                   SGDC-BOT@^1.60*
+*┃                   SGDC-BOT@^1.6.0*
 *┃*
 *┃╭═════════════════╮*
 *┃                    GRETONG MENU*
