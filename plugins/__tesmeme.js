@@ -7,13 +7,13 @@ let api = (kntl.onlydev)
     await m.reply(global.wait)
     axios.get(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaVPHWMTO7jGoZP0QHiqlbODT9Gjxo1HnSug&usqp=CAU&apikey=${api}`)
     .then((res) => {
-     /* imageToBase64(res.data.result)
+      imageToBase64(res.data.result)
         .then(
           (ress) => {
-            let buf = Buffer.from(ress, 'base64')*/
+            let buf = Buffer.from(ress, 'base64')
             let str = `*SGDC-BOT*`
-          conn.sendFile(m.chat, res.data.result, 'Nyenye_SGDC-BOT.png', str, m)
-        //})
+          conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
+        })
     })
       /* let triger = await fetch('https://some-random-api.ml/canvas/triggered?avatar=' + encodeURIComponent(anu.display_url));
        let img = await triger.buffer()
