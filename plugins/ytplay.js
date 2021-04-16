@@ -3,10 +3,10 @@ let axios = require("axios");
 let handler = async(m, { conn, text }) => {
  if (!text) return conn.reply(m.chat, '_Masukkan Judul Video_', m)
   await m.reply(global.wait)   
-  try {
-    axios.get(`https://videfikri.com/api/ytplayv2/?query=${text}`)
+
+    axios.get(`https://onlydevcity.herokuapp.com/api/ytplay?query=${text}&apikey=Nezavpn`)
     .then((res) => {
-      imageToBase64(res.data.result.thumbnail)
+      imageToBase64(res.data.result.thumb)
         .then(
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
@@ -15,26 +15,22 @@ let handler = async(m, { conn, text }) => {
             
 
 *Title:* ${res.data.result.title}
-*Size:* ${res.data.result.size}
-*Durasi:* ${res.data.result.duration}
 *Channel:* ${res.data.result.channel}
-*Published:* ${res.data.result.published_on}
 *Views:* ${res.data.result.views}
 *Source:* ${res.data.result.source}
-*Url:* ${res.data.result.url}
-*Description:*
-${res.data.result.description}
 
 _Download Sendiri, Jangan Manja :v_
 
-*SGDC-BOT*
 `.trim()
-     conn.sendFile(m.chat, res.data.result.thumbnail, 'SGDC-BOT.jpg', str, m)
+     let ytp = res.data.result.video
+     for (let i = 0; i < ytp.data.length; i++) {
+     str +=  `${ytp.data[i].url}`
+     conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
         })
     })
-   } catch (e) {
+  /* } catch (e) {
     m.reply('```Error```')
-   }
+   }*/
 }
 
 handler.command = /^(ytplay|playmp3|play)$/i
