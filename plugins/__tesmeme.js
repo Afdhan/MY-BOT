@@ -12,7 +12,7 @@ let api = (kntl.onlydev)
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
             let str = `*SGDC-BOT*`
-          conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
+          conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.png', str, m)
         })
     })
       /* let triger = await fetch('https://some-random-api.ml/canvas/triggered?avatar=' + encodeURIComponent(anu.display_url));
