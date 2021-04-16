@@ -12,8 +12,8 @@ try {
     	let stic = res.data.result.stickerlist
 		let b = JSON.parse(JSON.stringify(stic.data));
 		let img =  b[Math.floor(Math.random() * b.length)];
-		let stiker = await sticker(img)  //, false, global.packname, global.author)
-       conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+//let stiker = await sticker(img)  //, false, global.packname, global.author)
+       conn.sendMessage(m.chat, img, MessageType.sticker, {
     quoted: m
         })
      }
