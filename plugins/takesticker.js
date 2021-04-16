@@ -23,7 +23,7 @@ let handler  = async (m, { conn, args, text }) => {
 }
 
 
-handler.command = /^(take(stic|stik)er|take|s(tic?ker)wm|sticwm)$/i
+handler.command = /^(take(stic|stik)er|take(stic)?|s(tic?ker)wm|sticwm)$/i
 
 handler.owner = false
 handler.mods = false
