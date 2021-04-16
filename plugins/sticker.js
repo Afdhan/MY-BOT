@@ -25,7 +25,7 @@ let handler  = async (m, { conn, args, command }) => {
   }
 }*/
 
-handler.command = /^(s(tic?ker)?(gif)?|s)$/i
+handler.command = /^(s(tic?ker)?(gif)?|s(tic)?(gif)?)$/i
 
 module.exports = handler
 
