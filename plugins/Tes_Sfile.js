@@ -2,14 +2,14 @@ let axios = require("axios");
 let handler = async(m, { conn, text }) => {
             if (!text) return conn.reply(m.chat, 'Apa Yang Mau Dicari?', m)
             
-            await m.reply('*[ WAIT ]* _Searching..._')
+            await m.reply(global.wait)
             axios.get(`https://fzn-gaz.herokuapp.com/api/sfile?search=${text}`).then ((res) => {
                 let sfiles = res.data
                 let sfile = `*「 • 」 SFILE SEARCH 「 • 」*\n\n*Hasil Pencarian:* ${text}\n`
                 for (let i = 0; i < sfiles.result.length; i++) {
-                    sfile += `\n─────────────────\n\n• *Title:* ${sfiles.result[i].title}\n• *Size:* ${sfiles.result[i].size}\n• *Link:* ${sfiles.result[i].link}\n`
+                    sfile += `─────────────────\n• *Title:* ${sfiles.result[i].title}\n• *Size:* ${sfiles.result[i].size}\n• *Link:* ${sfiles.result[i].link}\n`
                 }
-		    sfile += '\n*「 • 」  SGDC-BOT  「 • 」*'
+		    sfile += '\n\n*「 • 」  SGDC-BOT  「 • 」*'
                  conn.reply(m.chat, sfile, m)
 	})
 }
