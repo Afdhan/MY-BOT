@@ -25,6 +25,7 @@ let api = (kntl.onlydev)
   //  })
     } catch (e) {
   	m.reply('```Error```')
+      console.log(e)
   }
 }
 
