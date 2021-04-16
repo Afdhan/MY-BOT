@@ -1,20 +1,18 @@
-let handler = function (m) {
-  this.sendContact(m.chat, '6282252655313', '꧁࿇ ᴍ ᴀꜰᴅʜᴀɴ ࿇꧂', m)
-//let pp_owner ='src/Owner.jpg'
-//conn.sendFile(m.chat, pp_owner, 'My Owner.jpg', '*This is my owner ᴍ ᴀꜰᴅʜᴀɴ*\n*Contact: https://wa.me/6282252655313*', m)
+let { MessageType } = require('@adiwajshing/baileys')
+let handler = async (m, { conn, args }) => {
+  if (!m.isGroup) {
+    await conn.sendContact(m.chat, '6282252655313', 'Owner SGDC-BOT', m)
+    conn.sendContact(m.chat, '6283129011845', 'Co_Owner SGDC-BOT', m)
+} else {
+  let users1 = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
+  let users2 = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
+  await conn.sendContact(m.chat, '6282252655313', 'Owner SGDC-BOT', m, { contextInfo: { mentionedJid: users1 } })
+  conn.sendContact(m.chat, '6283129011845', 'Co_Owner SGDC-BOT', m, { contextInfo: { mentionedJid: users2 } })
+  }
 }
 
 handler.command = new  RegExp
 handler.customPrefix = /^(owner|creator|pemilik)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
 
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
 
 module.exports = handler
