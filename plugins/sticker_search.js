@@ -2,7 +2,7 @@ let axios = require("axios");
 let { MessageType } = require('@adiwajshing/baileys');
 let { sticker } = require('../lib/sticker');
 let kntl = require("../src/kntl.json")
-let handler = async(m, { conn, text }) => {
+let handler = async(m, { conn, args, text }) => {
 	let api = (kntl.xteam)
 	if (!text) throw '_Masukkan Teks_'
 try {
