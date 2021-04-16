@@ -8,6 +8,7 @@ let handler = async (m, { conn, args }) => {
   } else {
   await conn.sendContact(m.chat, '6282252655313', 'Owner SGDC-BOT', m, { contextInfo: { mentionedJid: users1 } })
   conn.sendContact(m.chat, '6283129011845', 'Co-Owner SGDC-BOT', m, { contextInfo: { mentionedJid: users2 } })
+  }
 }
 
 handler.command = /^(owner|creator)$/i
