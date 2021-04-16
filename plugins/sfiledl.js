@@ -13,16 +13,15 @@ m.reply(`
 
 _Download Sendiri, Jangan Manja :v_
 
-_Kalau Gak Error,_
-_File Nya Langsung Dikirim_
+_Sfile Downloader Sekarang Tidak Mengirimkan File!_
 
 *SGDC-BOT*
 `.trim())
-  if (res.data.size > '999.99 KB') {
+  /*if (res.data.size > '999.99 KB') {
 	  m.reply('_File Anda Terlalu Besar! Silahkan Download Sendiri Melalui Link Yang Dikirim SGDC-BOT!_')
 	  } else {
-   conn.sendFile(m.chat, res.data.result, `${res.data.title}`, m)
-		  }
+   //conn.sendFile(m.chat, res.data.result, `${res.data.title}`, m)
+		  }*/
 	})
  } catch (e) {
    m.reply('```Error```')
