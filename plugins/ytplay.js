@@ -24,7 +24,7 @@ _Download Sendiri, Jangan Manja :v_
 `.trim()
     let ytp = res.data.result
      for (let i = 0; i < ytp.video.length; i++) {
-     str +=  `${ytp.video.[i].url}`
+     str +=  `${ytp.video[i].url}`
      }
      conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
         })
