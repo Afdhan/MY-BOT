@@ -12,7 +12,7 @@ let api = (kntl.onlydev)
           let api = (kntl.onlydev)
           let url = 'https://i.ibb.co/1T1DCz7/cewek-thailand-20200325-007-non-fotografer-kly.jpg'
           let res = await axios.get(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=${url}&apikey=${api}`)
-    	    let ress = await fetch(res.data.result);
+    	    let ress = res.data.result
             //let buf = Buffer.from(ress, 'base64')
           let str = `*SGDC-BOT*`
           conn.sendFile(m.chat, ress, 'Nyenye_SGDC-BOT.jpg', str, m)
