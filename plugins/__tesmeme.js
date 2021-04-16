@@ -1,8 +1,10 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let path = require("path")
+let util = require("util")
 let { MessageType } = require('@adiwajshing/baileys');
 let kntl = require("../src/kntl.json");
-let handler = async(m, { conn, text }) => {
+let handler = async(m, { conn, args, text }) => {
 let api = (kntl.onlydev)
   try {
     await m.reply(global.wait)
