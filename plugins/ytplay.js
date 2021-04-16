@@ -22,7 +22,7 @@ let handler = async(m, { conn, text }) => {
 `.trim()
     let ytp = res.data.result
      for (let i = 0; i < ytp.video.length; i++) {
-     str +=  `\n\n*Quality:* ${ytp.video[i].quality}\n*Url:* ${ytp.video[i].url}`
+     str +=  `\n─────────────────\n*Quality:* ${ytp.video[i].quality}\n*Url:* ${ytp.video[i].url}\n`
      }
      str += '\n\n_Download Sendiri, Jangan Manja :v_\n\n*SGDC-BOT*'
      conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
