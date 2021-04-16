@@ -157,11 +157,11 @@ ${readMore}
 *┃║ ${_p}semoji*  _Emoji_
 *┃║ ${_p}triggered*  _Image/Reply_
 *┃║ ${_p}snbg*  _Image/Reply_ (Remove Error)
-*┃║ ${_p}sticgif*  _Image/Reply_ (-5 s)
-*┃║ ${_p}sticker*  _Image/Reply_
-*┃║ ${_p}stickerwm*  _Image/Reply_
-*┃║ ${_p}takestic*  _Reply Sticker_
-*┃║ ${_p}stimg*  _Reply Sticker_
+*┃║ ${_p}sticgif*  _Image/Reply_ (-5 second)
+*┃║ ${_p}sticker*  _Image/Reply_ 
+*┃║ ${_p}stickerwm*  _Image/Reply_ Nama|Author
+*┃║ ${_p}takestic*  _ReplySticker_ Nama|Author
+*┃║ ${_p}stimg*  _ReplySticker_
 *┃╰════════════════╯*
 *┃                   STICKER EMOJI*
 *┃╭════════════════╮*
