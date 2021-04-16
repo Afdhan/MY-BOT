@@ -8,11 +8,13 @@ let handler = async(m, { conn, args, text }) => {
 //try {
     await m.reply(global.wait)
         let res = await axios.get(`https://api.xteam.xyz/sticker/stickerly?q=${text}&APIKEY=${api}`)
-    	let stic = res.data.result.stickerlist
-	let b = stic.data  //JSON.parse(JSON.stringify(stic.data));
-	let img =  b[Math.floor(Math.random() * b.length)];
+    	let stic = res.data.result
+//let b = stic.data  //JSON.parse(JSON.stringify(stic.data));
+	for (let i = 0; i < stic.stickerlist.length; i++) {
+        let stk = stic.stickerlist[i]
+        let img =  stk[Math.floor(Math.random() * stk.length)];
         let stiker = await sticker(img)  //, false, global.packname, global.author)
-conn.reply(m.chat, b, m)
+//conn.reply(m.chat, b, m)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
         })
