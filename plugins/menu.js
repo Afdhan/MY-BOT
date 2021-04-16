@@ -406,7 +406,8 @@ ${readMore}
             mentionedJid: [mmk, users]
          }
      })
-  conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*MENU GRETONGAN SGDC-TEAM*')
+   }
+    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*MENU GRETONGAN SGDC-TEAM*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
