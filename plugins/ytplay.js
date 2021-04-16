@@ -18,14 +18,14 @@ let handler = async(m, { conn, text }) => {
 *Channel:* ${res.data.result.channel}
 *Views:* ${res.data.result.views}
 
-res.data.result.video.data
 _Download Sendiri, Jangan Manja :v_
 
 `.trim()
     let ytp = res.data.result
      for (let i = 0; i < ytp.video.length; i++) {
-     str +=  `${ytp.video[i].url}`
+     str +=  `\n\n*Quality:* ${ytp.video[i].quality}\n*Url:* ${ytp.video[i].url}`
      }
+     str += '*SGDC-BOT*'
      conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
         })
     })
@@ -34,7 +34,7 @@ _Download Sendiri, Jangan Manja :v_
    }*/
 }
 
-handler.command = /^(ytplay|playmp3|play)$/i
+handler.command = /^(playmp4)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
