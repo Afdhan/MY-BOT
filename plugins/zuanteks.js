@@ -1,19 +1,37 @@
+let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
 let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, text }) => {
-let api = (kntl.tbotkey)
-if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
-    if (text.length > 10) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 10 huruf!_', m)
- try {
-    await m.reply(global.wait)
-let link = 'https://tes-apime.herokuapp.com/api/textmaker/zuan?text=' + text + '&theme=zuan1&apikey=' + api;
-conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+ let api = (kntl.onlydev)
+ if (!text) return conn.reply(m.chat, '_Masukkan Judul Video_', m)
+  await m.reply(global.wait)   
+  try {
+    axios.get(`https://onlydevcity.herokuapp.com/api/ytplay?query=${text}&apikey=${api}`)
+    .then((res) => {
+      imageToBase64(res.data.result.thumb)
+        .then(
+          (ress) => {
+            let buf = Buffer.from(ress, 'base64')
+            let str = `
+*KLIK LINK FOR DOWNLOAD*               
+            
+*Title:* ${res.data.result.title}
+*Channel:* ${res.data.result.channel}
+*Views:* ${res.data.result.views}
+`.trim()
+    let ytp = res.data.result
+     for (let i = 0; i < ytp.audio.length; i++) {
+     str +=  `\n─────────────────\n*Bitrate:* ${ytp.audio[i].bitrate}\n*Url:* ${ytp.audio[i].url}\n`
+     }
+     str += '\n\n_Download Sendiri, Jangan Manja :v_\n\n*SGDC-BOT*'
+     conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
+        })
+    })
    } catch (e) {
     m.reply('```Error```')
    }
 }
-
-handler.command = /^(zuan(teks|text)?)$/i
+handler.command = /^(ytplaymp3|playmp3|mp3)$/i
 
 handler.owner = false
 handler.mods = false
