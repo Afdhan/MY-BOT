@@ -9,10 +9,10 @@ let handler = async(m, { conn, args, text }) => {
     await m.reply(global.wait)
         let res = await axios.get(`https://api.xteam.xyz/sticker/stickerly?q=${text}&APIKEY=${api}`)
     	let stic = res.data.result.stickerlist
-	let b = JSON.parse(JSON.stringify(stic.data));
+	let b = stic.data  //JSON.parse(JSON.stringify(stic.data));
 	let img =  b[Math.floor(Math.random() * b.length)];
-//let stiker = await sticker(img)  //, false, global.packname, global.author)
-       conn.sendMessage(m.chat, img, MessageType.sticker, {
+        let stiker = await sticker(img)  //, false, global.packname, global.author)
+       conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
         })
      }
