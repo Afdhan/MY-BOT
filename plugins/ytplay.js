@@ -1,10 +1,12 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, text }) => {
+ let api = (kntl.onlydev)
  if (!text) return conn.reply(m.chat, '_Masukkan Judul Video_', m)
   await m.reply(global.wait)   
   try {
-    axios.get(`https://onlydevcity.herokuapp.com/api/ytplay?query=${text}&apikey=Nezavpn`)
+    axios.get(`https://onlydevcity.herokuapp.com/api/ytplay?query=${text}&apikey=${api}`)
     .then((res) => {
       imageToBase64(res.data.result.thumb)
         .then(
