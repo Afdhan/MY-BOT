@@ -81,7 +81,6 @@ ${readMore}
 *┃╭════════════════╮*
 *┃║ ${_p}sand*  _Teks_
 *┃║ ${_p}neon*  _Teks_
-*┃║ ${_p}zuan*  _Teks_
 *┃║ ${_p}burn*  _Teks_
 *┃║ ${_p}wolf*  _Teks_
 *┃║ ${_p}candy*  _Teks_
@@ -333,9 +332,10 @@ ${readMore}
 *┃║ ${_p}fbdl*  _Url_
 *┃║ ${_p}sfiledl*  _Url_
 *┃║ ${_p}tiktokdl*  _Url_
-*┃║ ${_p}ytmp4*  _Url_
-*┃║ ${_p}ytmp3*  _Judul_
-*┃║ ${_p}ytplay*  _Judul_  (perbaikan)
+*┃║ ${_p}ytmp3*  _Url_
+*┃║ ${_p}ytmp4*  (perbaikan)
+*┃║ ${_p}playmp3*  _Judul_
+*┃║ ${_p}playmp4*  _Judul_
 *┃╰════════════════╯*
 *┃                         TOOLS*
 *┃╭════════════════╮*
