@@ -42,7 +42,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     })
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
-    let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
+    //let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
     let reg = Object.values(global.DATABASE._data.users).filter(user => user.registered == false).length
     let own = '6282252655313@s.whatsapp.net'
     let mmk = m.sender
@@ -393,11 +393,19 @@ ${readMore}
             mentionedJid: [kntl, own]
         }
     }) */
+    if (!m.isGroup) {
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
-            mentionedJid: [mmk, users]
+            mentionedJid: [mmk]
         }
     }) 
+   } else {
+  let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
+  await  conn.reply(m.chat, mn, m, { 
+        contextInfo: { 
+            mentionedJid: [mmk, users]
+         }
+     })
   conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*MENU GRETONGAN SGDC-TEAM*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
