@@ -9,8 +9,9 @@ let handler = async(m, { conn, args, text }) => {
 let api = (kntl.onlydev)
   try {
     await m.reply(global.wait)
-    
-          let res = await axios.get(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=${anu.display_url}&apikey=${api}`)
+          let api = (kntl.onlydev)
+          let url = 'https://i.ibb.co/1T1DCz7/cewek-thailand-20200325-007-non-fotografer-kly.jpg'
+          let res = await axios.get(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=${url}&apikey=${api}`)
     	    let ress = await fetch(res.data.result);
             //let buf = Buffer.from(ress, 'base64')
           let str = `*SGDC-BOT*`
