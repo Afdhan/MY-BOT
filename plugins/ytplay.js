@@ -3,7 +3,7 @@ let axios = require("axios");
 let handler = async(m, { conn, text }) => {
  if (!text) return conn.reply(m.chat, '_Masukkan Judul Video_', m)
   await m.reply(global.wait)   
-
+  try {
     axios.get(`https://onlydevcity.herokuapp.com/api/ytplay?query=${text}&apikey=Nezavpn`)
     .then((res) => {
       imageToBase64(res.data.result.thumb)
@@ -17,21 +17,18 @@ let handler = async(m, { conn, text }) => {
 *Title:* ${res.data.result.title}
 *Channel:* ${res.data.result.channel}
 *Views:* ${res.data.result.views}
-
-_Download Sendiri, Jangan Manja :v_
-
 `.trim()
     let ytp = res.data.result
      for (let i = 0; i < ytp.video.length; i++) {
      str +=  `\n\n*Quality:* ${ytp.video[i].quality}\n*Url:* ${ytp.video[i].url}`
      }
-     str += '*SGDC-BOT*'
+     str += '\n\n_Download Sendiri, Jangan Manja :v_\n\n*SGDC-BOT*'
      conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
         })
     })
-  /* } catch (e) {
+   } catch (e) {
     m.reply('```Error```')
-   }*/
+   }
 }
 
 handler.command = /^(playmp4)$/i
