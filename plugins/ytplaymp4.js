@@ -33,7 +33,7 @@ let handler = async(m, { conn, text }) => {
    }
 }
 
-handler.command = /^(playmp4)$/i
+handler.command = /^(ytplaymp4|playmp4|mp4)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
