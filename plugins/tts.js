@@ -3,6 +3,7 @@ let fs = require('fs')
 let path = require('path')
 let { spawn } = require('child_process')
 let handler = async (m, { conn, args }) => {
+ try{
   let lang = 'id'
   let text = args.slice(1).join(' ')
   if (args[0].length === 2) lang = args[0]
@@ -18,6 +19,9 @@ let handler = async (m, { conn, args }) => {
   } finally {
     conn.sendFile(m.chat, res, 'SGDC-BOT.opus', null, m, true)
   }
+ } catch (e) {
+  m.reply('```Error```')
+ }
 }
 
 handler.command = /^g?tts$/i
