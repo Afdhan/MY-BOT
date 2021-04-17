@@ -13,7 +13,7 @@ let handler = async(m, { conn, text, args, bot, isOwner, command, usedPrefix }) 
          if (!isQuotedImage) return m.reply(`_Kirim gambar dengan caption ${usedPrefix}setppbot atau tag gambar yang sudah dikirim_`)
          enmedia = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo : m
          media = await conn.downloadAndSaveMediaMessage(enmedia)
-         await conn.updateProfilePicture(bot, media)
+         await conn.updateProfilePicture(global.conn.user.jid, media)
          m.reply('_Mwhehehe_')
   } else {
         m.reply('_Reply Fotonya!_')
