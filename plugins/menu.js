@@ -54,8 +54,8 @@ _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 
 
 *Info Owner:*
-*OwnerName:* _@${own.split("@")[0]}
-*Co_OwnerName:* _@${cown.split("@")[0]}
+*OwnerName:* _@${own.split("@")[0]}_
+*Co_OwnerName:* _@${cown.split("@")[0]}_
 *╭══════════════════╮*
 
 ❍ *Total Pengguna ${bname}* ❍
@@ -390,8 +390,8 @@ ${readMore}
 *┃                      ${bname}*
 *┗━━━━━━━━━━━━━━━━━━┛*
 
-  Encoded by @${own.split("@")[0]}
-  Supported by @${cown.split("@")[0]}
+  _Encoded by @${own.split("@")[0]}_
+  _Supported by @${cown.split("@")[0]}_
 
   ${desc} *${bname}@^${vers}*
 
