@@ -410,7 +410,7 @@ ${readMore}
     let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
-            mentionedJid: mmk, own, cown, users
+            mentionedJid: [mmk, own, cown, users]
         }
     })
    }
