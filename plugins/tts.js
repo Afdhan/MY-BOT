@@ -11,14 +11,13 @@ let handler = async (m, { conn, args }) => {
   let res
   try { res = await tts(text, lang) }
   catch (e) {
-    m.reply(e + '')
+    m.reply('```Error! Masukkan Kode Bahasa, Lalu Teks!!!```')
     res = await tts(text)
   } finally {
     conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
   }
 }
-handler.help = ['tts <lang> <teks>']
-handler.tags = ['tools']
+
 handler.command = /^g?tts$/i
 module.exports = handler
 
