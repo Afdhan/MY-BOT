@@ -52,10 +52,6 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
 *━━━━━━━━━━━━━━━━━━━━*
 _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 
-
-*Info Owner:*
-*OwnerName:* _@${own.split("@")[0]}_
-*Co_OwnerName:* _@${cown.split("@")[0]}_
 *╭══════════════════╮*
 
 ❍ *Total Pengguna ${bname}* ❍
@@ -390,9 +386,6 @@ ${readMore}
 *┃                      ${bname}*
 *┗━━━━━━━━━━━━━━━━━━┛*
 
-  _Encoded by @${own.split("@")[0]}_
-  _Supported by @${cown.split("@")[0]}_
-
   ${desc} *${bname}@^${vers}*
 
 `.trim()
@@ -404,7 +397,7 @@ ${readMore}
    // if (!m.isGroup) {
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
-            mentionedJid: [mmk, own, cown]
+            mentionedJid: [mmk]
         }
     }) 
  /*  } else {
@@ -415,7 +408,7 @@ ${readMore}
          }
      })
    }*/
-    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
+    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *${pickRandom(global.tytyd)}gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
@@ -432,6 +425,16 @@ module.exports = handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
+
+global.tytyd = [
+"♤","◇","~","●","@","•","♡",",","♧",
+"○","¥","+","+","×","%","$","☆","/","^",
+"#","?","€","7","*","Q","0","Z",".","1","!","-",
+]
+
+function pickRandom(list) {
+  return list[Math.floor(list.length * Math.random())]
+}
 
 function clockString(ms) {
   let h = Math.floor(ms / 3600000)
