@@ -10,11 +10,11 @@ let handler = async(m, { conn, text, args, bot, isOwner, command, usedPrefix }) 
          if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
          if (!isOwner) return m.reply('```Anda Siapa?```')
          conn.updatePresence(m.chat, Presence.composing) 
-         if (!isQuotedImage) return m.reply(`_Kirim gambar dengan caption ${usedPrefix}setppbot atau tag gambar yang sudah dikirim_`)
+         //if (!isQuotedImage) return m.reply(`_Kirim gambar dengan caption ${usedPrefix}setppbot atau tag gambar yang sudah dikirim_`)
          enmedia = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo : m
          media = await conn.downloadAndSaveMediaMessage(enmedia)
          await conn.updateProfilePicture(global.conn.user.jid, media)
-         m.reply('_Mwhehehe_')
+         m.reply('```Success Change Profil Picture```')
   } else {
         m.reply('_Reply Fotonya!_')
         }
@@ -24,7 +24,7 @@ let handler = async(m, { conn, text, args, bot, isOwner, command, usedPrefix }) 
  }
 }
 					
-handler.command = /^(setppb)$/i
+handler.command = /^(setppb?)$/i
 handler.owner = false
 
 module.exports = handler
