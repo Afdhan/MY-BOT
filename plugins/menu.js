@@ -401,20 +401,20 @@ ${readMore}
             mentionedJid: [kntl, own]
         }
     }) */
-    if (!m.isGroup) {
+   // if (!m.isGroup) {
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
             mentionedJid: [mmk, own, cown]
         }
     }) 
-   } else {
+ /*  } else {
   let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
   await  conn.reply(m.chat, mn, m, { 
         contextInfo: { 
             mentionedJid: users, mmk, own, cown
          }
      })
-   }
+   }*/
     conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
