@@ -407,7 +407,7 @@ ${readMore}
   console.log(e)
   }
 }
-handler.command = /^(menu|help|start|helep|?)$/i
+handler.command = /^(menu|help|start|helep)$/i
 
 handler.fail = null
 
