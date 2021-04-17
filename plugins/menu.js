@@ -54,7 +54,7 @@ _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 
 *Owner Info:*
 *OwnerName:* _@${own.split("@")[0]}_
-*Co_OwnerName:* _@${own.split("@")[0]}_
+*Co_OwnerName:* _@${cown.split("@")[0]}_
 *╭══════════════════╮*
 
 ❍ *Total Pengguna ${bname}* ❍
