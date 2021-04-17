@@ -7,20 +7,20 @@ let handler = async (m, { conn, args }) => {
   let lang = 'id'
   let text = args.slice(1).join(' ')
   if (args[0].length === 2) lang = args[0]
-  if (args[0].length === 0)  throw 'Masukkan Kode Bahasa Dan Teks'
+ // if (args[0].length === 0)  throw 'Masukkan Kode Bahasa Dan Teks'
   else text = args.join(' ')
   if (!text) text = lang
   let res
   try { res = await tts(text, lang) }
   catch (e) {
-    m.reply('```Error! Masukkan Kode Bahasa, Lalu Teks!!!```')
+    m.reply(e + '')
     console.log(e)
     res = await tts(text)
   } finally {
     conn.sendFile(m.chat, res, 'SGDC-BOT.opus', null, m, true)
   }
  } catch (e) {
-  m.reply('```Error```')
+  m.reply('```Error! Masukkan Kode Bahasa, Kemudian Teks !!!```')
  }
 }
 
