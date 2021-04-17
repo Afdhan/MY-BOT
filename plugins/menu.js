@@ -9,7 +9,7 @@ let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, usedPrefix: _p }) => {
  try {
     let old = performance.now()
-    await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '**')
+    await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
     let neww = performance.now()
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let bname = package.name
@@ -45,7 +45,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     //let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
     let reg = Object.values(global.DATABASE._data.users).filter(user => user.registered == false).length
     let own = '6282252655313@s.whatsapp.net'
-    let cown = '6283129011845@s.whatsapp.net'
+    //let cown = '6283129011845@s.whatsapp.net'
     let mmk = m.sender
     //let poto = 'src/SGDC_BOT.jpg'
     let mn = `
@@ -394,21 +394,12 @@ ${readMore}
             mentionedJid: [kntl, own]
         }
     }) */
-   // if (!m.isGroup) {
     await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
             mentionedJid: [mmk]
         }
     }) 
- /*  } else {
-  let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
-  await  conn.reply(m.chat, mn, m, { 
-        contextInfo: { 
-            mentionedJid: users, mmk, own, cown
-         }
-     })
-   }*/
-    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *${pickRandom(global.tytyd)}gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
+    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
