@@ -6,6 +6,7 @@ let handler = async (m, { conn, args }) => {
   let lang = 'id'
   let text = args.slice(1).join(' ')
   if (args[0].length === 2) lang = args[0]
+  if (args[0].length === 0)  throw 'Masukkan Kode Bahasa Dan Teks'
   else text = args.join(' ')
   if (!text) text = lang
   let res
