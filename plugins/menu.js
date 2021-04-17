@@ -407,7 +407,7 @@ ${readMore}
          }
      })
    }
-    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*MENU GRETONGAN SGDC-TEAM*')
+    conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
@@ -415,7 +415,7 @@ ${readMore}
   console.log(e)
   }
 }
-handler.command = /^(menu|help|start|helep)$/i
+handler.command = /^(menu|help|start|helep|?)$/i
 
 handler.fail = null
 
