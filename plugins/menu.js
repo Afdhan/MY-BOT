@@ -50,7 +50,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     //let poto = 'src/SGDC_BOT.jpg'
     let mn = `
 *━━━━━━━━━━━━━━━━━━━━*
-_Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
+_Hai, Selamat ${cpn} Kak ${name}_
 
 *╭══════════════════╮*
 
@@ -394,11 +394,11 @@ ${readMore}
             mentionedJid: [kntl, own]
         }
     }) */
-    await conn.reply(m.chat, mn, m, { 
+    await conn.reply(m.chat, mn, m) /*{ 
         contextInfo: { 
             mentionedJid: [mmk]
         }
-    }) 
+    }) */
     conn.fakeReply(m.chat, 'Untuk Menu Gretongan, Ketik *!gretongmenu*', '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
