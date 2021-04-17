@@ -18,7 +18,7 @@ _Download Sendiri, Jangan Manja :v_
   /*if (res.data.size > '999.99 KB') {
 	  m.reply('_File Anda Terlalu Besar! Silahkan Download Sendiri Melalui Link Yang Dikirim SGDC-BOT!_')
 	  } else {*/
-   conn.sendFile(m.chat, res.data.result, res.data.title + 'Support SGDC-BOT', 'ini', m)
+   conn.sendFile(m.chat, res.data.result, 'Support SGDC-BOT' + res.data.title, 'ini', m)
 		  //}
 	})
  } catch (e) {
