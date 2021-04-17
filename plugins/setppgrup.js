@@ -26,7 +26,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
    // throw e
  }
 }
-handler.command = /^(setpp(gc|grup|group)?)$/i
+handler.command = /^(setpp(gc|grup|group))$/i
 
 handler.owner = false
 handler.mods = false
