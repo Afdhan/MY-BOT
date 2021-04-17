@@ -70,11 +70,11 @@ let handler  = async (m, { conn, usedPrefix: _p }) =>  {
 *┃╰═════════════════╯*
 *┃                         Secure SHell*
 *┃╭═════════════════╮*
-*┃║ ${_p}sshindo* _(none)_
+*┃║ ${_p}sshindo* _(false)_
 *┃║ ${_p}univ*
 *┃║ ${_p}ssh*
 *┃║ ${_p}randomssh*
-*┃║ ${_p}keytrial* _(none)_
+*┃║ ${_p}keytrial* _(false)_
 *┃║ ${_p}ipopok*
 *┃║ ${_p}ipedukasi*
 *┃╰═════════════════╯*
@@ -83,7 +83,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) =>  {
 *┃║ ${_p}v2rayimclass* 
 *┃║ ${_p}v2rayopok*
 *┃║ ${_p}v2rayaxis*
-*┃║ ${_p}v2raytsel* _(none)_
+*┃║ ${_p}v2raytsel* _(false)_
 *┃╰═════════════════╯*
 *┃                          SGDC-BOT*
 *┗━━━━━━━━━━━━━━━━━━━┛*
