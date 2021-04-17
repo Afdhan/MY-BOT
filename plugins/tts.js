@@ -14,13 +14,13 @@ let handler = async (m, { conn, args }) => {
   try { res = await tts(text, lang) }
   catch (e) {
     m.reply(e + '')
-    console.log(e)
     res = await tts(text)
   } finally {
     conn.sendFile(m.chat, res, 'SGDC-BOT.opus', null, m, true)
   }
  } catch (e) {
-  m.reply('```Error! Masukkan Kode Bahasa, Kemudian Teks !!!```')
+  m.reply('```Error!``` _Masukkan Kode Bahasa, Kemudian Teks !!!_')
+  console.log(e)
  }
 }
 
