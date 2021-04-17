@@ -24,7 +24,7 @@ let handler = async(m, { conn, text, args, bot, isOwner, command, usedPrefix }) 
  }
 }
 					
-handler.command = /^(setppbot)$/i
+handler.command = /^(setppb)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
