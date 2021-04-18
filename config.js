@@ -4,7 +4,7 @@ global.owner = [(sgdc.owner), '6283129011845']
 global.mods = ['6282252655313','6283159600193']
 global.packname = (sgdc.packname)
 global.author = (sgdc.author)
-global.wait = (sgdc.wait)
+global.wait = "```[!] Ｓｅｄａｎｇ Ｄｉｐｒｏｓｅｓ．．．```"
 global.prems = ['6282252655313']
 global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',
