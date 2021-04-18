@@ -10,7 +10,7 @@ let handler = async(m, { conn, text }) => {
     if (text.length > 15) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 15 huruf!_', m)
    await m.reply(global.wait)
    let link = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + text;
-       conn.sendFile(m.chat, link, 'SGDC-BOT.jpeg', '*SGDC-BOT*', m)
+       //conn.sendFile(m.chat, link, 'SGDC-BOT.jpeg', '*SGDC-BOT*', m)
    let img = await link.buffer()
    let stiker = await sticker(img, false, global.packname, global.author)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
@@ -18,6 +18,7 @@ let handler = async(m, { conn, text }) => {
   })
    } catch (e) {
    m.reply('```Error```')
+    console.log(e)
   }
 }
 
