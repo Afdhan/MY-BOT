@@ -10,14 +10,14 @@ if (user.prems) {*/
 handler.command = /^(hidetag)$/i
 handler.owner = false
 handler.mods = false
-handler.premium = true
+handler.premium = false
 handler.group = true
 handler.private = false
 handler.limit = false
 handler.exp = false
 
-handler.admin = false
-handler.botAdmin = false
+handler.admin = true
+handler.botAdmin = true
 
 handler.fail = null
 
