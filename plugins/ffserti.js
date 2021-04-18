@@ -12,7 +12,7 @@ let handler = async(m, { conn, text }) => {
    let link = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + text;
    conn.sendFile(m.chat, link, 'SGDC-BOT.jpeg', '*SGDC-BOT*', m)
   
-   let tytyd = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + encodeURIComponent(text));
+   let tytyd = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + encodeURIComponent(text);
    let img = await tytyd.buffer()
    let stiker = await sticker(img, false, global.packname, global.author)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
