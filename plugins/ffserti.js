@@ -5,7 +5,7 @@ let handler = async(m, { conn, text }) => {
     if (text.length > 15) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 15 huruf!_', m)
    await m.reply(global.wait)
    let link = 'https://onlydevcity.xyz/FFSerti/img.php?nama=' + text;
-   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+   conn.sendFile(m.chat, link, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
   }
