@@ -7,7 +7,7 @@ if (chat.simi) {
         let simih = res.data.result
 	if (simih.status == '200') {
 	conn.reply(m.chat, simih.jawaban, m)
-        return true
+        return false
         } /*else {
 	m.reply('Ngomong Apa?') 
 	}*/
