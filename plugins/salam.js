@@ -9,8 +9,9 @@ handler.before = m => {
   if (m.isBaileys && m.fromMe) return true
   let chat = global.DATABASE.data.chats[m.chat]
   let isSalam = salam.exec(m.text)
-  let vn ='src/SALAM.m4a'
-  if (isSalam) conn.sendFile(m.chat, vn, 'Waalaikumsalam.m4a','salam', m)
+  let user = m.sender
+  //let vn ='src/SALAM.m4a'
+  if (isSalam) conn.reply(m.chat, `_Waalaikumsalam Kak @${user.split("@")[0]} :)_`, m, { contextInfo: { mentionedJid: [user] }}))  //conn.sendFile(m.chat, vn, 'Waalaikumsalam.m4a','salam', m)
   return true
 }
 
