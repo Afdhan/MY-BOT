@@ -7,9 +7,10 @@ if (chat.simi) {
         let simih = res.data.result
 	if (simih.status == '200') {
 	conn.reply(m.chat, simih.jawaban, m)
-        } else {
+        return true
+        } /*else {
 	m.reply('Ngomong Apa?') 
-	}
+	}*/
       })
   } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
 }
