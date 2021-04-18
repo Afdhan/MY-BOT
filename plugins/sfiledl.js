@@ -4,7 +4,7 @@ let handler = async(m, { conn, text }) => {
     if (!text) return conn.reply(m.chat, 'Masukkan Link!', m)
     await m.reply(global.wait)
 	axios.get(`https://fzn-gaz.herokuapp.com/api/sfiledl?url=${text}`).then ((res) => {
-m.reply(`
+await m.reply(`
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.title}
