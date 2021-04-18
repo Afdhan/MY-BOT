@@ -18,7 +18,7 @@ _Woyy @${kn.split("@")[0]} Sama @${kw.split("@")[0]} Baru Jadian Woyy !!! xD_
      )
 }
 
-handler.command = /^(jadian|jodoh)$/i
+handler.command = /^(jadian)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
