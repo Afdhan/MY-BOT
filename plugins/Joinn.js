@@ -6,7 +6,7 @@ let handler = async (m, { conn, text }) => {
       } 
   })
 }
-handler.customPrefix = /^(@꧁࿇ ᴍ ᴀꜰᴅʜᴀɴ ࿇꧂|@꧁࿇ M AFDHAN ࿇꧂|Afdhan|afdan|afdhan|dhan)$/i
+handler.customPrefix = /^(@꧁࿇ ᴍ ᴀꜰᴅʜᴀɴ ࿇꧂|@6282252655313|Afdhan|afdan|afdhan|dhan)$/i
 handler.command = new RegExp
 
 module.exports = handler				     
