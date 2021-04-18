@@ -1,23 +1,17 @@
 let axios = require("axios");
-let handler = async(m, { conn, args, text, usedPrefix }) => {
-	let [kntl, mmk] = args.join` `
-	//if (args.length == 0) return conn.reply(m.chat, '```Hmm...```', m)
-	if (!mmk) m.reply('_Masukkan Nama_')
+let handler = async(m, { conn, text }) => {
  try {
-	await m.reply(global.wait)
-	if (!kntl || kntl.length == 0) {
-		let link = 'https://onlydevcity.xyz/PubgTourSerti/img.php?nama=' + mmk;
-	} else if (kntl == '1' || kntl == '2' || kntl == '3' || kntl == '4' || kntl == '5') {
-		let link = 'https://onlydevcity.xyz/PubgTourSerti' + kntl + '/img.php?nama=' + mmk;
-	} else {
-		m.reply('Njirr Lawack :v')
-	}
-    } catch (e) {
-		m.reply('```Error```')
-    }
+    if (!text) return conn.reply(m.chat, '_Masukan Nama!_', m)
+    if (text.length > 15) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 15 huruf!_', m)
+   await m.reply(global.wait)
+   let link = 'https://onlydevcity.xyz/PubgTourSerti/img.php?nama=' + text;
+   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+   } catch (e) {
+   m.reply('```Error```')
+  }
 }
-handler.command = /^(pubgserti)$/i
 
+handler.command = /^(pubgserti)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
