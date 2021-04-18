@@ -12,9 +12,10 @@ let api = (kntl.onlydev)
 *Nama Kamu:* ${res.data.result.namaKamu}
 *Nama Pasangan:* ${res.data.result.namaPasangan}
 
-*Sisi Positif:*
+*_Sisi Positif:_*
 _${res.data.result.positif}_
-*Sisi Negatif:*
+
+*_Sisi Negatif:_*
 _${res.data.result.negatif}_
 
 
