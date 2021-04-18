@@ -8,7 +8,7 @@ if (chat.simi) {
         //if (simih.status == '200') {
 	conn.reply(m.chat, simih.jawaban, m)
         //return false
-        //} /*else {
+        /*} else {
 	m.reply('Ngomong Apa?') 
 	}*/
       })
