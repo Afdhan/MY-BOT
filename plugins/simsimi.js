@@ -12,7 +12,7 @@ if (chat.simi) {
         /*} else {
 	m.reply('Ngomong Apa?') 
 	}*/
-      })
+     // })
   } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
 }
 
