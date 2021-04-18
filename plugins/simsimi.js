@@ -3,8 +3,9 @@ let axios = require("axios");
 let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
 if (chat.simi) {
-        axios.get(`https://videfikri.com/api/simsimi/?teks=${text}`).then ((res) => {
-        let simih = res.data.result
+        let res = await fetch(`https://videfikri.com/api/simsimi/?teks=${text}`) ///.then ((res) => {
+	let json = await res.json()
+        let simih = json.result
         //if (simih.status == '200') {
 	conn.reply(m.chat, simih.jawaban, m)
         //return false
