@@ -117,7 +117,7 @@ ${readMore}
 *┃║ ${_p}nulis2*  _Teks_
 *┃║ ${_p}nulis3*  _Teks_
 *┃╰════════════════╯*
-*┃                     SERTI MAKER* (Proses)
+*┃                     SERTI MAKER*
 *┃╭════════════════╮*
 *┃║ ${_p}pubgserti*  _Nama_
 *┃║ ${_p}pubgserti2*  _Nama_
@@ -328,6 +328,7 @@ ${readMore}
 *┃║ ${_p}tts*  _lang Text_
 *┃║ ${_p}hostsearch*  _Host_
 *┃║ ${_p}readmore*  _Text|Text_
+*┃║ ${_p}jodoh*  _Namamu|Pasangan_
 *┃║ ${_p}maknajadian*  _Tgl|Bln|Thn_
 *┃╰════════════════╯*
 *┃                    DOWNLOAD*
