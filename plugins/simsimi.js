@@ -4,7 +4,8 @@ let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
 if (chat.simi) {
         axios.get(`https://videfikri.com/api/simsimi/?teks=${text}`).then ((res) => {
-	if (res.data.result) conn.reply(m.chat, res.data.result.jawaban, m)
+        let simih = res.data.result
+	if (simih.status == '200') conn.reply(m.chat, simih.jawaban, m)
         else throw 'Ngomong Apa?'
       })
   } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
