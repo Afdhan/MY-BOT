@@ -13,13 +13,13 @@ let axios = require("axios");
 let handler = async(m, { conn, text, args, bot, command }) => {
     let api = (kntl.onlydev)
     if(!text) m.reply('_Masukkan Teks!_')
-    await m.reply(global.wait)
     const type = Object.keys(m.message)[0]
     const content = JSON.stringify(m.message)
     const isMedia = (type === 'imageMessage' || type === 'videoMessage')
     const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
     const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
  try {
+    await m.reply(global.wait)
     var imgBB = require('imgbb-uploader')
     if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
         ngntd = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
@@ -35,6 +35,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     }
     } catch (e) {
   	m.reply('```Error```')
+    console.log(e)
   }
 }
 
