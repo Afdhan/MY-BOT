@@ -13,7 +13,7 @@ const CFonts  = require('cfonts')
 CFonts.say(`${package.name}`, {
   font: 'pallet',
   align: 'center',
-  colors: ['gray','red'],
+  colors: ['white','red'],
   background: 'transparent',
   letterSpacing: 0,
   lineHeight: 1,
@@ -37,7 +37,7 @@ function start(file) {
   CFonts.say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    colors: ['blue'],
+    colors: ['gray'],
     gradient: false
   })
   let p = spawn(process.argv[0], args, {
