@@ -14,10 +14,10 @@ CFonts.say(`${package.name}`, {
   font: 'slick',
   align: 'center',
   colors: ['red','cyan'],
-  background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
-	letterSpacing: 1,           // define letter spacing
+  background: 'transparent',        // define the background color, you can also use `backgroundColor` here as key
+	letterSpacing: 0,           // define letter spacing
 	lineHeight: 0,              // define the line height
-	space: true,                // define if the output text should have empty lines on top and on the bottom
+	space: false,               // define if the output text should have empty lines on top and on the bottom
 	maxLength: '0',             // define how many character can be on one line
 	gradient: false,            // define your two gradient colors
 	independentGradient: false, // define if you want to recalculate the gradient for each new line
