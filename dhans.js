@@ -1,4 +1,5 @@
-console.log(`SGDC-BOT Connecting to WhatsApp Web server...`)
+let { chalk: color } = require('chalk')
+console.log(color('[','white'),color('!','red'),color(']','white'),color('SGDC-BOT Connecting to WhatsApp Web server...','lime'))
 require('./config.js')
 let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
@@ -48,11 +49,10 @@ let authFile = `${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
-if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: true }))
-if (opts['server']) conn.on('qr', qr => { 
-  global.qr = qr 
-  conn.logger.info(`Scan Dengan Whatsapp`)
-})
+if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
+if (opts['server']) conn.on('qr', qr => { global.qr = qr })
+  //conn.logger.info(`Scan Dengan Whatsapp`)
+//})
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
   conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
