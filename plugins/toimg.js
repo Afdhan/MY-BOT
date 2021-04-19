@@ -11,7 +11,7 @@ let handler  = async (m, { conn }) => {
     let sticker = await conn.downloadM(q)
     if (!sticker) throw sticker
     let bufs = []
-    let im = spawn('convert', ['webp:-', 'png:-'])
+    let im = spawn('convert', ['webp:-', 'jpeg:-'])
     im.on('error',e =>  conn.reply(m.chat, '*SYSTEM ERROR*', m))
     im.stdout.on('data', chunk => bufs.push(chunk))
     im.stdin.write(sticker)
