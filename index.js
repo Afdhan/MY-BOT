@@ -4,6 +4,12 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
+CFonts.say('M AFDHAN', {
+  font: 'simple3d',
+  align: 'center',
+  colors: ['red'],
+  gradient: false
+})
 CFonts.say(`${package.name}`, {
   font: 'block',
   align: 'center',
@@ -13,12 +19,6 @@ CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan rag
   font: 'console',
   align: 'center',
   colors: ['cyan'],
-  gradient: false
-})
-CFonts.say('MUHAMMAD AFDHAN|BUKAN PROGRAMING', {
-  font: 'console',
-  align: 'center',
-  colors: ['magenta'],
   gradient: false
 })
 function start(file) {
