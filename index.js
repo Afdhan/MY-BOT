@@ -14,11 +14,10 @@ CFonts.say(`${package.name}`, {
   align: 'center',
   gradient: ['red', 'blue']
 })
-CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai suatu karya|Perihal Gagal atau Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\n@dhans11__\nSenin, 19 April 2021`, {
+CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
-  colors: 'green',
-  gradient: false
+  gradient: ['green', 'green']
 })
 
 function start(file) {
