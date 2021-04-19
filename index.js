@@ -41,7 +41,7 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
 CFonts.say('MUHAMMAD AFDHAN', {
   font: 'console',
   align: 'center',
-  gradient: ['gray', 'green']
+  gradient: ['cyan', 'green']
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
