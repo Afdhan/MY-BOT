@@ -13,7 +13,7 @@ CFonts.say('=============================================', {
 CFonts.say(`${package.name}`, {
   font: 'pallet',
   align: 'center',
-  colors: ['white','red'],
+  colors: ['whiteBright','red'],
   background: 'transparent',
   letterSpacing: 0,
   lineHeight: 1,
@@ -38,10 +38,10 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
   space: false,
   gradient: true,
 })
-CFonts.say(`${package.name}@^${package.version}\nMUHAMMAD AFDHAN`, {
+CFonts.say(`${package.name}@^${package.version}|MUHAMMAD AFDHAN`, {
   font: 'console',
   align: 'center',
-  colors: ['greenBright']
+  colors: ['red']
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
