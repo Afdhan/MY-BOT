@@ -11,31 +11,40 @@ const CFonts  = require('cfonts')
   gradient: false
 })*/
 CFonts.say(`${package.name}`, {
-  font: 'simple',
+  font: 'pallet',
   align: 'center',
-  colors: ['red'],
-  background: 'transparent',        // define the background color, you can also use `backgroundColor` here as key
-	letterSpacing: 0,           // define letter spacing
-	lineHeight: 1,              // define the line height
-	space: false,               // define if the output text should have empty lines on top and on the bottom
-	maxLength: '0',             // define how many character can be on one line
-	gradient: false,            // define your two gradient colors
-	independentGradient: false, // define if you want to recalculate the gradient for each new line
-	transitionGradient: false,  // define if this is a transition between colors directly
-	env: 'node'
+  colors: ['green','red'],
+  background: 'transparent',
+  letterSpacing: 0,
+  lineHeight: 1,
+  space: false,
+  maxLength: '0', 
+  gradient: false,
+  independentGradient: false,
+  transitionGradient: false,
+  env: 'node'
 })
 CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
   colors: ['cyan'],
-  gradient: false
+  background: 'transparent',
+  letterSpacing: 0,
+  lineHeight: 1,
+  space: false,
+  maxLength: '0', 
+  gradient: ['red','green','cyan'],
+  independentGradient: true,
+  transitionGradient: true,
+  env: 'node'
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
   CFonts.say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    gradient: ['blue', 'red']
+    colors: ['blue'],
+    gradient: false
   })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
