@@ -38,7 +38,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
   }
 }
 
-handler.command = /^(smeme)$/i
+handler.command = /^(spictmeme)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
