@@ -1,9 +1,9 @@
-console.log(color('[','white'),color('!','red'),color(']','white'),color('SGDC-BOT Connecting to WhatsApp Web server...','lime'))
+console.log(`SGDC-BOT Connecting to WhatsApp Web server...`)
 require('./config.js')
 let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let syntaxerror = require('syntax-error')
-let chalk = require('chalk')
+//let chalk = require('chalk')
 let simple = require('./lib/simple')
 //  let logs = require('./lib/logs')
 let { promisify } = require('util')
@@ -16,10 +16,10 @@ let fs = require('fs')
 
 let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
-
+/*
 async function color (text, color) {
     return !color ? chalk.green(text) : chalk.keyword(color)(text)
-}
+}*/
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {}) })) : '')
 global.timestamp = {
   start: new Date
@@ -53,8 +53,6 @@ if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
-  //conn.logger.info(`Scan Dengan Whatsapp`)
-//})
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
   conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
