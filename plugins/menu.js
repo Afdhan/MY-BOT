@@ -189,6 +189,7 @@ ${readMore}
 *┃║ ${_p}cecan*
 *┃║ ${_p}cogan*
 *┃║ ${_p}meme*
+*┃║ ${_p}randmeme*
 *┃║ ${_p}darkjoke*
 *┃║ ${_p}randomexo*
 *┃║ ${_p}randombts*
