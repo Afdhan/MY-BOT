@@ -28,15 +28,9 @@ CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan rag
   font: 'console',
   align: 'center',
   colors: ['cyan'],
-  background: 'transparent',
   letterSpacing: 0,
-  lineHeight: 1,
   space: false,
-  maxLength: '0', 
   gradient: true,
-  independentGradient: true,
-  transitionGradient: true,
-  env: 'node'
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
