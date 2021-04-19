@@ -38,10 +38,10 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
   space: false,
   gradient: true,
 })
-CFonts.say('MUHAMMAD AFDHAN', {
+CFonts.say(`${package.name}@^${package.version}\nMUHAMMAD AFDHAN`, {
   font: 'console',
   align: 'center',
-  gradient: ['cyan', 'green']
+  colors: ['greenBright']
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
