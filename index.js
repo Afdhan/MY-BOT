@@ -15,10 +15,10 @@ CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan rag
   colors: ['cyan'],
   gradient: false
 })
-CFonts.say('M AFDHAN', {
+CFonts.say('MUHAMMAD AFDHAN|BUKAN PROGRAMING', {
   font: 'console',
   align: 'center',
-  colors: ['blue'],
+  colors: ['magenta'],
   gradient: false
 })
 function start(file) {
