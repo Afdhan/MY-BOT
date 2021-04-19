@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix }) => {
       } 
   })
 }
-handler.customPrefix = /(bot|sgdc-bot|bott)/i
+handler.customPrefix = /(bot|sgdc-bot|bott|@6283159600193)/i
 handler.command = new RegExp
 
 module.exports = handler
