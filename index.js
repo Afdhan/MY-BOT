@@ -33,7 +33,7 @@ CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan rag
   lineHeight: 1,
   space: false,
   maxLength: '0', 
-  gradient: ['red','green','cyan'],
+  gradient: true,
   independentGradient: true,
   transitionGradient: true,
   env: 'node'
