@@ -7,17 +7,17 @@ const CFonts  = require('cfonts')
 CFonts.say(`${package.name}`, {
   font: 'slick',
   align: 'center',
-  gradient: ['red', 'redBright']
+  gradient: ['red', 'cyan']
 })
 CFonts.say('MUHAMMAD AFDHAN', {
   font: 'simple',
   align: 'center',
-  gradient: ['red', 'blueBright']
+  gradient: ['red', 'blue']
 })
 CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan\nJadi, jangan ragu untuk memulai suatu karya\nPerihal Gagal atau Berhasil, itu tergantung dari tingkat kegigihanmu.\n\n@dhans11__\nSenin, 19 April 2021`, {
   font: 'console',
   align: 'center',
-  gradient: ['blue', 'cyanBright']
+  gradient: ['blue', 'green']
 })
 
 function start(file) {
