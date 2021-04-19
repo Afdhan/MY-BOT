@@ -4,8 +4,8 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-CFonts.say('M AFDHAN', {
-  font: 'simple3d',
+CFonts.say('MUHAMMAD AFDHAN', {
+  font: 'console',
   align: 'center',
   colors: ['red'],
   gradient: false
