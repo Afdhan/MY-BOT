@@ -13,7 +13,7 @@ const CFonts  = require('cfonts')
 CFonts.say(`${package.name}`, {
   font: 'pallet',
   align: 'center',
-  colors: ['green','red'],
+  colors: ['gray','red'],
   background: 'transparent',
   letterSpacing: 0,
   lineHeight: 1,
@@ -24,7 +24,7 @@ CFonts.say(`${package.name}`, {
   transitionGradient: false,
   env: 'node'
 })
-CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
+CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan.|Maka jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
   colors: ['cyan'],
