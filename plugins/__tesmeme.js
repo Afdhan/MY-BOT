@@ -26,7 +26,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
         media = await conn.downloadAndSaveMediaMessage(ngntd)
         anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
 
-            let res = await fetch(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=${anu.display_url}&apikey=${api}`)
+            let res = await axios.get(`https://onlydevcity.herokuapp.com/api/mememaker3?teks=${text}&img_url=${anu.display_url}&apikey=${api}`)
     	    let ress = await imageToBase64(res.data.result)
             let buf = Buffer.from(ress, 'base64')
             let str = `*SGDC-BOT*`
