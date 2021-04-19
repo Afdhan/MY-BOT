@@ -17,7 +17,8 @@ CFonts.say(`${package.name}`, {
 CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
-  gradient: ['green', 'green']
+  colors: ['green'],
+  gradient: false
 })
 
 function start(file) {
