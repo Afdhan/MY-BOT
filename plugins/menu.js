@@ -344,6 +344,7 @@ ${readMore}
 *┃║ ${_p}ytmp4*  (perbaikan)
 *┃║ ${_p}playmp3*  _Judul_
 *┃║ ${_p}playmp4*  _Judul_
+*┃║ ${_p}playstore*  _Query_
 *┃╰════════════════╯*
 *┃                         TOOLS*
 *┃╭════════════════╮*
