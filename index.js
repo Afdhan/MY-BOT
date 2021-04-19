@@ -4,15 +4,20 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-CFonts.say(`${package.name}@^${package.version}\n${package.description}`, {
-  font: 'console',
+CFonts.say(`${package.name}`, {
+  font: 'slick',
   align: 'center',
-  gradient: ['red', 'green']
+  gradient: ['red', 'redBright']
 })
 CFonts.say('MUHAMMAD AFDHAN', {
+  font: 'simple',
+  align: 'center',
+  gradient: ['red', 'blueBright']
+})
+CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan\nJadi, jangan ragu untuk memulai suatu karya\nPerihal Gagal atau Berhasil, itu tergantung dari tingkat kegigihanmu.\n\n@dhans11__\nSenin, 19 April 2021`, {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'magenta']
+  gradient: ['blue', 'cyanBright']
 })
 
 function start(file) {
@@ -20,7 +25,7 @@ function start(file) {
   CFonts.say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    gradient: ['red', 'magenta']
+    gradient: ['red', 'cyanBright']
   })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
