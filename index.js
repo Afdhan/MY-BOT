@@ -4,12 +4,12 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-/*CFonts.say('', {
+CFonts.say('=============================================', {
   font: 'console',
   align: 'center',
   colors: ['red'],
   gradient: false
-})*/
+})
 CFonts.say(`${package.name}`, {
   font: 'pallet',
   align: 'center',
@@ -24,7 +24,7 @@ CFonts.say(`${package.name}`, {
   transitionGradient: false,
   env: 'node'
 })
-CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan.|Maka jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
+CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
   colors: ['cyan'],
