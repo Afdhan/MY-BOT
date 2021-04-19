@@ -1,4 +1,4 @@
-console.log('SGDC-BOT ~> Connecting to server...')
+console.log('Starting SGDC-BOT...')
 let { spawn } = require('child_process')
 let path = require('path')
 let fs = require('fs')
@@ -37,6 +37,11 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
   letterSpacing: 0,
   space: false,
   gradient: true,
+})
+CFonts.say('MUHAMMAD AFDHAN', {
+  font: 'console',
+  align: 'center',
+  gradient: ['gray', 'green']
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
