@@ -11,7 +11,7 @@ const CFonts  = require('cfonts')
   gradient: false
 })*/
 CFonts.say(`${package.name}`, {
-  font: 'block',
+  font: 'chrome',
   align: 'center',
   colors: ['red'],
   background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
