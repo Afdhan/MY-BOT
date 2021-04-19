@@ -13,7 +13,16 @@ const CFonts  = require('cfonts')
 CFonts.say(`${package.name}`, {
   font: 'block',
   align: 'center',
-  gradient: ['red', 'blue']
+  colors: ['red'],
+  background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
+	letterSpacing: 0,           // define letter spacing
+	lineHeight: 1,              // define the line height
+	space: false,                // define if the output text should have empty lines on top and on the bottom
+	maxLength: '8',             // define how many character can be on one line
+	gradient: false,            // define your two gradient colors
+	independentGradient: false, // define if you want to recalculate the gradient for each new line
+	transitionGradient: false,  // define if this is a transition between colors directly
+	env: 'node'
 })
 CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
