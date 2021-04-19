@@ -11,9 +11,9 @@ const CFonts  = require('cfonts')
   gradient: false
 })*/
 CFonts.say(`${package.name}`, {
-  font: 'chrome',
+  font: 'slick',
   align: 'center',
-  colors: ['red'],
+  colors: ['red','cyan'],
   background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
 	letterSpacing: 1,           // define letter spacing
 	lineHeight: 0,              // define the line height
