@@ -208,12 +208,13 @@ ${readMore}
 *┃║ ${_p}pinterest*  _Teks_
 *┃║ ${_p}randompict*  _Teks_
 *┃╰════════════════╯*
-*┃                           STALK*
+*┃                          SOSMED*
 *┃╭════════════════╮*
 *┃║ ${_p}igstalk*  _Username_
 *┃║ ${_p}githubstalk*  _Username_
 *┃║ ${_p}twitterstalk*  _Username_
 *┃║ ${_p}tiktokstalk*  _Username_ (perbaikan)
+*┃║ ${_p}igpost* _Url_
 *┃╰════════════════╯*
 *┃                           SPAM*
 *┃╭════════════════╮*
