@@ -11,11 +11,11 @@ const CFonts  = require('cfonts')
   gradient: false
 })*/
 CFonts.say(`${package.name}`, {
-  font: 'pallet',
+  font: 'simple',
   align: 'center',
-  colors: ['red','green'],
+  colors: ['red'],
   background: 'transparent',        // define the background color, you can also use `backgroundColor` here as key
-	letterSpacing: 1,           // define letter spacing
+	letterSpacing: 0,           // define letter spacing
 	lineHeight: 1,              // define the line height
 	space: false,               // define if the output text should have empty lines on top and on the bottom
 	maxLength: '0',             // define how many character can be on one line
