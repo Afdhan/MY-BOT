@@ -4,7 +4,7 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-/*CFonts.say('Ada Satu Yang Harus Kamu Perhatikan', {
+/*CFonts.say('', {
   font: 'console',
   align: 'center',
   colors: ['red'],
@@ -23,11 +23,11 @@ CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan rag
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
-  /*CFonts.say([process.argv[0], ...args].join(' '), {
+  CFonts.say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
     gradient: ['blue', 'red']
-  })*/
+  })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   })
