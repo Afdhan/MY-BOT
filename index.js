@@ -5,12 +5,12 @@ let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
 CFonts.say(`${package.name}`, {
-  font: 'block',
+  font: 'pallet',
   align: 'center',
   gradient: ['red', 'cyan']
 })
 CFonts.say('M AFDHAN', {
-  font: 'slick',
+  font: 'blocl',
   align: 'center',
   gradient: ['red', 'blue']
 })
