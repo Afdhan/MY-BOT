@@ -24,6 +24,12 @@ CFonts.say(`${package.name}`, {
   transitionGradient: false,
   env: 'node'
 })
+CFonts.say('=============================================', {
+  font: 'console',
+  align: 'center',
+  colors: ['red'],
+  gradient: false
+})
 CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu untuk memulai sebuah karya|Perihal Gagal ataupun Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\nBumi, 19 April 2021`, {
   font: 'console',
   align: 'center',
