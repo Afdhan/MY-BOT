@@ -10,11 +10,11 @@ CFonts.say(`${package.name}`, {
   gradient: ['red', 'cyan']
 })
 CFonts.say('M AFDHAN', {
-  font: 'blocl',
+  font: 'block',
   align: 'center',
   gradient: ['red', 'blue']
 })
-CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan. Jadi, jangan ragu untuk memulai suatu karya,, Perihal Gagal atau Berhasil, itu tergantung dari tingkat kegigihanmu.\n\n@dhans11__\nSenin, 19 April 2021`, {
+CFonts.say(`Karena suatu Kejadian berawal dari sebuah Tindakan.|Jadi, jangan ragu untuk memulai suatu karya|Perihal Gagal atau Berhasil,|itu tergantung dari tingkat kegigihanmu.\n\n@dhans11__\nSenin, 19 April 2021`, {
   font: 'console',
   align: 'center',
   gradient: ['blue', 'green']
