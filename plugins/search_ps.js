@@ -8,8 +8,8 @@ let handler = async(m, { conn, text }) => {
   	axios.get(`https://onlydevcity.herokuapp.com/api/googleplay?q=${text}&apikey=${api}`).then ((res) => {
   	let tytyd = res.data.result.data
         let ppk = `*「  PLAYSTORE SEARCH  」*\n\n`
-        for (let i = 0; i < tytyd.result.length; i++) {
-      	ppk += `─────────────────\n• *Title:* ${tytyd.result[i].title}\n• *AppId:* ${tytyd.result[i].appId}\n• *Developer:* ${tytyd.result[i].developer}\n• *Link:* ${tytyd.result[i].url}\n`
+        for (let i = 0; i < res.data.result.data.result.length; i++) {
+      	ppk += `─────────────────\n• *Title:* ${res.data.result.data.result[i].title}\n• *AppId:* ${res.data.result.data.result[i].appId}\n• *Developer:* ${res.data.result.data.result[i].developer}\n• *Link:* ${res.data.result.data.result[i].url}\n`
                 }
         ppk += '\n\n*SGDC-BOT*'
                  conn.reply(m.chat, sfile, m)
