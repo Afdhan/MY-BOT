@@ -11,7 +11,7 @@ const CFonts  = require('cfonts')
   gradient: false
 })*/
 CFonts.say(`${package.name}`, {
-  font: 'slick',
+  font: 'pallet',
   align: 'center',
   colors: ['red','cyan'],
   background: 'transparent',        // define the background color, you can also use `backgroundColor` here as key
