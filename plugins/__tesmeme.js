@@ -8,8 +8,10 @@ let fetch = require('node-fetch');
 let path = require('path');
 let util = require('util');
 let fs = require('fs');
+let kntl = require("../src/kntl.json")
 let axios = require("axios");
 let handler = async(m, { conn, text, args, bot, command }) => {
+    let api = (kntl.onlydev)
     if(!text) m.reply('_Masukkan Teks!_')
     await m.reply(global.wait)
     const type = Object.keys(m.message)[0]
@@ -30,7 +32,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
             let str = `*SGDC-BOT*`
           conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
        
-    })
+    }
     } catch (e) {
   	m.reply('```Error```')
   }
