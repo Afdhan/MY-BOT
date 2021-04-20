@@ -3,9 +3,9 @@ pkg install ffmpeg -y
 pkg install imagemagick -y
 npm install
 npm audit fix
-
+echo ""
 echo "AMPUN BANG, JANGAN BULLY GUA BANG :'("
-
+echo ""
 clear
 
 echo ""
@@ -27,4 +27,4 @@ echo ""
 echo ""
 echo ""
 
-npm start
+node index.js
