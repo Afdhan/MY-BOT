@@ -38,7 +38,7 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
   space: false,
   gradient: true,
 })
-CFonts.say(`${package.name}@^${package.version}|MUHAMMAD AFDHAN`, {
+CFonts.say(`${package.name}@^${package.version}\n---------------------\nMUHAMMAD AFDHAN`, {
   font: 'console',
   align: 'center',
   colors: ['red']
