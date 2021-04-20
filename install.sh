@@ -1,12 +1,30 @@
 pkg install nodejs -y
 pkg install ffmpeg -y
-pkg install libwebp -y
 pkg install imagemagick -y
 npm install
 npm audit fix
 
+echo "AMPUN BANG, JANGAN BULLY GUA BANG :'("
 
-echo "Hai Kak, Selamat Datang Di Script SGDC-BOT"
-echo "Powered by MUHAMMAD AFDHAN || @dhans11__"
+clear
 
-echo "JANGAN BULLY GUA BANG, GUA JUGA MASIH BELAJAR :')"
+echo ""
+echo ""
+echo ""
+echo ""
+echo "=================================="
+echo "=======! MUHAMMAD  AFDHAN !======="
+echo "=================================="
+echo ""
+echo ""
+echo ""
+echo ""
+echo "=================================="
+echo "===========! SGDC-BOT !==========="
+echo "=================================="
+echo ""
+echo ""
+echo ""
+echo ""
+
+npm start
