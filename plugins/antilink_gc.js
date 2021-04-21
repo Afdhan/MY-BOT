@@ -27,7 +27,7 @@ Maaf Kamu akan dikick oleh *SGDC-BOT*
 
 handler.customPrefix = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 handler.command = new RegExp
-//handler.group = true
+handler.group = false
 handler.fail = null
 
 module.exports = handler
