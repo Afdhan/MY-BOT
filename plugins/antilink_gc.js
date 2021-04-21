@@ -1,7 +1,7 @@
 let handler = async function(m, { conn , args, isAdmin, isBotAdmin, usedPrefix }) {
   let ajg = m.sender
   let chat = global.DATABASE.data.chats[m.chat]
-// if(!m.isGroup) return false
+ if(!m.isGroup) return
  if (chat.antiLink && m.isGroup) {
  //if (m.isBaileys && m.fromMe) throw false
  if (isAdmin) return m.reply('_Kali ini anda aman! Karena anda adalah Admin !!!_')
@@ -25,7 +25,7 @@ Maaf Kamu akan dikick oleh *SGDC-BOT*
 
 handler.customPrefix = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 handler.command = new RegExp
-handler.group = true
+//handler.group = true
 handler.fail = null
 
 module.exports = handler
