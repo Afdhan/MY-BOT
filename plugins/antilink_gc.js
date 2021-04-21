@@ -1,7 +1,7 @@
 let handler = async function(m, { conn , args, isAdmin, isBotAdmin, usedPrefix }) {
   let ajg = m.sender
   let chat = global.DATABASE.data.chats[m.chat]
- if(!m.isGroup) {
+ if(!m.isGroup && !chat.antiLink || chat.antiLink) {
    m.reply('_Mengidentifikasi Perintah..._')
  } else if (chat.antiLink && m.isGroup) {
  //if (m.isBaileys && m.fromMe) throw false
