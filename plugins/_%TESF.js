@@ -3,7 +3,7 @@ let handler = async(m, { conn, command, text }) => {
       if(command == 'search' || command == 'srch') {
        let resp = await conn.searchMessages(`${text}`, m.chat, 25, 1)
        await conn.reply(m.chat, `Hasil Pencarian Pesan ${text},\nAda *${resp.messages.length}* Pesan Ditemukan`, m)
-       let tt = Object.keys(resp.messages.length).map(v => '- ' + v).join('\n')
+       let tt = Object.value(resp.messages.length).map(v => '- ' + v).join('\n')
        m.reply(tt)
          //conn.copyNForward(m.chat, m.message)
      } else if(command == 'load' || command == 'loadmsg') {
