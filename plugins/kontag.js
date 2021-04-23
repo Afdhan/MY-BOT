@@ -4,8 +4,8 @@ let handler = async (m, { conn, args }) => {
 		  let user = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
 		  let name = conn.getName(who)
 		 conn.sendContact(m.chat, who.split("@s.whatsapp.net")[0], `${name}, m,{ contextInfo: { mentionedJid: user } })
-		}catch(e){
-    m.reply('```Error```')
+		} catch(e) {
+    m.reply('Error')
    }
  }
  handler.command = /^(k|c)ontag$/i
