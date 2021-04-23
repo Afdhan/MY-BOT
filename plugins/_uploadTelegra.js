@@ -8,9 +8,9 @@ let handler = async (m) => {
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  m.reply(`${link}
-${media.length} Byte(s)
-${isTele ? '(No Expiry Date)' : '(1 Time Use + Expired in 1 Week)'}`)
+  m.reply(`Url: ${link}
+Ukuran File: ${media.length} Bytes
+Ekspires: ${isTele ? 'No Expiry Date' : '1 Time Use + Expired in 1 Week)'}`)
 }
 
 handler.command = /^(up(load)?|tourl)$/i
