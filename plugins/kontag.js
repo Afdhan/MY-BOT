@@ -10,5 +10,5 @@ let handler = async (m, { conn, args }) => {
    }
  }
  handler.command = /^(k|c)ontag$/i
- 
+ handler.group = true
  module.exports = handler
