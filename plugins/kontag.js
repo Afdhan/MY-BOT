@@ -6,7 +6,7 @@ let handler = async (m, { conn, args }) => {
 	 conn.sendContact(m.chat, who.split("@s.whatsapp.net")[0], `${name}`, m, { contextInfo: { mentionedJid: user } })
 	} catch(e) {
       m.reply('```Error```')
-     throw (e)
+     console.log(e)
    }
  }
  handler.command = /^(k|c)ontag$/i
