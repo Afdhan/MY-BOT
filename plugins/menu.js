@@ -35,6 +35,11 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
       month: 'long',
       year: 'numeric'
     })
+    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(d)
     let time = d.toLocaleTimeString(locale, {
       hour: 'numeric',
       minute: 'numeric',
@@ -77,6 +82,7 @@ ${readMore}
 *┃╭════════════════╮*
 *┃║ Name :          ${name}*
 *┃║ Date :             ${week}, ${date}*
+*┃║ Islamic :        ${dateIslamic}*
 *┃║ Time :            ${time}*
 *┃║ Uptime :         ${uptime}*
 *┃║ Version :        ${vers}*
