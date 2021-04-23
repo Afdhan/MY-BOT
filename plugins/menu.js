@@ -301,7 +301,6 @@ ${readMore}
 *┃║ ${_p}nickepep*
 *┃║ ${_p}grouplist*
 *┃║ ${_p}linkgroup*
-*┃║ ${_p}proxyscrapper*
 *┃║ ${_p}tebakgambar*
 *┃║ ${_p}mark*  _Teks_
 *┃║ ${_p}google*  _Teks_
@@ -334,7 +333,6 @@ ${readMore}
 *┃║ ${_p}kusonime*  _Teks_
 *┃║ ${_p}teksbalik*  _Teks_
 *┃║ ${_p}tts*  _lang Text_
-*┃║ ${_p}hostsearch*  _Host_
 *┃║ ${_p}readmore*  _Text|Text_
 *┃║ ${_p}jodoh*  _Namamu|Pasangan_
 *┃║ ${_p}maknajadian*  _Tgl|Bln|Thn_
@@ -354,6 +352,9 @@ ${readMore}
 *┃╰════════════════╯*
 *┃                         TOOLS*
 *┃╭════════════════╮*
+*┃║ ${_p}proxyscrapper*
+*┃║ ${_p}upload  _Reply_
+*┃║ ${_p}inspect  _Url_
 *┃║ ${_p}join*  _Url_
 *┃║ ${_p}fetch*  _Url_
 *┃║ ${_p}ssweb*  _Url_
@@ -366,6 +367,7 @@ ${readMore}
 *┃║ ${_p}decode64*  _Teks_
 *┃║ ${_p}whois*  _IP Adress_
 *┃║ ${_p}calc*  _Angka_
+┃║ ${_p}hostsearch*  _Host_
 *┃║ ${_p}infonpm*  _Nama NPM_
 *┃║ ${_p}fullhd*  _Image/Reply_
 *┃╰════════════════╯*
@@ -393,6 +395,9 @@ ${readMore}
 *┃║ ${_p}addprem*  _@user_
 *┃║ ${_p}delprem*  _@user_
 *┃║ ${_p}optionlist*
+*┃║ ${_p}listmsg
+*┃║ ${_p}add* _Msg_
+*┃║ ${_p}add* _Msg_
 *┃║ ${_p}on*  _Option_
 *┃║ ${_p}off*  _Option_
 *┃╰════════════════╯*
