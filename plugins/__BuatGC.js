@@ -4,10 +4,10 @@ let handler = async(m, { conn, text }) => {
     let nmr = m.sender
     let mor = nmr.split("@s.whatsapp.net")[0]
     let ttk = 'mor@s.whatsapp.net'
-    let group = await conn.groupCreate(text, [ttk])
-    console.log ('Membuat Grup' + text)
+    let group = await conn.groupCreate(text, [global.mods])
+    console.log ('Membuat Grup: ' + group.gid)
     conn.sendMessage(group.gid, "Success to group create!", MessageType.extendedText)
-     m.reply('_Berhasil Membuat Grup_ *' + group.gid + '*')
+     m.reply('_Berhasil Membuat Grup_ *' + text + '*')
        } catch (e) {
     m.reply('```Error```')
     console.log (e)
