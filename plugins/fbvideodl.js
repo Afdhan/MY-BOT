@@ -21,10 +21,12 @@ ${res.data.kualitasSD}
 
 
 _Download Sendiri, Jangan Manja :v_
+_KALAU GAK ERROR, VIDEO LANGSUNG DIKIRIM!_
 
 *SGDC-BOT*
 `.trim()
-     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', str, m)
+       conn.reply(m.chat, str, m)
+       conn.sendFile(m.chat, res.data.kualitasSD, 'SGDC_BOT.mp4', '*SGDC-BOT*', m)
         })
     })
  } catch (e) {
