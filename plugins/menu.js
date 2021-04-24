@@ -395,7 +395,7 @@ ${readMore}
 *┃║ ${_p}addprem*  _@user_
 *┃║ ${_p}delprem*  _@user_
 *┃║ ${_p}optionlist*
-*┃║ ${_p}listmsg
+*┃║ ${_p}listmsg*
 *┃║ ${_p}add* _Msg_
 *┃║ ${_p}add* _Msg_
 *┃║ ${_p}on*  _Option_
