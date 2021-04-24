@@ -2,22 +2,24 @@ let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 
 let handler = async (m, { conn, text }) => {
   let [_, code] = text.match(linkRegex) || []
-  if (!code) throw 'Link invalid'
+  if (!code) throw '_Masukkan Link Yang Benar!_'
   let res = await conn.query({
     json: ["query", "invite", code],
     expect200: true
   })
   let caption = `
-[ • GROUP LINK INSPECTOR • ]
+*[ • GROUP LINK INSPECTOR • ]*
 
-Judul: ${res.subject}
-Dibuat Pada: ${formatDate(res.creation * 1000)}
-Judul Diubah Oleh @${res.subjectOwner.split`@`[0]} pada ${formatDate(res.subjectTime * 1000)}
-Deskripsi Dibuat Oleh: @${res.descOwner.split`@`[0]} pada ${formatDate(res.descTime * 1000)}
-Deskripsi:
+*> Nama Grup:* ${res.subject}
+*> ID:* ${res.id}
+*> Dibuat Pada:* ${formatDate(res.creation * 1000)}
+*> Nama Diubah Oleh:* @${res.subjectOwner.split`@`[0]} *Pada Tanggal* ${formatDate(res.subjectTime * 1000)}
+*> Deskripsi Dibuat Oleh:* @${res.descOwner.split`@`[0]} *pada Tanggal* ${formatDate(res.descTime * 1000)}
+*> Deskripsi:*
 ${res.desc}
 
-Res: ${res.id}
+
+*SGDC-BOT*
 `.trim()
   m.reply(caption, false, {
     contextInfo: {
