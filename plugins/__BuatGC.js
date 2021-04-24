@@ -1,6 +1,7 @@
 let MessageType = require('@adiwajshing/baileys');
 let handler = async(m, { conn, text }) => {
    await m.reply(global.wait)
+   if (!text) return m.reply('_Masukkan Nama Grup!_')
    try{
     let group = await conn.groupCreate(text, [m.sender || global.mods])
     console.log ('Membuat Grup: ' + group.gid + 'Nama Grup: ' + text)
