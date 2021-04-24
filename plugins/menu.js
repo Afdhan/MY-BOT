@@ -384,6 +384,7 @@ ${readMore}
 *┃║ ${_p}bc*  _Text_
 *┃║ ${_p}bcgc*  _Text_
 *┃║ ${_p}bcbot* _Text_
+*┃║ ${_p}buatgc*  _Text_
 *┃║ ${_p}setbye*  _Text_
 *┃║ ${_p}setwelcome*  _Text_
 *┃║ ${_p}opromote*  _@user_
