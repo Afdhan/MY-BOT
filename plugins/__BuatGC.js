@@ -1,4 +1,4 @@
-let MessageType = require('@adiwajshing/Baileys');
+let MessageType = require('@adiwajshing/baileys');
 let handler = async(m, { conn, text }) => {
    try{
     let group = await conn.groupCreate(text, [m.sender || global.mods])
