@@ -82,7 +82,7 @@ ${readMore}
 *┃╭════════════════╮*
 *┃║ Name :          ${name}*
 *┃║ Date :             ${week}, ${date}*
-*┃║ Islamic :        ${dateIslamic}*
+*┃║ Islamic :        ${dateIslamic} H*
 *┃║ Time :            ${time}*
 *┃║ Uptime :         ${uptime}*
 *┃║ Version :        ${vers}*
@@ -353,8 +353,8 @@ ${readMore}
 *┃                         TOOLS*
 *┃╭════════════════╮*
 *┃║ ${_p}proxyscrapper*
-*┃║ ${_p}upload  _Reply_
-*┃║ ${_p}inspect  _Url_
+*┃║ ${_p}upload*  _Reply_
+*┃║ ${_p}inspect*  _Url_
 *┃║ ${_p}join*  _Url_
 *┃║ ${_p}fetch*  _Url_
 *┃║ ${_p}ssweb*  _Url_
@@ -367,7 +367,7 @@ ${readMore}
 *┃║ ${_p}decode64*  _Teks_
 *┃║ ${_p}whois*  _IP Adress_
 *┃║ ${_p}calc*  _Angka_
-┃║ ${_p}hostsearch*  _Host_
+*┃║ ${_p}hostsearch*  _Host_
 *┃║ ${_p}infonpm*  _Nama NPM_
 *┃║ ${_p}fullhd*  _Image/Reply_
 *┃╰════════════════╯*
