@@ -18,6 +18,7 @@ let handler = async (m) => {
   await conn.sendFile(m.chat, await res.buffer(), 'hd.jpg', 'Nih HD ga?\n\n*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
+    console.log(e)
   }
 }
 
