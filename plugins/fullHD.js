@@ -3,6 +3,7 @@ const FormData = require('form-data')
 
 let handler = async (m) => {
  try {
+  await m.reply(global.wait)
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Tidak ada foto'
