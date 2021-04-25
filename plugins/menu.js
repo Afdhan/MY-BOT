@@ -17,10 +17,10 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let dsci = package.description
     let kntl = require("../src/kntl.json");
     let apikey = (kntl.xinzbot)
-    let ree = await axios.get(`https://xinzbot-api.herokuapp.com/api/ucapan?apikey=${apikey}&timeZone=Asia/Jakarta`)
-    let cpn = ree.data.result
-    let res = await axios.get(`https://xinzbot-api.herokuapp.com/api/hitungmundur?apikey=${apikey}&tanggal=13&bulan=5`)
-    let rmd = res.data.result
+    //let ree = await axios.get(`https://xinzbot-api.herokuapp.com/api/ucapan?apikey=${apikey}&timeZone=Asia/Jakarta`)
+    //let cpn = ree.data.result
+    //let res = await axios.get(`https://xinzbot-api.herokuapp.com/api/hitungmundur?apikey=${apikey}&tanggal=13&bulan=5`)
+    //let rmd = res.data.result
     let gc = 'https://tinyurl.com/ygu7vxny'
     let name = conn.getName(m.sender)
     let desc = 'Powered by'
@@ -55,7 +55,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     //let poto = 'src/SGDC_BOT.jpg'
     let mn = `
 *━━━━━━━━━━━━━━━━━━━━*
-_Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
+_Hai Kak @${mmk.split("@")[0]}_
 
 *Owner Info:*
 *OwnerName:* _@${own.split("@")[0]}_
@@ -66,7 +66,7 @@ _Hai, Selamat ${cpn} Kak @${mmk.split("@")[0]}_
 ❏ ~> ${reg} User
 
 ❍ *Hitung Mundur Menuju Idul Fitri 1442 H* ❍
-❏ ~> ${rmd}
+❏ ~> Error
 
 ❍ *Group Chat ${bname}* ❍
 ❏ ~> ${gc}
