@@ -406,7 +406,6 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
      await conn.reply(m.chat, mn, { key: { 
       remoteJid: 'status@broadcast', 
       participant: '0@s.whatsapp.net', 
-      mentionedJid: own,
       fromMe: false 
      }, 
       message: { 
