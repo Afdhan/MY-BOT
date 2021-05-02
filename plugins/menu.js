@@ -52,7 +52,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let own = '6282252655313@s.whatsapp.net'
     let cown = '6283129011845@s.whatsapp.net'
     let mmk = m.sender
-    //let poto = 'src/SGDC_BOT.jpg'
+    let poto = 'src/SGDC_BOT.jpg'
     let mn = `
 *━━━━━━━━━━━━━━━━━━━━*
 _Hai Kak @${mmk.split("@")[0]}_
@@ -412,8 +412,8 @@ ${readMore}
 
 `.trim()
     // let wew = fs.readFileSync('./undefined.jpeg')
-   //  conn.fakeReply(m.chat, wew, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "*SUPPORT ME WITH DONATE*", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('undefined.jpeg')} } }, mn })
-  /*  await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, m, false, { 
+     conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": `Hai Wibuu`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} } })
+    /*  await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, m, false, { 
         contextInfo: { 
             mentionedJid: [kntl, own]
         }
