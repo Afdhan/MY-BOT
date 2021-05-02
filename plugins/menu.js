@@ -415,7 +415,7 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
         "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
        }},
       contextInfo: { 
-       mentionedJid: [own] 
+       mentionedJid: own
       }})
   
   
