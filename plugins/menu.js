@@ -417,7 +417,7 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
        }},
       contextInfo: { 
        "mentionedJid": own
-      })
+      }})
   
   
   
