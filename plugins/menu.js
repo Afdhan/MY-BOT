@@ -466,7 +466,7 @@ function clockString(ms) {
   let h = Math.floor(ms / 3600000)
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
-  console.log(chalk.bold.magenta('SGDC-BOT Berjalan Selama ' + '\n\n~ MiliSecond: ' + ms,'\n~ Hours: ' + h, '\n~ Minutes: ' + m, '\n~ Second: ' + s, '\n\n\nPowered by M AFDHAN'))
+  console.log(chalk.bold.cyan('SGDC-BOT Berjalan Selama ' + '\n\n~ MiliSecond: ' + ms,'\n~ Hours: ' + h,'\n~ Minutes: ' + m,'\n~ Second: ' + s,'\n\n\nPowered by M AFDHAN'))
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
 
