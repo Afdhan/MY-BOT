@@ -54,12 +54,6 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let mmk = m.sender
     let poto = 'src/SGDC_BOT.jpg'
     let mn = `
-*━━━━━━━━━━━━━━━━━━━━*
-_Hai Kak @${mmk.split("@")[0]}_
-
-*Owner Info:*
-*OwnerName:* _@${own.split("@")[0]}_
-*Co_OwnerName:* _@${cown.split("@")[0]}_
 *╭══════════════════╮*
 
 ❍ *Total Pengguna ${bname}* ❍
@@ -75,7 +69,6 @@ _Hai Kak @${mmk.split("@")[0]}_
 ❏ ~> ${ping}
 
 *╰══════════════════╯*
-*━━━━━━━━━━━━━━━━━━━━*
 ${readMore}
 *┏━━━━━━━━━━━━━━━━━━┓*
 *┃                         ${bname}*
@@ -405,9 +398,6 @@ ${readMore}
 *┃                      ${bname}*
 *┗━━━━━━━━━━━━━━━━━━┛*
 
-  _Encoded by @${own.split("@")[0]}_
-  _Supported by @${cown.split("@")[0]}_
-
   ${desc} *${bname}@^${vers}*
 
 `.trim()
@@ -441,24 +431,11 @@ ${readMore}
   }
 }
 handler.command = /^(menu|help|start|helep)$/i
-
 handler.fail = null
-
-
 module.exports = handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
-
-global.tytyd = [
-"♤","◇","~","●","@","•","♡",",","♧",
-"○","¥","+","+","×","%","$","☆","/","^",
-"#","?","€","7","*","Q","0","Z",".","1","!","-",
-]
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
 
 function clockString(ms) {
   let h = Math.floor(ms / 3600000)
@@ -467,3 +444,5 @@ function clockString(ms) {
   console.log({ms,h,m,s})
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
+
+// MUHAMMAD AFDHAN
