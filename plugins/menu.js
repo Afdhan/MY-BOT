@@ -406,17 +406,17 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
      await conn.reply(m.chat, mn, { key: { 
       remoteJid: 'status@broadcast', 
       participant: '0@s.whatsapp.net', 
-      mentionedJid: [own],
+      mentionedJid: own,
       fromMe: false 
      }, 
       message: { 
-       "imageMessage": { 
+        "imageMessage": { 
         "mimetype": "image/jpeg", 
         "caption":  `Support Me With Donate :)`, 
         "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
        }},
-      //contextInfo: { 
-       mentionedJid: own
+      contextInfo: { 
+       "mentionedJid": own
       })
   
   
