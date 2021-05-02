@@ -54,7 +54,6 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let mmk = m.sender
     let poto = 'src/SGDC_BOT.jpg'
     let mn = `
-*╭══════════════════╮*
 
 ❍ *Total Pengguna ${bname}* ❍
 ❏ ~> ${reg} User
@@ -68,8 +67,7 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
 ❍ *Performa ${bname} Saat Ini* ❍
 ❏ ~> ${ping}
 
-*╰══════════════════╯*
-${readMore}
+*╰══════════════════╯*${readMore}
 *┏━━━━━━━━━━━━━━━━━━┓*
 *┃                         ${bname}*
 *┃╭════════════════╮*
