@@ -412,7 +412,7 @@ ${readMore}
 
 `.trim()
     // let wew = fs.readFileSync('./undefined.jpeg')
-     await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption":  `Support Me With Donate :)`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} } }, false, { contextInfo: { mentionedJid: [mmk, own, cown]}})
+     await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption":  `Support Me With Donate :)`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} } }, { contextInfo: { mentionedJid: [mmk, own, cown]}})
     /*  await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, m, false, { 
         contextInfo: { 
             mentionedJid: [kntl, own]
