@@ -52,8 +52,10 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let own = '6282252655313@s.whatsapp.net'
     let cown = '6283129011845@s.whatsapp.net'
     let mmk = m.sender
+    let chat = global.DATABASE.data.chats[m.chat]
     let poto = 'src/SGDC_BOT.jpg'
     let mn = `
+ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
 
 ❍ *Total Pengguna ${bname}* ❍
 ❏ ~> ${reg} User
