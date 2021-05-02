@@ -414,9 +414,9 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
         "caption":  `Support Me With Donate :)`, 
         "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
        }},
-      contextInfo: { 
+      //contextInfo: { 
        mentionedJid: own
-      }})
+      })
   
   
   
