@@ -403,7 +403,24 @@ ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
 
 `.trim()
     // let wew = fs.readFileSync('./undefined.jpeg')
-     await conn.reply(m.chat, mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption":  `Support Me With Donate :)`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} }, /*, { contextInfo: {*/ mentionedJid: [own] }})
+     await conn.reply(m.chat, mn, { key: { 
+      remoteJid: 'status@broadcast', 
+      participant: '0@s.whatsapp.net', 
+      fromMe: false 
+     }, 
+      message: { 
+       "imageMessage": { 
+        "mimetype": "image/jpeg", 
+        "caption":  `Support Me With Donate :)`, 
+        "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
+       }},
+      contextInfo: { 
+       mentionedJid: [own] 
+      }})
+  
+  
+  
+  
     /*  await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, m, false, { 
         contextInfo: { 
             mentionedJid: [kntl, own]
