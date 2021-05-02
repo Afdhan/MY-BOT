@@ -58,10 +58,11 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
     else ngc = 'Null'
-    let mn = `
-nama gc ${ngc}
+/*  nama gc ${ngc}
 @${own.split("@")[0]}
 ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
+*/
+    let mn = `
 
 ❍ *Total Pengguna ${bname}* ❍
 ❏ ~> ${reg} User
