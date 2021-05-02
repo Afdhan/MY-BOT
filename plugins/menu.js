@@ -412,18 +412,18 @@ ${readMore}
 
 `.trim()
     // let wew = fs.readFileSync('./undefined.jpeg')
-     conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": `Hai Wibuu`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} } })
+     await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net', fromMe: false }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption":  `Support Me With Donate :)`, "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')} } }, false, { contextInfo: { mentionedJid: [mmk, own, cown]}})
     /*  await conn.sendFile(m.chat, poto, 'SGDC-BOT.jpg', mn, m, false, { 
         contextInfo: { 
             mentionedJid: [kntl, own]
         }
     }) */
     //if (!m.isGroup) {
-    await conn.reply(m.chat, mn, m, { 
+    /**await conn.reply(m.chat, mn, m, { 
         contextInfo: { 
             mentionedJid: [mmk, own, cown]
         }
-    }) 
+    }) */
    /* } else {
     let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
     await conn.reply(m.chat, mn, m, { 
