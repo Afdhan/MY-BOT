@@ -54,7 +54,13 @@ let handler  = async (m, { conn, args, usedPrefix: _p }) => {
     let mmk = m.sender
     let chat = global.DATABASE.data.chats[m.chat]
     let poto = 'src/SGDC_BOT.jpg'
+    let ngc = if(m.isGroup) { 
+     conn.getName(m.chat)
+  }else{
+   ngc = 'Null'
+  }
     let mn = `
+nama gc ${ngc}
 @${own.split("@")[0]}
 ANTILINK: ${chat.antiLink ? 'ON':'OFF'}
 
