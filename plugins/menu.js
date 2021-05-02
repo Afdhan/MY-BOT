@@ -9,7 +9,7 @@ let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, usedPrefix: _p }) => {
  try {
     let old = performance.now()
-    await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
+    //await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
     let neww = performance.now()
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let bname = package.name
