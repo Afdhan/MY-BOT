@@ -126,9 +126,7 @@ let neww = performance.now()
 *ＷＡＫＴＵ:* ${time} ${ampm}
 *ＴＡＮＧＧＡＬ:* ${week}, 
 ${date} / ${islami}
-─────────────────────
-
-${readMore}
+─────────────────────${readMore}
 ┌──────────────────╮
 │               *❏ TEXT MAKER ❏*
 │
@@ -496,7 +494,10 @@ conn.fakeReply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, '0@s.wh
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
-    //conn.sendMessage(`, 'Menu Error\n' + util.format(e), MessageType.text)
+   const lapor = `Menu Error\n\n ${e}`
+   for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid && v != '6283129011845@s.whatsapp.net'))
+    m.reply(lapor, jid) 
+    //conn.sendMessage(own, 'Menu Error\n' + util.format(e), MessageType.text)
   console.log(e)
   }
  }
