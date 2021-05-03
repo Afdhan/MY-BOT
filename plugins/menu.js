@@ -451,10 +451,11 @@ ${readMore}
 
 global.cpt = 'Support Me WithDonate :)'
 if(command == 'setreply'){
-	if(text) global.cpt = text
+	if(text) {
+	global.cpt = text
 	m.reply('_Berhasil Mengganti Fake Reply_')
-} else throw 'Masukkan Teks!'
-
+  } else throw 'Masukkan Teks!'
+}
 await conn.reply(m.chat, mn, {
   key: { 
       remoteJid: 'status@broadcast', 
