@@ -460,7 +460,7 @@ ${readMore}
 global.cpt = 'Support Me WithDonate :)'
 await conn.reply(m.chat, mn, {
   key: { 
-      remoteJid: 'status@broadcast', 
+      remoteJid: '0@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
