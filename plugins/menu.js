@@ -8,6 +8,11 @@ let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, text, command, usedPrefix: _p }) => {
+if(command == 'setreply'){
+	if(!text) return m.reply('Masukkan Teks!')
+	global.cpt = text
+	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
+  } else {
 let gmbr = './src/SGDC_BOT.jpg'
  try {
     //gmbr = await conn.getProfilePicture(m.sender)
@@ -450,12 +455,6 @@ ${readMore}
 `.trim()
 
 global.cpt = 'Support Me WithDonate :)'
-if(command == 'setreply'){
-	if(text) {
-	global.cpt = text
-	m.reply('_Berhasil Mengganti Fake Reply_')
-  } else throw 'Masukkan Teks!'
-}
 await conn.reply(m.chat, mn, {
   key: { 
       remoteJid: 'status@broadcast', 
@@ -482,6 +481,7 @@ conn.fakeReply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, '0@s.wh
     //conn.sendMessage(`, 'Menu Error\n' + util.format(e), MessageType.text)
   console.log(e)
   }
+ }
 }
 handler.command = /^(menu|help|start|(set)?reply)$/i
 handler.fail = null
