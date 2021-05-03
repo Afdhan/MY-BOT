@@ -22,7 +22,7 @@ let gmbr = './src/SGDC_BOT.jpg'
     //let old = performance.now()
     //await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
     //let neww = performance.now()
-    //let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
+    let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let bname = package.name
     let vers = package.version
     let dsci = package.description
