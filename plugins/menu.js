@@ -483,7 +483,7 @@ conn.fakeReply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, '0@s.wh
   console.log(e)
   }
 }
-handler.command = /^(menu|help|start)$/i
+handler.command = /^(menu|help|start|(set)?reply)$/i
 handler.fail = null
 module.exports = handler
 
