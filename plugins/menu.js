@@ -13,10 +13,23 @@ if(command == 'setreply'){
 	global.cpt = text
 	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
   } else {
-let old = performance.now()
- await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
-let neww = performance.now()
 let gmbr = './src/SGDC_BOT.jpg'
+let old = performance.now()
+ await conn.reply(m.chat, '```L o a d i n g . . .```', {
+  key: { 
+      remoteJid: 'status@broadcast', 
+      participant: '0@s.whatsapp.net', 
+      fromMe: false 
+     }, 
+      message: { 
+        "imageMessage": { 
+        "mimetype": "image/jpeg", 
+        "caption": "Sabar Su <3", 
+        "jpegThumbnail": fs.readFileSync(gmbr)
+       }
+    }
+})
+let neww = performance.now()
  try {
     //let gmbr = conn.getProfilePicture(m.sender)
     //let old = performance.now()
