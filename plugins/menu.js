@@ -124,7 +124,9 @@ let neww = performance.now()
 *❍* ${rmd}
 
 *ＷＡＫＴＵ:* ${time} ${ampm}
-*ＴＡＮＧＧＡＬ:* ${week}, ${date} | ${islami}
+*ＴＡＮＧＧＡＬ:* ${week}, 
+${date} / ${islami}
+─────────────────────
 
 ${readMore}
 ┌──────────────────╮
