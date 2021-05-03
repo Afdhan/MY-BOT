@@ -18,7 +18,7 @@ let old = performance.now()
 let neww = performance.now()
 //let gmbr = './src/SGDC_BOT.jpg'
  try {
-    let gmbr = await conn.getProfilePicture(m.sender)
+    let gmbr = conn.getProfilePicture(m.sender)
     //let old = performance.now()
     //await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
     //let neww = performance.now()
