@@ -8,9 +8,9 @@ let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, text, command, usedPrefix: _p }) => {
-	let gmbr = './src/SGDC_BOT.jpg'
+let gmbr = './src/SGDC_BOT.jpg'
  try {
-    gmbr = await conn.getProfilePicture(m.sender)
+    //gmbr = await conn.getProfilePicture(m.sender)
     let old = performance.now()
     await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
     let neww = performance.now()
