@@ -450,14 +450,14 @@ ${readMore}
 │
 └──────────────────╯
 
-                  *${bname}@^${vers}*
+                    *${bname}@^${vers}*
 
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
 `.trim()
 
-global.cpt = 'Support Me WithDonate :)'
+global.cpt = 'Support Me With Donate :)'
 await conn.reply(m.chat, mn, {
   key: { 
       remoteJid: 'status@broadcast', 
