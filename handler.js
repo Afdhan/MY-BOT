@@ -273,7 +273,7 @@ module.exports = {
       case 'remove':
         if (action == 'add') {
           let user = participants
-          if(user.includes('99')) return
+          if(user.includes('62')) return
           await this.sendMessage(jid, 'sorry this group is only for +62', MessageType.text)              
            this.groupRemove(jid, user)
           }
