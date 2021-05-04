@@ -1,6 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-            if (!text) return conn.reply(m.chat, 'Apa Yang Mau Dicari?', m)
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+          /*  if (!text) return conn.reply(m.chat, 'Apa Yang Mau Dicari?', m)
             
             await m.reply(global.wait)
             axios.get(`https://fzn-gaz.herokuapp.com/api/sfile?search=${text}`).then ((res) => {
@@ -11,7 +12,7 @@ let handler = async(m, { conn, text }) => {
                 }
 		    sfile += '\n\n*「 • 」  SGDC-BOT  「 • 」*'
                  conn.reply(m.chat, sfile, m)
-	})
+	})*/
 }
 handler.command = /^(sfile)$/i
 handler.owner = false

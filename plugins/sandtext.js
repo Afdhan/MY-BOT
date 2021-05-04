@@ -1,6 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-    if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+  /*  if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
     if (text.length > 10) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 10 huruf!_', m)
 try {
     await m.reply(global.wait)
@@ -8,7 +9,7 @@ try {
     conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
     } catch (e) {
    m.reply('```Error```')
-  }
+  }*/
 } 
 
 handler.command = /^(sand(teks|text)?)$/i

@@ -1,13 +1,14 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-    if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+/*    if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
 try {
      await m.reply(global.wait)
      let link = 'https://fzn-gaz.herokuapp.com/nulis?text=' + text
      conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
   } catch (e) {
    m.reply('```Error```')
-  }
+  }*/
 } 
 
 handler.command = /^(nulis3)$/i

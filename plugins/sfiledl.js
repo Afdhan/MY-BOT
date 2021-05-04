@@ -1,6 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-  try {
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+/*  try {
     if (!text) return conn.reply(m.chat, 'Masukkan Link!', m)
     await m.reply(global.wait)
     axios.get(`https://fzn-gaz.herokuapp.com/api/sfiledl?url=${text}`).then ((res) => {
@@ -23,7 +24,7 @@ _Download Sendiri, Jangan Manja :v_
 	})
  } catch (e) {
    m.reply('```Error```')
-  }
+  }*/
 }
 
 handler.command = /^(sfiledl)$/i

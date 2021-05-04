@@ -1,6 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-	   try {
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+	/*   try {
             await m.reply(global.wait)
             axios.get(`https://fzn-gaz.herokuapp.com/api/sfileup`).then ((res) => {
                 let sfiles = res.data
@@ -13,7 +14,7 @@ let handler = async(m, { conn, text }) => {
 	})
    } catch (e) {
        m.reply('```Error```')
-  }
+  }*/
 }
 handler.command = /^(sfileup)$/i
 handler.owner = false

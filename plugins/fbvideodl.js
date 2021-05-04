@@ -1,7 +1,8 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
- if (!text) return conn.reply(m.chat, '_Masukkan Link Video Facebook!_', m)
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+/* if (!text) return conn.reply(m.chat, '_Masukkan Link Video Facebook!_', m)
 try { 
   await m.reply(global.wait)
     axios.get(`https://fzn-gaz.herokuapp.com/api/fbdl?url=${text}`)
@@ -31,7 +32,7 @@ _KALAU GAK ERROR, VIDEO LANGSUNG DIKIRIM!_
     })
  } catch (e) {
    m.reply('```Error```')
-  }
+  }*/
 }
 
 handler.command = /^(fbdl)$/i
