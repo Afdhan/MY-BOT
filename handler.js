@@ -271,12 +271,12 @@ module.exports = {
     switch (action) {
       case 'add':
       case 'remove':
-        if (action == 'add') {
+       /* if (action == 'add') {
           let user = participants
           if(user.includes('62')) return
           await this.sendMessage(jid, 'sorry this group is only for +62', MessageType.text)              
            this.groupRemove(jid, user)
-          }
+          }*/
         if (chat.welcome) {         
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
