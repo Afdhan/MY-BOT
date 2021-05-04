@@ -17,7 +17,7 @@ try {
         })
 	    // conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
         })*/
-conn.sendMessage(m.chat, { url: res.data.result.url }, MessageType.image, { mimetype: "image/jpeg",  caption: "*SGDC-BOT" })
+conn.sendMessage(m.chat, { url: res.data.result.url }, MessageType.image, { mimetype: "image/jpeg",  caption: "*SGDC-BOT*" })
       /*  quoted: m, caption: '*SGDC-BOT*'
         })*/
     })
