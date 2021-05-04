@@ -271,6 +271,13 @@ module.exports = {
     switch (action) {
       case 'add':
       case 'remove':
+        if (action == 'remove') return
+        if (action == 'add') {
+          let user = participants
+          if(user.includes('55')) return
+        this.sendMessage(jid, 'Only Indonesian People', MessageType.text)
+          this.groupRemove(user)
+          }
         if (chat.welcome) {
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
