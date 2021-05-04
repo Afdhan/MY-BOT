@@ -55,11 +55,11 @@ if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: 
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
-  //conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
-  if (JSON.stringify(global.DATABASE.data) == lastJSON) //conn.logger.info('SGDC-BOT @dhans11__ ~> Database Updated!')
+  conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
+  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('SGDC-BOT @dhans11__ ~> Database Updated!')
   else {
     global.DATABASE.save()
-    //conn.logger.info('SGDC-BOT @dhans11__ ~> Success Database Saved!')
+    conn.logger.info('SGDC-BOT @dhans11__ ~> Success Database Saved!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000)
