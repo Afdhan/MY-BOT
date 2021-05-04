@@ -21,7 +21,7 @@ let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
  await conn.reply(m.chat, '```L o a d i n g . . .```', {
   key: { 
-      remoteJid: '1234-123@g.us', 
+      remoteJid: '111234567890-1594482450@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
