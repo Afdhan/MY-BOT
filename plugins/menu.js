@@ -490,7 +490,20 @@ await conn.reply(m.chat, mn, {
        mentionedJid: [mmk, own, cown]
       }
 })
-conn.fakeReply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, '0@s.whatsapp.net', '*M AFDHAN || SUPPORT ME WITH DONATE*')
+conn.reply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, {
+  key: { 
+      remoteJid: 'status@broadcast', 
+      participant: '0@s.whatsapp.net', 
+      fromMe: false 
+     }, 
+      message: { 
+        "imageMessage": { 
+        "mimetype": "image/jpeg", 
+        "caption":  'Gretongers Indonesia | SGDC-TEAM', 
+        "jpegThumbnail": fs.readFileSync('./src/sgdc1.jpg')
+       }
+    }
+})
   } catch (e) {
     conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
     //throw e
