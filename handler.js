@@ -1,14 +1,16 @@
 let util = require('util')
 let simple = require('./lib/simple')
+let { MessageType } = require('@adiwajshing/baileys')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 module.exports = {
   async handler(chatUpdate) {
+    // console.log(chatUpdate)
     if (!chatUpdate.hasNewMessage) return
     if (!chatUpdate.messages && !chatUpdate.count) return
     let m = chatUpdate.messages.all()[0]
     try {
-    	simple.smsg(this, m)
+      simple.smsg(this, m)
       m.exp = 0
       m.limit = false
       try {
@@ -43,8 +45,11 @@ module.exports = {
         if (chat = global.DATABASE._data.chats[m.chat]) {
           if (!'isBanned' in chat) chat.isBanned = false
           if (!'welcome' in chat) chat.welcome = false
+          if (!'detect' in chat) chat.detect = false
           if (!'sWelcome' in chat) chat.sWelcome = ''
           if (!'sBye' in chat) chat.sBye = ''
+          if (!'sPromote' in chat) chat.sPromote = ''
+          if (!'sDemote' in chat) chat.sDemote = ''
           if (!'delete' in chat) chat.delete = false
           if (!'antiLink' in chat) chat.antiLink = false
           if (!'badWord' in chat) chat.badWord = false
@@ -53,8 +58,11 @@ module.exports = {
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
+          detect: false,
           sWelcome: '',
           sBye: '',
+          sPromote: '',
+          sDemote: '',
           delete: false,
           antiLink: false,
           badWord: false,
@@ -68,52 +76,52 @@ module.exports = {
       if (!m.fromMe && opts['self']) return
       if (typeof m.text !== 'string') m.text = ''
       if (m.isBaileys) return
-      m.exp += 1
-  
-    	let usedPrefix
+      m.exp += Math.ceil(Math.random() * 10)
+
+      let usedPrefix
       let _user = global.DATABASE.data && global.DATABASE.data.users && global.DATABASE.data.users[m.sender]
 
       let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isOwner = isROwner || m.fromMe
       let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-      let isPrems = isOwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let groupMetadata = m.isGroup ? await this.groupMetadata(m.chat) : {}
       let participants = m.isGroup ? groupMetadata.participants : []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {}
       let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {}
       let isAdmin = user.isAdmin || user.isSuperAdmin || false
       let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false
-    	for (let name in global.plugins) {
-    	  let plugin = global.plugins[name]
-        if (!plugin) continue
-        if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('admin')) continue
+      for (let name in global.plugins) {
+    	let plugin = global.plugins[name]
+      if (!plugin) continue
+      if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('admin')) continue
         const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
         let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
-  		  let match = (_prefix instanceof RegExp ?
+  	  let match = (_prefix instanceof RegExp ?
           [[_prefix.exec(m.text), _prefix]] :
           Array.isArray(_prefix) ?
             _prefix.map(p => {
-              let re = p instanceof RegExp ?             
+         let re = p instanceof RegExp ?             
                 p :
                 new RegExp(str2Regex(p))
               return [re.exec(m.text), re]
             }) :
              typeof _prefix === 'string' ?
-              [[new RegExp(str2Regex(_prefix)).exec(m.text),new RegExp(str2Regex(_prefix))]] :
+              [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
               [[[], new RegExp]]
         ).find(p => p[1])
         if (typeof plugin.before == 'function') if (await plugin.before.call(this, m, {
           match, user, groupMetadata, chatUpdate
         })) continue
-    	  if ((usedPrefix = (match[0] || '')[0])) {
+    	if ((usedPrefix = (match[0] || '')[0])) {
           let noPrefix = m.text.replace(usedPrefix, '')
-  	  	  let [command, ...args] = noPrefix.trim().split` `.filter(v=>v)
+  	    let [command, ...args] = noPrefix.trim().split` `.filter(v=>v)
           args = args || []
           let _args = noPrefix.trim().split` `.slice(1)
           let text = _args.join` `
-    		  command = (command || '').toLowerCase()
+    	  command = (command || '').toLowerCase()
           let fail = plugin.fail || global.dfail
-  		  	let isAccept = plugin.command instanceof RegExp ?
+  		let isAccept = plugin.command instanceof RegExp ?
             plugin.command.test(command) :
             Array.isArray(plugin.command) ?
               plugin.command.some(cmd => cmd instanceof RegExp ?
@@ -124,7 +132,7 @@ module.exports = {
                 plugin.command === command :
                 false
 
-    			if (!isAccept) continue
+    	  if (!isAccept) continue
           m.plugin = name
           if (m.chat in global.DATABASE._data.chats || m.sender in global.DATABASE._data.users) {
             let chat = global.DATABASE._data.chats[m.chat]
@@ -152,7 +160,7 @@ module.exports = {
             fail('premium', m, this)
             continue
           }
-    			if (plugin.group && !m.isGroup) {
+      	if (plugin.group && !m.isGroup) {
             fail('group', m, this)
             continue
           } else if (plugin.botAdmin && !isBotAdmin) {
@@ -172,8 +180,8 @@ module.exports = {
           }
 
           m.isCommand = true
-          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 9 
-          if (xp > 99) m.reply('Mengbengek xD') 
+          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17
+          if (xp > 200) m.reply('Mengbengek xD') 
           else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
             this.reply(m.chat, `Fffftttt`, m)
@@ -214,9 +222,9 @@ module.exports = {
             // m.reply(util.format(_user)) 
             if (m.limit) m.reply(':v')
           }
-    			break
-  	  	}
+     	break
     	}
+  	}
     } finally {
       //console.log(global.DATABASE._data.users[m.sender])
       let user, stats = global.DATABASE._data.stats
@@ -257,41 +265,41 @@ module.exports = {
       }
     }
   },
-  async welcome({ m, participants }) {
-    let chat = global.DATABASE._data.chats[m.key.remoteJid]
-    if (!chat.welcome) return
-    for (let user of participants) {
-      let pp = './src/avatar_contact.png'
-      try {
-        pp = await this.getProfilePicture(user)
-      } catch (e) {
-      } finally {
-        let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@user', '@' + user.split('@')[0]).replace('@subject', this.getName(m.key.remoteJid))
-        this.sendFile(m.key.remoteJid, pp, 'pp.jpg', text, m, false, {
+   async participantsUpdate({ jid, participants, action }) {
+    let chat = global.DATABASE._data.chats[jid]
+    let text = ''
+    switch (action) {
+      case 'add':
+      case 'remove':
+        if (chat.welcome) {
+          for (let user of participants) {
+            let pp = './src/avatar_contact.png'
+            try {
+              pp = await this.getProfilePicture(user)
+            } catch (e) {
+            } finally {
+              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(m.key.remoteJid)) :
+                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+              this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
+                contextInfo: {
+                  mentionedJid: [user]
+                }
+              })
+            }
+          }
+        }
+      break
+      case 'promote':
+        text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+      case 'demote':
+        if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+        text = text.replace('@user', '@' + participants[0].split('@')[0])
+        if (chat.detect) this.sendMessage(jid, text, MessageType.extendedText, {
           contextInfo: {
-            mentionedJid: [user]
+            mentionedJid: this.parseMention(text)
           }
         })
-      }
-    }
-  },
-  async leave({ m, participants }) {
-    let chat = global.DATABASE._data.chats[m.key.remoteJid]
-    if (!chat.welcome) return
-    for (let user of participants) {
-      if (this.user.jid == user) continue
-      let pp = './src/avatar_contact.png'
-      try {
-        pp = await this.getProfilePicture(user)
-      } catch (e) {
-      } finally {
-        let text = (chat.sBye || this.bye || conn.bye || 'Bye, @user!').replace('@user', '@' + user.split('@')[0])
-        this.sendFile(m.key.remoteJid, pp, 'pp.jpg', text, m, false, {
-          contextInfo: {
-            mentionedJid: [user]
-          }
-        })
-      }
+        break
     }
   },
   async delete(m) {
@@ -303,7 +311,7 @@ module.exports = {
 
 _Terdeteksi *@${m.participant.split`@`[0]}* telah menghapus pesan!_
 
-*[ • SGDC-BOT • ]*
+*SGDC-BOT*
 `.trim(), m.message, {
       contextInfo: {
         mentionedJid: [m.participant]
@@ -315,14 +323,14 @@ _Terdeteksi *@${m.participant.split`@`[0]}* telah menghapus pesan!_
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: '_*Command Khusus ROwner SGDC-BOT*_',
-    owner: '_*Command Khusus Owner SGDC-BOT*_',
-    mods: '_*Command Khusus Moderator SGDC-BOT*_',
-    premium: '_*Command Khusus User Premium!*_',
-    group: '_*Command Khusus Di Group!*_',
-    private: '_*Command Khusus Di Private Chat!*_',
-    admin: '_*Command Khusus Admin!*_',
-    botAdmin: '_*Jadikan SGDC-BOT Sebagai Admin!*_',
+    rowner: '```Command Khusus ROwner SGDC-BOT```',
+    owner: '```Command Khusus Owner SGDC-BOT```',
+    mods: '```Command Khusus Moderator SGDC-BOT```',
+    premium: '```Command Khusus User Premium!```',
+    group: '```Command Khusus Di Group!```',
+    private: '```Command Khusus Di Private Chat!```',
+    admin: '```Command Khusus Admin!```',
+    botAdmin: '```Jadikan SGDC-BOT Sebagai Admin!```',
   }[type]
   if (msg) return m.reply(msg)
 }

@@ -1,9 +1,9 @@
-console.log(`SGDC-BOT Connecting to WhatsApp Web server...`)
+let chalk = require('chalk')
+console.log(chalk.bold.cyan(`SGDC-BOT Connecting to WhatsApp Web server...`))
 require('./config.js')
 let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let syntaxerror = require('syntax-error')
-//let chalk = require('chalk')
 let simple = require('./lib/simple')
 //  let logs = require('./lib/logs')
 let { promisify } = require('util')
@@ -16,10 +16,8 @@ let fs = require('fs')
 
 let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
-/*
-async function color (text, color) {
-    return !color ? chalk.green(text) : chalk.keyword(color)(text)
-}*/
+
+
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {}) })) : '')
 global.timestamp = {
   start: new Date
@@ -57,14 +55,14 @@ if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: 
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
-  conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
-  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('SGDC-BOT @dhans11__ ~> Database Updated!')
+  //conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
+  if (JSON.stringify(global.DATABASE.data) == lastJSON) //conn.logger.info('SGDC-BOT @dhans11__ ~> Database Updated!')
   else {
     global.DATABASE.save()
-    conn.logger.info('SGDC-BOT @dhans11__ ~> Success Database Saved!')
+    //conn.logger.info('SGDC-BOT @dhans11__ ~> Success Database Saved!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
-}, 60 * 1000) // Save every minute
+}, 60 * 1000)
 
 
 
@@ -127,19 +125,18 @@ global.reloadHandler = function () {
   if (!isInit) {
     conn.off('chat-update', conn.handler)
     conn.off('message-delete', conn.onDelete)
-    conn.off('group-add', conn.onAdd)
-    conn.off('group-leave', conn.onLeave)
+    conn.off('group-participants-update', conn.onParticipantsUpdate)
   }
-  conn.welcome = '*_Hallo mbah @user!_*\n\nSelamat datang di *@subject!*\n_Jangan lupa baca deskripsi :)_'
-  conn.bye = '*_Selamat tinggal mbah @user!_*\n_Semoga tenang dialam sana :(_'
+  conn.welcome = '```Hallo mbah @user!```\n\nSelamat datang di grup *@subject!*\nJangan lupa baca deskripsi :)'
+  conn.bye = '```Selamat tinggal mbah @user!``` _Semoga tenang dialam sana :(_'
+  conn.spromote = '```@user sekarang adalah admin!```'
+  conn.sdemote = '```@user sekarang bukan lagi admin!```'
   conn.handler = handler.handler
-  conn.onAdd = handler.welcome 
-  conn.onLeave = handler.leave
   conn.onDelete = handler.delete
+  conn.onParticipantsUpdate = handler.participantsUpdate
   conn.on('chat-update', conn.handler)
   conn.on('message-delete', conn.onDelete)
-  conn.on('group-add', conn.onAdd)
-  conn.on('group-leave', conn.onLeave)
+  conn.on('group-participants-update', conn.onParticipantsUpdate)
   if (isInit) {
     conn.on('error', conn.logger.error)
     conn.on('close', () => {
