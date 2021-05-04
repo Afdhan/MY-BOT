@@ -8,18 +8,18 @@ let handler = async(m, { conn, text }) => {
 try {
     axios.get(`https://onlydevcity.herokuapp.com/api/random/meme?apikey=${api}`)
     .then((res) => {
-      imageToBase64(res.data.result.url)
+   /*   imageToBase64(res.data.result.url)
         .then(
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
-          conn.sendMessage(m.chat, buf, MessageType.image, {
+          /*conn.sendMessage(m.chat, buf, MessageType.image, {
         quoted: m, caption: '*SGDC-BOT*'
         })
 	    // conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
-        })
-/*conn.sendMessage(m.chat, res.data.result.url, MessageType.image, {
-        quoted: m, caption: '*SGDC-BOT*'
         })*/
+conn.sendMessage(m.chat, res.data.result.url, MessageType.image, {
+        quoted: m, caption: '*SGDC-BOT*'
+        })
     })
   
   } catch (e) {
