@@ -21,7 +21,7 @@ let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
  await conn.reply(m.chat, '```L o a d i n g . . .```', {
   key: { 
-      remoteJid: 'status@broadcast', 
+      remoteJid: '1234-123@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
@@ -87,13 +87,13 @@ let neww = performance.now()
     let chat = global.DATABASE.data.chats[m.chat]
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
-    else ngc = 'No Result'
+    else ngc = 'Private Chat'
     let mn = `
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
 *ƗNFØ ȻĦȺŦ*
-*❍ Nama Group:* ${ngc}
+*❍ Nama Grup:* ${ngc}
 *❍ Welcome:* ${chat.welcome ? 'ON':'OFF'}
 *❍ AntiDelete:* ${chat.delete ? 'ON':'OFF'}
 *❍ AntiLink:* ${chat.antiLink ? 'ON':'OFF'}
