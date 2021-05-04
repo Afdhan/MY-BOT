@@ -1,5 +1,8 @@
+let path = require('path');
+let util = require('util');
+let fs = require('fs');
 let handler  = async (m, { conn, usedPrefix: _p }) =>  {
-  let pepek = `
+let pepek = `
 ─────────────────────
                           *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
