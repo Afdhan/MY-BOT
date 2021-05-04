@@ -275,12 +275,8 @@ module.exports = {
         if (action == 'add') {
           let user = participants
           if(user.includes('55')) return
-          await this.sendMessage(jid, 'Sorry This Group Only Indonesian People', MessageType.text)
-                /*contextInfo: {
-                  mentionedJid: user
-                }
-              })*/
-             this.groupRemove(jid, user)
+          await this.sendMessage(jid, 'Sorry This Group Only Indonesian People', MessageType.text)              
+           this.groupRemove(jid, user)
           }
         if (chat.welcome) {         
           for (let user of participants) {
@@ -291,7 +287,7 @@ module.exports = {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-             if(user.includes('62')) this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
+            /* if(user.includes('62'))*/ this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
                 }
