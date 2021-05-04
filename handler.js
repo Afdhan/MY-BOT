@@ -282,8 +282,7 @@ module.exports = {
               })*/
              this.groupRemove(jid, user)
           }
-        if (chat.welcome) {
-          if(participants.includes('55')) (!(action == 'add' || action == 'remove')) return
+        if (chat.welcome) {         
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
             try {
@@ -292,7 +291,7 @@ module.exports = {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-              this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
+             if(user.includes('55')) this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
                 }
