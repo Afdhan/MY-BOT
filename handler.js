@@ -274,9 +274,9 @@ module.exports = {
       //  if (action == 'remove') return
         if (action == 'add') {
           let user = participants
-          if(user.includes('55')) return
+          if(user.includes('99')) return
           await this.sendMessage(jid, 'Sorry This Group Only Indonesian People', MessageType.text)              
-           this.groupRemove(jid, user)
+           this.groupRemove(jid, [user])
           }
         if (chat.welcome) {         
           for (let user of participants) {
