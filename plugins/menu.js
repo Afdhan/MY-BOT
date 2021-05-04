@@ -7,8 +7,12 @@ let path = require('path')
 let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
-let handler  = async (m, { conn, args, text, command, usedPrefix: _p }) => {
+let handler  = async (m, { conn, args, text, command, isOwner, usedPrefix: _p }) => {
 if(command == 'setreply'){
+        if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
 	if(!text) return m.reply('Masukkan Teks!')
 	global.cpt = text
 	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
