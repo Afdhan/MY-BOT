@@ -30,8 +30,8 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     	    let ress = await imageToBase64(res.data.result)
             let buf = Buffer.from(ress, 'base64')
             let str = `*SGDC-BOT*`
-          conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
-       
+         // conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
+       conn.sendMessage(m.chat, { url: res.data.result }, MessageType.image, { mimetype: "image/jpeg",  caption: "*SGDC-BOT*" })
     }
     } catch (e) {
   	m.reply('```Error```')
@@ -39,7 +39,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
   }
 }
 
-handler.command = /^(spictmeme)$/i
+handler.command = /^(spictmeme|memem)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
