@@ -280,7 +280,7 @@ module.exports = {
                   mentionedJid: user
                 }
               })*/
-             if(isBotAdmin) return this.groupRemove(jid, user)
+             if(isBotAdmin) this.groupRemove(jid, user)
           }
         if (chat.welcome) {
           if(participants.includes('55')) return
