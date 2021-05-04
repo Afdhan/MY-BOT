@@ -265,7 +265,7 @@ module.exports = {
       }
     }
   },
-   async participantsUpdate({ jid, participants, isBotAdmin, action }) {
+   async participantsUpdate({ jid, participants, action }) {
     let chat = global.DATABASE._data.chats[jid]
     let text = ''
     switch (action) {
@@ -280,10 +280,10 @@ module.exports = {
                   mentionedJid: user
                 }
               })*/
-             if(isBotAdmin) this.groupRemove(jid, user)
+             this.groupRemove(jid, user)
           }
         if (chat.welcome) {
-          if(participants.includes('55')) return
+          if(participants.includes('55')) (!(action == 'add' || action == 'remove')) return
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
             try {
