@@ -271,7 +271,7 @@ module.exports = {
     switch (action) {
       case 'add':
       case 'remove':
-        if (action == 'remove') return
+      //  if (action == 'remove') return
         if (action == 'add') {
           let user = participants
           if(user.includes('55')) return
