@@ -12,11 +12,14 @@ try {
         .then(
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
-            conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
-        })
-conn.sendMessage(m.chat, res.data.result.url, MessageType.image, {
+          conn.sendMessage(m.chat, buf, MessageType.image, {
         quoted: m, caption: '*SGDC-BOT*'
         })
+	    // conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
+        })
+/*conn.sendMessage(m.chat, res.data.result.url, MessageType.image, {
+        quoted: m, caption: '*SGDC-BOT*'
+        })*/
     })
   
   } catch (e) {
