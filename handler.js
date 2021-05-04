@@ -280,7 +280,7 @@ module.exports = {
                   mentionedJid: [user]
                 }
               })*/
-             this.groupRemove(jid, [user])
+             this.groupRemove(jid, user)
           }
         if (chat.welcome) {
           for (let user of participants) {
