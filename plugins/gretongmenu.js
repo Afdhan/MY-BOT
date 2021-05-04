@@ -105,7 +105,7 @@ let tytyd = {
         "imageMessage": { 
         "mimetype": "image/jpeg", 
         "caption": `Baca Description, Jangan Cuma Bisa Protes!`, 
-        "jpegThumbnail": fs.readFileSync("./src/SGDC_BOT.jpg")
+        "jpegThumbnail": fs.readFileSync("./src/SGDC.jpg")
        }
     }
 }
