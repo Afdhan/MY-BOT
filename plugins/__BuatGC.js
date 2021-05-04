@@ -6,7 +6,8 @@ let handler = async(m, { conn, text }) => {
          await m.reply(global.wait)
     let group = await conn.groupCreate(text, [m.sender || global.mods])
     let user = m.sender.split("@s.whatsapp.net")[0]
-    let users = user.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v.length > 20)
+    let users = user + '@s.whatsapp.net'
+        //user.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v.length > 20)
          await conn.groupAdd(group.gid, users)
     let link = await conn.groupInviteCode(group.gid)
     let url = 'https://chat.whatsapp.com/' + link;
