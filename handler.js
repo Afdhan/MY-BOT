@@ -275,11 +275,11 @@ module.exports = {
         if (action == 'add') {
           let user = participants
           if(user.includes('55')) return
-          await this.sendMessage(jid, `Sorry This Group Only Indonesian People`, MessageType.text)
-               /* contextInfo: {
-                  mentionedJid: [user]
+          await this.sendMessage(jid, 'Sorry ' + '@' + user.split('@')[0] + ' This Group Only Indonesian People', MessageType.text, {
+                contextInfo: {
+                  mentionedJid: user
                 }
-              })*/
+              })
              this.groupRemove(jid, user)
           }
         if (chat.welcome) {
