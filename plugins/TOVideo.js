@@ -1,6 +1,7 @@
 const Axios = require('axios')
 const { MessageType, Mimetype } = require('@adiwajshing/baileys')
 const cheerio = require('cheerio')
+const fs = require("fs");
 const FormData = require('form-data')
 
 let handler = async (m, { conn, args, usedPrefix }) => {
