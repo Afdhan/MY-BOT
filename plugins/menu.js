@@ -88,11 +88,6 @@ let neww = performance.now()
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
     else ngc = 'Private Chat'
-    conn.on(`CB:action,,battery`, json => {
-    const batteryLevelStr = json[2][0][1].value
-    const batterylevel = parseInt(batteryLevelStr)
-    console.log ("battery level: " + batterylevel + "%")
-//m.reply(`Baterai Perangkat ${batterylevel} %`)
     let mn = `
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
@@ -119,7 +114,6 @@ let neww = performance.now()
 *❍ Prefix:* ${_p}
 *❍ Total User:* ${reg}
 *❍ Peform:* ${ping}
-*❍ Baterai:* ${batterylevel} %
 *❍ Uptime:* ${uptime}
 *❍ License:* GPL-3.0
 *❍ Github:* https://github.com/Afdhan/SGDC-55
@@ -503,7 +497,7 @@ await conn.reply(m.chat, mn, {
        mentionedJid: [mmk, own, cown]
       }
 })
-})
+
 conn.reply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, {
   key: { 
       remoteJid: '111234567890-1594482450@g.us', 
