@@ -12,13 +12,13 @@ if(command == 'block') {
         m.reply('Berhasil UnBlockir ' + '@' + user.split("@")[0])
 }
 conn.on('CB:Blocklist', json => {
-    if (blocked.length > 2) return
+    if (global.block.length > 2) return
     for (let i of json[1].blocklist) {
-        blocked.push(i.replace('c.us', 's.whatsapp.net'))
+    global.block.push(i.replace('c.us', 's.whatsapp.net'))
     }
 })
 }
-blocked = []
+global.block = []
 
 handler.command = /^(un)?block$/i
 handler.rowner = true
