@@ -28,7 +28,7 @@ let old = performance.now()
       message: { 
         "imageMessage": { 
         "mimetype": "image/jpeg", 
-        "caption": "Sabar Su <3", 
+        "caption": "Lagi Loading, Sabar Su <3", 
         "jpegThumbnail": fs.readFileSync(gmbr)
        }
     }
@@ -130,7 +130,7 @@ let neww = performance.now()
 
 *ＷＡＫＴＵ:* ${time} ${ampm}
 
-*ＴＡＮＧＧＡＬ:* 
+*ＨＡＲＩ ＩＮＩ* 
 ${week}, ${date} *M*
 ${week}, ${islami} *H*
 ─────────────────────
