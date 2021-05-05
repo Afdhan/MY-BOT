@@ -17,6 +17,12 @@ if(command == 'setreply'){
 	global.cpt = text
 	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
   } else {
+conn.on(`CB:action,,battery`, json => {
+    const batteryLevelStr = json[2][0][1].value
+    const batterylevel = parseInt(batteryLevelStr)
+    console.log ("battery level: " + batterylevel + "%")
+m.reply(`Baterai Perangkat ${batterylevel} %`)
+})
 let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
  await conn.reply(m.chat, '```L o a d i n g . . .```', {
