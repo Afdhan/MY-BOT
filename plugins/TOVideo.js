@@ -12,7 +12,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
 
     const filename = getRandom()
     const savedFilename = await conn.downloadAndSaveMediaMessage(mediaData, `./tmp/${filename}`)
-
+   await m.reply(global.wait)
     if (isQuotedSticker) {
         await webp2mp4File(savedFilename)
             .then(async (rest) => {
@@ -41,7 +41,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
             })
             .catch((e) => {
                 console.log(e)
-                balas(m.chat, `Error gan :(`)
+                balas(m.chat, '```Error```')
                 if (fs.existsSync(savedFilename)) fs.unlinkSync(savedFilename)
             })
     } else throw `kirim stiker kemudian reply dengan caption ${usedPrefix}tovid`
