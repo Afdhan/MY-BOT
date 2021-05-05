@@ -7,7 +7,11 @@ let handler = async(m, { conn, text }) => {
             axios.get(`https://xnxx-tbot.herokuapp.com/api/muslim/bacaanshalat?apikey=${api}`).then ((res) => {
                 let out = `*「  BACAAN SHALAT  」*\n\n`
                 for (let i = 0; i < res.data.result.length; i++) {
-                    out += `─────────────────────\n*○ ${res.data.result[i].name}*\n*Arab:*\n${res.data.result[i].arabic}\n*Latin:*\n${res.data.result[i].latin}\n\n*Artinya:*\n${res.data.result[i].terjemahan}\n`
+                    out += '─────────────────────\n'
+                    out += '*○ ${res.data.result[i].name}*\n'
+                    out += '*Arab:*\n${res.data.result[i].arabic}\n'
+                    out += '*Latin:*\n${res.data.result[i].latin}\n\n'
+                    out += '*Artinya:*\n${res.data.result[i].terjemahan}\n'
                 }
                     out += '\n\n*SGDC-BOT*'
                  conn.reply(m.chat, out, m)
