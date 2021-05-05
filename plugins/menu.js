@@ -480,7 +480,7 @@ ${week}, ${islami} *H*
 global.cpt = 'Support Me With Donate :)'
 await conn.reply(m.chat, mn, {
   key: { 
-      remoteJid: 'status@broadcast', 
+      remoteJid: '6282252655313-1617529589@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
