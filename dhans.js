@@ -158,7 +158,13 @@ global.reloadHandler = function () {
   return true
 }
 
-
+conn.on(`CB:action,,battery`, json => {
+    const chalk = require("chalk");
+    const batteryLevelStr = json[2][0][1].value
+    const batterylevel = parseInt(batteryLevelStr)
+    console.log(chalk.bold.cyan("Baterai Perangkat: " + batterylevel + "%\n\nPowered by SGDC-BOT | M AFDHAN"))
+//m.reply(`Baterai Perangkat ${batterylevel} %`)
+})
 let pluginFolder = path.join(__dirname, 'plugins')
 let pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
