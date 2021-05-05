@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text }) => {
-	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted : m.fromMe ? conn.user.jid : m.sender
+	let who = m.quoted ? m.quoted : m.fromMe ? conn.user.jid : m.sender
 	if (args.length == 0) return m.reply ('Masukkan Teks')
 	if (args.length > 20) return m.reply ('Teks Terlalu Panjang! Maksimal 20 Kata')
 	let hsl
@@ -46,7 +46,7 @@ let handler = async (m, { conn, args, text }) => {
 }
 	conn.reply(m.chat, hsl, m)
 }
-handler.command = /^((msg)&send)$/i
+handler.command = /^((msg)?send)$/i
 
 module.exports = handler
 
