@@ -5,7 +5,7 @@ let handler = m => {
 
 ${Object.keys(msgs).map(v => '- ' + v).join('\n')}
 
-*SGDC-BOT
+*SGDC-BOT*
 `.trim())
 }
 
