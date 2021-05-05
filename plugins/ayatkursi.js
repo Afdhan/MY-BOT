@@ -16,9 +16,6 @@ ${res.data.latin}
 *Translation:*
 ${res.data.translation}
 
-*Tafsir:*
-${res.data.tafsir}
-
 
 *SGDC-BOT*
 `.trim()
