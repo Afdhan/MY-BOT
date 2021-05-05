@@ -17,7 +17,7 @@ conn.on('CB:Blocklist', json => {
         blocked.push(i.replace('c.us', 's.whatsapp.net'))
     }
 })
-
+}
 blocked = []
 
 handler.command = /^(un)?block$/i
