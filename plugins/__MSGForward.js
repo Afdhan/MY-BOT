@@ -9,7 +9,7 @@ const message = messages[0] // get the last message from this conversation
 
 await conn.forwardMessage(memek + '@s.whatsapp.net', txt) // WA forward the message!
 
-
+}
 handler.command = /^forward$/i
 handler.rowner = true
 
