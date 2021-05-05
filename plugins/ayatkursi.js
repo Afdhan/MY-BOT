@@ -10,14 +10,14 @@ try {
 *AYAT KURSI*
 	
 *Arab:* 
-${res.data.result.arabic}
+${res.data.data.arabic}
 *Latin:* 
-${res.data.result.latin}
+${res.data.data.latin}
 *Translation:*
-${res.data.result.translation}
+${res.data.data.translation}
 
 *Tafsir:*
-${res.data.result.tafsir}
+${res.data.data.tafsir}
 
 *SGDC-BOT*
 `.trim()
