@@ -6,7 +6,7 @@ try {
     await m.reply(global.wait)
 	axios.get(`https://raw.githubusercontent.com/Afdhan/Quo/main/islamic/ayat_kursi.json`).then ((res) => {
     //axios.get(`https://xnxx-tbot.herokuapp.com/api/muslim/ayatkursi?apikey=${api}`).then ((res) => {
-	 	let hasil = `
+	let hasil = `
 *AYAT KURSI*
 	
 *Arab:* 
