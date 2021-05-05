@@ -14,8 +14,10 @@ ${res.data.result.arab}
 *Latin:* 
 ${res.data.result.latin}
 *Translation:*
-${res.data.result.translation}
+${res.data.result.translate}
 
+*Tafsir:*
+${res.data.result.tafsir}
 
 *SGDC-BOT*
 `.trim()
