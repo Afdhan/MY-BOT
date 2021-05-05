@@ -31,17 +31,22 @@ let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => 
     case 'nsfw':
       chat.nsfw = isEnable
       break
+    case 'detect':
+    case 'autodetect':
+      chat.detect = isEnable
+      break
     case 'alloption':
     case 'option':
       //chat.badWord = isEnable
       chat.simi = isEnable
+      chat.detect = isEnable
       chat.antiLink = isEnable
       chat.welcome = isEnable
       chat.delete = isEnable
       break
     default:
       return m.reply(`
-List option: welcome | delete | badword | antilink
+List option: welcome | delete | simi | antilink | detect
 
 Contoh:
 ${usedPrefix}on welcome
