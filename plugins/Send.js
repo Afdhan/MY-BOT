@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text }) => {
-	let who = m.quoted ? m.quoted : m.fromMe ? conn.user.jid : m.sender
+	let who = m.sender
 	if (args.length == 0) return m.reply ('Masukkan Teks')
 	if (args.length > 20) return m.reply ('Teks Terlalu Panjang! Maksimal 20 Kata')
 	let hsl
