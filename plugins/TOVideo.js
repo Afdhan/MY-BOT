@@ -30,7 +30,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                             fs.readFileSync(`./tmp/${filename}-done.mp4`),
                             MessageType.video, {
                             mimetype: Mimetype.mp4,
-                            caption: `*© Astrobot*`,
+                            caption: `*SGDC-BOT*`,
                             quoted: m,
                         }
                         )
@@ -47,10 +47,9 @@ let handler = async (m, { conn, args, usedPrefix }) => {
     } else throw `kirim stiker kemudian reply dengan caption ${usedPrefix}tovid`
 }
 
-handler.help = ['tovideo (reply sticker)']
-handler.tags = ['sticker']
+
 handler.command = /^(tovid(eo)?)$/i
-handler.limit = true
+handler.premium = true
 module.exports = handler
 
 const getRandom = () => {
@@ -102,3 +101,5 @@ function webp2mp4File(path) {
         }).catch(reject)
     })
 }
+
+// Thanks to https://github.com/ariffb25
