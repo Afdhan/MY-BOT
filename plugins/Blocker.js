@@ -4,11 +4,11 @@ let handler = async(m, { conn, args, command, isOwner }) => {
 	let users = global.DATABASE._data.users
 if(command == 'block') {
 	conn.blockUser(user, "add")
-	users[who].banned = true
+	users[user].banned = true
 	m.reply('Berhasil Blockir ' + '@' + user.split("@")[0])
 	}else if(command == 'unblock') {
 		conn.blockUser(user, "remove")
-		users[who].banned = false
+		users[user].banned = false
         m.reply('Berhasil UnBlockir ' + '@' + user.split("@")[0])
 }
 conn.on('CB:Blocklist', json => {
