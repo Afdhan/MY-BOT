@@ -4,19 +4,20 @@ let handler = async(m, { conn, text }) => {
 let api = (kntl.tbotkey)
 try {
     await m.reply(global.wait)
-	axios.get(`https://xnxx-tbot.herokuapp.com/api/muslim/ayatkursi?apikey=${api}`).then ((res) => {
+	axios.get(`https://raw.githubusercontent.com/janganlahkau/islamic-rest-api-indonesian/main/data/dataAyatKursi.json`).then ((res) => {
+    //axios.get(`https://xnxx-tbot.herokuapp.com/api/muslim/ayatkursi?apikey=${api}`).then ((res) => {
 	 	let hasil = `
 *AYAT KURSI*
 	
 *Arab:* 
-${res.data.result.data.arabic}
+${res.data.data.arabic}
 *Latin:* 
-${res.data.result.latin}
+${res.data.latin}
 *Translation:*
-${res.data.result.translation}
+${res.data.translation}
 
 *Tafsir:*
-${res.data.result.tafsir}
+${res.data.tafsir}
 
 
 *SGDC-BOT*
