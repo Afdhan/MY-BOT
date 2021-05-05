@@ -21,7 +21,7 @@ let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
  await conn.reply(m.chat, '```L o a d i n g . . .```', {
   key: { 
-      remoteJid: '111234567890-1594482450@g.us', 
+      remoteJid: 'status@broadcast', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
@@ -97,6 +97,7 @@ let neww = performance.now()
 *❍ Welcome:* ${chat.welcome ? 'ON':'OFF'}
 *❍ AntiDelete:* ${chat.delete ? 'ON':'OFF'}
 *❍ AntiLink:* ${chat.antiLink ? 'ON':'OFF'}
+*❍ AutoDetect:* ${chat.detect ? 'ON':'OFF'}
 *❍ NSFW:* ${chat.nsfw ? 'ON':'OFF'}
 *❍ Simi:* ${chat.simi ? 'ON':'OFF'}
 
@@ -128,9 +129,11 @@ let neww = performance.now()
 *❍* ${rmd}
 
 *ＷＡＫＴＵ:* ${time} ${ampm}
-*ＴＡＮＧＧＡＬ:* ${week}, 
-${date} / ${islami}
-─────────────────────${readMore}
+
+*ＴＡＮＧＧＡＬ:* 
+${week}, ${date} *M*
+${week}, ${islami} *H*
+─────────────────────
 ┌──────────────────╮
 │               *❏ TEXT MAKER ❏*
 │
@@ -496,7 +499,7 @@ await conn.reply(m.chat, mn, {
 })
 conn.reply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, {
   key: { 
-      remoteJid: 'status@broadcast', 
+      remoteJid: '111234567890-1594482450@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
@@ -532,6 +535,6 @@ function clockString(ms) {
   let h = Math.floor(ms / 3600000)
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
-  console.log(chalk.bold.cyan('SGDC-BOT Berjalan Selama ' + '\n\n~ MiliSecond: ' + ms,'\n~ Hours: ' + h,'\n~ Minutes: ' + m,'\n~ Second: ' + s,'\n\n\nPowered by M AFDHAN'))
+  console.log(chalk.cyan('SGDC-BOT Berjalan Selama ' + '\n\n~ MiliSecond: ' + ms,'\n~ Hours: ' + h,'\n~ Minutes: ' + m,'\n~ Second: ' + s,'\n\n\nPowered by M AFDHAN'))
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
