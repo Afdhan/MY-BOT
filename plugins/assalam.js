@@ -10,7 +10,7 @@ handler.before = m => {
   let chat = global.DATABASE.data.chats[m.chat]
   let isASalam = assalam.exec(m.text)
   //let user = m.sender
-  let vnn ='src/SALAM.m4a'
+  let vnn ='src/SALAM.opus'
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
   if (isASalam) conn.sendFile(m.chat, vnn, 'Assaalamualaikum.opus', null, m, true)
   return true
