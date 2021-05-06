@@ -12,7 +12,7 @@ let handler = async(m, { conn, text }) => {
       	ppk += `─────────────────\n• *Title:* ${tytyd[i].title}\n• *AppId:* ${tytyd[i].appid}\n• *Developer:* ${tytyd[i].developer}\n• *Link:* ${tytyd[i].url}\n`
                 }
         ppk += '\n\n*SGDC-BOT*'
-                 conn.reply(m.chat, sfile, m)
+                 conn.reply(m.chat, ppk, m)
 	})
     } catch (e) {
   	m.reply('```Error```')
