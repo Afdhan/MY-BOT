@@ -12,7 +12,7 @@ handler.before = m => {
   //let user = m.sender
   let vnn ='src/SALAM.m4a'
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
-  if (isASalam) conn.sendFile(m.chat, vnn, 'Assaalamualaikum.m4a','salam', m)
+  if (isASalam) conn.sendFile(m.chat, vnn, 'Assaalamualaikum.opus', null, m, true)
   return true
 }
 
