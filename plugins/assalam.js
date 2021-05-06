@@ -5,9 +5,9 @@ let { spawn } = require('child_process')
 
 let handler = async (m, { conn, args }) => {
 //let user = m.sender
-  let vnn ='src/SALAM.opus'
+  let vnn ='src/SALAM.m4a'
   let toPTT = convert.toPTT
-  let vn = await toPTT(vnn)
+  let vn = await toPTT(vnn, m4a)
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
   conn.sendFile(m.chat, vn, 'Assaalamualaikum.opus', null, m, true)
 }
