@@ -1,6 +1,7 @@
 let util = require('util')
 let path = require('path')
 let fs = require("fs")
+let Mimetype = require("@adiwajshing/baileys")
 let convert = require("../lib/converter");
 let { spawn } = require('child_process')
 
@@ -10,7 +11,7 @@ let handler = async (m, { conn, args }) => {
   let toPTT = convert.toPTT
   let vn = await toPTT(vnn, vnn)*/
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
-  conn.sendFile(m.chat, './src/SALAM.opus', 'Assaalamualaikum.opus', null, m, { Audio: false })
+  conn.sendFile(m.chat, './src/SALAM.opus', Mimetype.ogg, null, m, { Audio: false })
 }
 handler.command = new RegExp
 handler.customPrefix = /^(p(unten|ermisi)?|samlekom|hai|halo|hallo)$/i
