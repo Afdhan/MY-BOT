@@ -1,5 +1,6 @@
 let util = require('util')
 let path = require('path')
+let { toPTT } = require("../lib/converter");
 let { spawn } = require('child_process')
 
 let handler = async (m, { conn, args }) => m
@@ -11,6 +12,7 @@ handler.before = m => {
   let isASalam = assalam.exec(m.text)
   //let user = m.sender
   let vnn ='src/SALAM.opus'
+  let vn = await toPTT(vnn, true)
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
   if (isASalam) conn.sendFile(m.chat, vnn, 'Assaalamualaikum.opus', null, m, true)
   return true
