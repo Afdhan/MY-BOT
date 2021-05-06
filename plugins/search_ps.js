@@ -2,7 +2,7 @@ let axios = require("axios");
 let kntl = require("../src/kntl.json")
 let handler = async(m, { conn, text }) => {
       if (!text) return conn.reply(m.chat, '_Mau Cari Apa Tod?_', m)
-      let api = (kntl.zeks)
+      let api = (kntl.zekskey)
       await m.reply(global.wait)
   try {
   	axios.get(`https://api.zeks.xyz/api/sgplay?apikey=${api}&q=${text}`).then ((res) => {
