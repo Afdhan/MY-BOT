@@ -6,11 +6,11 @@ let handler = async(m, { conn, args, command, isOwner }) => {
 if(command == 'block') {
 	conn.blockUser(user, "add")
 	users[user].banned = true
-	m.reply('Berhasil Blockir ' + '@' + user.split("@")[0], z)
+        conn.reply(m.chat, 'Berhasil Blockir ' + '@' + user.split("@")[0], m, z)
 	}else if(command == 'unblock') {
 		conn.blockUser(user, "remove")
 		users[user].banned = false
-        m.reply('Berhasil UnBlockir ' + '@' + user.split("@")[0], z)
+        conn.reply(m.chat, 'Berhasil UnBlockir ' + '@' + user.split("@")[0], m, z)
 }
 conn.on('CB:Blocklist', json => {
     if (global.block.length > 2) return
