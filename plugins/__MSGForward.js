@@ -1,20 +1,22 @@
-
-let handler = async(m, { conn, text }) => {
-let txt = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : text ? text : m.text
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted : m.fromMe ? conn.user.jid : m.quoted
-let memek = who.split("@s.whatsapp.net")[0]
-
-//const messages = await conn.loadConversation ('1234@s.whatsapp.net', 1)
-//const message = messages[0] // get the last message from this conversation
-
-await conn.forwardMessage(memek + '@s.whatsapp.net', txt) // WA forward the message!
-
+let chalk = require("chalk");
+let handler = async (m, { conn, command, args }) => {
+  try{
+	if (command == 'pin') {
+	await conn.modifyChat(m.chat, 'pin')
+	console.log(chalk.cyan('PIN PESAN CHAT')
+	m.reply('_Berhasil Pin Chat_')
+	}else if(command == 'unpin') {
+	await conn.modifyChat(m.chat, 'unpin')
+	console.log(chalk.cyan('UNPIN PESAN CHAT')
+    m.reply('_Berhasil Unpin Chat_')
+    }
+ } catch (e) {
+ 	m.reply("```ERROR```")
+    console.log(chalk.red(e))
+ }
 }
-handler.command = /^forward$/i
-handler.rowner = true
 
-handler.fail = null
+handler.command = /^(banchat|ban|mute)$/i
+handler.owner = true
 
 module.exports = handler
-
-
