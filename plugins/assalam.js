@@ -10,7 +10,7 @@ let handler = async (m, { conn, args }) => {
   let toPTT = convert.toPTT
   let vn = await toPTT(vnn, vnn)*/
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
-  conn.sendFile(m.chat, { url: './src/SALAM.opus' }, 'Assaalamualaikum.opus', null, m, true)
+  conn.sendFile(m.chat, './src/SALAM.opus', 'Assaalamualaikum.opus', null, m, true)
 }
 handler.command = new RegExp
 handler.customPrefix = /^(p(unten|ermisi)?|samlekom|hai|halo|hallo)$/i
