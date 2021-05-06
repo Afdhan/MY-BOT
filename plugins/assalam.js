@@ -7,7 +7,7 @@ let handler = async (m, { conn, args }) => {
 //let user = m.sender
   let vnn ='src/SALAM.m4a'
   let toPTT = convert.toPTT
-  let vn = await toPTT(vnn vnn)
+  let vn = await toPTT(vnn, vnn)
   //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
   conn.sendFile(m.chat, vn, 'Assaalamualaikum.opus', null, m, true)
 }
