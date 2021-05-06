@@ -8,11 +8,6 @@ let handler = async (m, { conn, args, text }) => {
 	if (args[0] == m.mentionedJid && args.length == 1) return m.reply ('Masukkan Teks')
 	if (args[0] != m.mentionedJid && args.length == 0) return m.reply ('Masukkan Teks')
 	if (args.length > 20) return m.reply ('Teks Terlalu Panjang! Maksimal 20 Kata')
-	
-	let handler = async (m, { conn, args, text }) => {
-	let who = m.sender
-	if (args.length == 0) return m.reply ('Masukkan Teks')
-	if (args.length > 20) return m.reply ('Teks Terlalu Panjang! Maksimal 20 Kata')
 	let hsl
         if (args[0] != m.mentionedJid && args.length == 1) {
 	            hsl = 'https://wa.me/' + who.split`@`[0] + '&send?text=' + args[0]
