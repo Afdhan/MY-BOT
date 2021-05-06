@@ -393,6 +393,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}kusonime
 ├≽ ${_p}teksbalik
 ├≽ ${_p}tts
+├≽ ${_p}msgsend
 ├≽ ${_p}readmore
 ├≽ ${_p}jodoh
 ├≽ ${_p}maknajadian
@@ -443,6 +444,8 @@ ${week}, ${islami} *H*
 ├≽ ${_p}bcgc
 ├≽ ${_p}bcbot
 ├≽ ${_p}buatgc
+├≽ ${_p}pin
+├≽ ${_p}unpin
 ├≽ ${_p}setbye
 ├≽ ${_p}setwelcome
 ├≽ ${_p}opromote
