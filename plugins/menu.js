@@ -19,8 +19,8 @@ if(command == 'setreply'){
   } else {
 let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
- await conn.reply(m.chat, '```L o a d i n g . . .```', {
-  key: { 
+ await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '6282252655313-1617529589@g.us', '*LOADED*')
+  /*key: { 
       remoteJid: 'status@broadcast', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
@@ -32,7 +32,7 @@ let old = performance.now()
         "jpegThumbnail": fs.readFileSync(gmbr)
        }
     }
-})
+})*/
 let neww = performance.now()
  try {
     //let gmbr = conn.getProfilePicture(m.sender)
