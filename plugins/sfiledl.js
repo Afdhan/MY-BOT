@@ -4,7 +4,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
   let api = (kntl.xteam)
 //m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
  if(args.length == 0) return m.reply(`Cara Penggunaan Fitur Sfile Downloader, ${usedPrefix}sfiledl (ext) (url)\nContoh ${usedPrefix}sfiledl hc https://sfile.mobi/taikucing`)
- if(!args[0]) return m.reply('_Masukkan Extensi File!_')      
+ if(args[0].startsWith('https://')) return m.reply('_Masukkan Extensi File!_')      
  if(!args[1]) return m.reply('_Masukkan Link Sfile!_')
    
   try {
@@ -25,9 +25,9 @@ _Download Sendiri, Jangan Manja :v_
 	  m.reply('_File Anda Terlalu Besar! Silahkan Download Sendiri Melalui Link Yang Dikirim SGDC-BOT!_')
 	  } else {*/
    let ext
-   if(args[0] == 'hc') ext = 'hc'
-   else if(args[0] == 'ehi' || args[0] == 'hi') ext = 'ehi'
-   else if(args[0] == 'npv2') ext = 'npv2'
+   if(args[0] == 'hc') ext = '.hc'
+   else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
+   else if(args[0] == 'npv2') ext = '.npv2'
    else throw 'Ekstensi File Tidak Didukung'
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
