@@ -8,7 +8,7 @@ let handler = async(m, { conn, args, text }) => {
     }else{
       txt = args[0]
     }*/
-    let tytyd = m.mentionedJi[0]
+    let tytyd = m.mentionedJid[0]
     let txt = tytyd.split("@s.whatsapp.net")[0]
     if(!txt) return m.reply('_Tag Orang Yang Akan Dispam Kode OTP OLX_')
     try {
