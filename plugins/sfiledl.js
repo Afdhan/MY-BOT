@@ -7,11 +7,11 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
  if(!args[0] || args[0].startsWith('https://')) return m.reply('_Masukkan Extensi File!_')
  //if(args[0] != 'hc' || args[0] != 'ehi' ||  args[0] != 'hi' || args[0] != 'npv2') return m.reply('```Ekstensi File Tidak Didukung!```')
  if(!(args[1] || args[1].startsWith('https://sfile.mobi/'))) return m.reply('_Masukkan Link Sfile!_')
-   
+   await m.reply(global.wait)
   try {
-    await m.reply(global.wait)
-    axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${args[1]}&APIKEY=${api}`).then ((res) => {
-  conn.reply(m.chat, `
+    
+  axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${args[1]}&APIKEY=${api}`).then ((res) => {
+  await conn.reply(m.chat, `
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.result.title}
@@ -22,18 +22,15 @@ _Download Sendiri, Jangan Manja :v_
 
 *SGDC-BOT*
 `.trim(), m)
- /* if (res.data.size > '999.99 KB') {
-	  m.reply('_File Anda Terlalu Besar! Silahkan Download Sendiri Melalui Link Yang Dikirim SGDC-BOT!_')
-	  } else {*/
    let ext
    if(args[0] == 'hc') ext = '.hc'
    else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
    else if(args[0] == 'npv2') ext = '.npv2'
-   else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung')
+   else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung, Silahkan Download Melalui Link!')
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
    if(ext) conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
-		  //}
+		  
   })
  } catch (e) {
    m.reply('```Error```')
