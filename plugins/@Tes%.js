@@ -2,7 +2,7 @@ let axios = require("axios");
 let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, args, text }) => {
     //if(args[0].startsWith("08")) return m.reply("_Gunakan Kode Negara
-    if(!text) return m.reply('_Masukan Nomor Telepon Yang Akan Dispam Kode OTP PizzaHut')
+    if(!text) return m.reply('_Masukan Nomor Telepon Yang Akan Dispam Kode OTP OLX')
     try {
     await m.reply(global.wait)
     let api = (kntl.xteam)
