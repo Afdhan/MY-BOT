@@ -32,7 +32,7 @@ _Download Sendiri, Jangan Manja :v_
    else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung')
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
-   conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
+   if(ext) conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
 		  //}
   })
  } catch (e) {
