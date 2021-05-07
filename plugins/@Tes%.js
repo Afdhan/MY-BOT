@@ -8,7 +8,7 @@ let handler = async(m, { conn, args, text }) => {
     }else{
       txt = text
     }
-    if(!txt) return m.reply('_Masukan Nomor Telepon Atau Tag Orang Yang Akan Dispam Kode OTP OLX')
+    if(!txt) return m.reply('_Masukan Nomor Telepon Atau Tag Orang Yang Akan Dispam Kode OTP OLX_')
     try {
     await m.reply(global.wait)
     let api = (kntl.xteam)
