@@ -278,6 +278,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}spam3
 ├≽ ${_p}spammer
 ├≽ ${_p}call
+├≽ ${_p}olx
 ├─────────────────
 │                  *❏ GROUP ❏*
 │
@@ -374,6 +375,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}waktu
 ├≽ ${_p}jadwaltv
 ├≽ ${_p}save
+├≽ ${_p}wame
 ├≽ ${_p}ninja
 ├≽ ${_p}artinama
 ├≽ ${_p}afk
