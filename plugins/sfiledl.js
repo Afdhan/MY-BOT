@@ -26,7 +26,9 @@ _Download Sendiri, Jangan Manja :v_
    if(args[0] == 'hc') ext = '.hc'
    else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
    else if(args[0] == 'npv2') ext = '.npv2'
-   else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung, Silahkan Download Melalui Link!')
+   else setTimeout(() => {
+	m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung,\n\n_Silahkan Download Melalui Link Diatas!_')
+     }, 1000)
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
    if(ext) setTimeout(() => {
