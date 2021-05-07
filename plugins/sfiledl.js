@@ -10,7 +10,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
   try {
     await m.reply(global.wait)
     axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${args[1]}&APIKEY=${api}`).then ((res) => {
- await m.reply(`
+ await conn.reply(m.chat, `
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.result.title}
@@ -20,7 +20,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
 _Download Sendiri, Jangan Manja :v_
 
 *SGDC-BOT*
-`.trim())
+`.trim(), m)
  /* if (res.data.size > '999.99 KB') {
 	  m.reply('_File Anda Terlalu Besar! Silahkan Download Sendiri Melalui Link Yang Dikirim SGDC-BOT!_')
 	  } else {*/
