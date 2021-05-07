@@ -11,7 +11,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
   try {
     
   axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${args[1]}&APIKEY=${api}`).then ((res) => {
-  await conn.reply(m.chat, `
+  conn.reply(m.chat, `
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.result.title}
@@ -29,9 +29,10 @@ _Download Sendiri, Jangan Manja :v_
    else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung, Silahkan Download Melalui Link!')
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
-   if(ext) conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
-		  
-  })
+   if(ext) setTimeout(() => {
+	   conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
+	}, 1000)
+   })
  } catch (e) {
    m.reply('```Error```')
   }
