@@ -26,6 +26,11 @@ _Download Sendiri, Jangan Manja :v_
    if(args[0] == 'hc') ext = '.hc'
    else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
    else if(args[0] == 'npv2') ext = '.npv2'
+   else if(args[0] == 'ktr') ext = '.ktr'
+   else if(args[0] == 'tls') ext = '.tls'
+   else if(args[0] == 'epro') ext = '.epro'
+   else if(args[0] == 'pdf') ext = '.pdf'
+   else if(args[0] == 'zip') ext = '.zip'
    else setTimeout(() => {
 	m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung,\n\n_Silahkan Download Melalui Link Diatas!_')
      }, 5000)
