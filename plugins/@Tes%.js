@@ -12,7 +12,7 @@ let handler = async(m, { conn, args, text }) => {
 	axios.get(`https://api.xteam.xyz/spammer/olx?no=${text}&APIKEY=${api}`)
 	axios.get(`https://api.xteam.xyz/spammer/olx?no=${text}&APIKEY=${api}`)
 	.then ((res) => {
-	let hasil = '```SUCCESS```\n\n*SGDC-BOT*'
+	let hasil = '```SUCCESS SPAM OLX OTP CODE```\n\n*SGDC-BOT*'
         conn.reply(m.chat, hasil, m)
      })
    }catch(e){
