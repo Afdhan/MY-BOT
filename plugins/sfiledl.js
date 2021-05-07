@@ -10,7 +10,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
   try {
     await m.reply(global.wait)
     axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${args[1]}&APIKEY=${api}`).then ((res) => {
- await conn.reply(m.chat, `
+  conn.reply(m.chat, `
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.result.title}
