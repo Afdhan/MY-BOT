@@ -29,7 +29,7 @@ _Download Sendiri, Jangan Manja :v_
    if(args[0] == 'hc') ext = '.hc'
    else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
    else if(args[0] == 'npv2') ext = '.npv2'
-   else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung')
+   else throw 'File Tidak Dikirim! Ekstensi File Tidak Didukung'
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
    conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
