@@ -8,8 +8,9 @@ let handler = async(m, { conn, args, text }) => {
     }else{
       txt = args[0]
     }*/
-    let txt = m.mentionedJi[0].split("@s.whatsapp.net")[0]
-    if(!txt) return m.reply('_Masukan Nomor Telepon Atau Tag Orang Yang Akan Dispam Kode OTP OLX_')
+    let tytyd = m.mentionedJi[0]
+    let txt = tytyd.split("@s.whatsapp.net")[0]
+    if(!txt) return m.reply('_Tag Orang Yang Akan Dispam Kode OTP OLX_')
     try {
     await m.reply(global.wait)
     let api = (kntl.xteam)
