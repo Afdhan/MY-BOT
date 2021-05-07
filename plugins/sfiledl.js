@@ -1,10 +1,12 @@
 let axios = require("axios");
+let kntl = require("../src/kntl.json")
 let handler = async(m, { conn, text }) => {
+  let api = (kntl.xteam)
 //m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
   try {
     if (!text) return conn.reply(m.chat, 'Masukkan Link!', m)
     await m.reply(global.wait)
-    axios.get(`https://fzn-gaz.herokuapp.com/api/sfiledl?url=${text}`).then ((res) => {
+    axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${text}&APIKEY=${api}`).then ((res) => {
  m.reply(`
 *KLIK LINK FOR DOWNLOAD*
 
