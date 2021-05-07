@@ -6,7 +6,7 @@ let handler = async(m, { conn, args, usedPrefix, text }) => {
  if(args.length == 0) return m.reply(`Cara Penggunaan Fitur Sfile Downloader, *${usedPrefix}sfiledl (ext) (url)*\n\nContoh: *${usedPrefix}sfiledl hc https://sfile.mobi/taikucing*`)
  if(!args[0] || args[0].startsWith('https://')) return m.reply('_Masukkan Extensi File!_')
  //if(args[0] != 'hc' || args[0] != 'ehi' ||  args[0] != 'hi' || args[0] != 'npv2') return m.reply('```Ekstensi File Tidak Didukung!```')
- if(!(args[1] || args[1].startsWith('https://sfile.mobi/'))) return m.reply('_Masukkan Link Sfile!_')
+ if(!args[1] || !args[1].startsWith('https://sfile.mobi/')) return m.reply('_Masukkan Link Sfile!_')
    await m.reply(global.wait)
   try {
     
