@@ -3,8 +3,9 @@ let kntl = require("../src/kntl.json")
 let handler = async(m, { conn, args, usedPrefix, text }) => {
   let api = (kntl.xteam)
 //m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
- if(args.length == 0) return m.reply(`Cara Penggunaan Fitur Sfile Downloader, ${usedPrefix}sfiledl (ext) (url)\nContoh ${usedPrefix}sfiledl hc https://sfile.mobi/taikucing`)
- if(args[0].startsWith('https://')) return m.reply('_Masukkan Extensi File!_')      
+ if(args.length == 0) return m.reply(`Cara Penggunaan Fitur Sfile Downloader, *${usedPrefix}sfiledl (ext) (url)*\n\nContoh: *${usedPrefix}sfiledl hc https://sfile.mobi/taikucing*`)
+ if(args[0].startsWith('https://')) return m.reply('_Masukkan Extensi File!_')
+ if(args[0] != 'hc' || 'ehi' ||  'hi' || 'npv2') return m.reply('```Ekstensi File Tidak Didukung!```')
  if(!args[1]) return m.reply('_Masukkan Link Sfile!_')
    
   try {
@@ -28,7 +29,7 @@ _Download Sendiri, Jangan Manja :v_
    if(args[0] == 'hc') ext = '.hc'
    else if(args[0] == 'ehi' || args[0] == 'hi') ext = '.ehi'
    else if(args[0] == 'npv2') ext = '.npv2'
-   else throw 'Ekstensi File Tidak Didukung'
+   else m.reply('File Tidak Dikirim! Ekstensi File Tidak Didukung')
    let bct = res.data.result.title
    let ajg = res.data.result.downloadURL
    conn.sendFile(m.chat, ajg, 'SGDC-BOT || ' + bct + ext, 'ini', m)
