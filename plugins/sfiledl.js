@@ -7,7 +7,7 @@ let handler = async(m, { conn, text }) => {
     if (!text) return conn.reply(m.chat, 'Masukkan Link!', m)
     await m.reply(global.wait)
     axios.get(`https://api.xteam.xyz/dl/sfiledl?url=${text}&APIKEY=${api}`).then ((res) => {
- m.reply(`
+ await m.reply(`
 *KLIK LINK FOR DOWNLOAD*
 
 *Title:* ${res.data.result.title}
