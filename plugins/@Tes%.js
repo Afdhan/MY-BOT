@@ -19,7 +19,8 @@ let handler = async(m, { conn, args, text }) => {
 	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
 	.then ((res) => {
 	let hasil = '```SUCCESS SPAM OLX OTP CODE```\n\n*SGDC-BOT*'
-        conn.reply(m.chat, hasil, m)
+        if(res.data.result) conn.reply(m.chat, hasil, m)
+        else throw 'Error'
      })
    }catch(e){
    m.reply('```Error```')
