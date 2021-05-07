@@ -13,11 +13,11 @@ let handler = async(m, { conn, args, text }) => {
     try {
     await m.reply(global.wait)
     let api = (kntl.xteam)
-	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
-	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
-	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
-	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
-	axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
+        await axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
+	await axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
+	await axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
+	await axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
+	await axios.get(`https://api.xteam.xyz/spammer/olx?no=${txt}&APIKEY=${api}`)
 	.then ((res) => {
 	let hasil = '```SUCCESS SPAM OLX OTP CODE```\n\n*SGDC-BOT*'
         if(res.data.result) conn.reply(m.chat, hasil, m)
