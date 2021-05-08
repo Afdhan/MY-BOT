@@ -35,7 +35,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
             // let ress = await imageToBase64(res.data.result)
            // let buf = Buffer.from(ress, 'base64')
            // let str = `*SGDC-BOT*`
-           await conn.sendFile(m.chat, img, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+           //await conn.sendFile(m.chat, img, 'SGDC-BOT.png', '*SGDC-BOT*', m)
            conn.sendMessage(m.chat, stiker, MessageType.sticker, {          
       quoted: m
      })
