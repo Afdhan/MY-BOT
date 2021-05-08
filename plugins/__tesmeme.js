@@ -21,11 +21,11 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
     const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
    try {
-    var imgBB = require('imgbb-uploader')
+    /*var imgBB = require('imgbb-uploader')
        if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
         ngntd = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
         media = await conn.downloadAndSaveMediaMessage(ngntd)
-        anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
+        anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)*/
          let txt1 = 'M AFDHAN'
          let txt2 = 'SGDC-BOT'
          //anu.display_url
@@ -38,9 +38,9 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     	 conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
   })
-        } else {
+        /} else {
         m.reply('_Reply Fotonya!_')
-        }
+        }*/
     } catch (e) {
   	m.reply('```Error```')
     console.log(e)
