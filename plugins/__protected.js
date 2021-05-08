@@ -32,6 +32,7 @@ if (!s2) return m.reply("Masukkan Comment")
     m.reply('```Error Mengonversi Sticker```')
    // throw e
   }
+ }
 }
 
 handler.command = /^(ytc(omm?ent?)?)$/i
