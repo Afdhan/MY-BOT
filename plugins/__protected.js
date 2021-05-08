@@ -10,9 +10,11 @@ let handler = async (m, { conn, text, args, participants }) => {
 	let [s1, s2] = text.split`|`
     if (!s1) return m.reply("Masukkan Username")
     if (!s2) return m.reply("Masukkan Comment")
-       let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-       let pp = await conn.getProfilePicture(who)
-       let link = await uploadImage(pp)
+       let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'No media found'
+  let media = await q.download()
+       let link = await uploadImage(media)
        let ytc = 'https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + link + '&light=true'
         conn.sendMessage(m.chat, ytc, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" } )
  try {
