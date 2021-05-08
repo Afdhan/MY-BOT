@@ -12,9 +12,9 @@ let kntl = require("../src/kntl.json")
 let axios = require("axios");
 let handler = async(m, { conn, text, args, bot, command }) => {
     let api = (kntl.lolkey)
-   // let [txt1, txt2] = text.split("|")
-   // if(!txt1) return m.reply('_Masukkan Teks Satu!_')
-    //if(!txt2) return m.reply('_Masukkan Teks Dua!_')
+    let [txt1, txt2] = text.split("|")
+    if(!txt1) return m.reply('_Masukkan Teks Satu!_')
+    if(!txt2) return m.reply('_Masukkan Teks Dua!_')
     const type = Object.keys(m.message)[0]
     const content = JSON.stringify(m.message)
     const isMedia = (type === 'imageMessage' || type === 'videoMessage')
@@ -27,8 +27,8 @@ let handler = async(m, { conn, text, args, bot, command }) => {
         ngntd = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
         media = await conn.downloadAndSaveMediaMessage(ngntd)
         anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
-         let txt1 = 'M AFDHAN'
-         let txt2 = 'SGDC-BOT'
+        // let txt1 = 'M AFDHAN'
+         //let txt2 = 'SGDC-BOT'
          //anu.display_url
          let url = 'https://static.wikia.nocookie.net/dogelore/images/9/97/Doge.jpg/revision/latest/top-crop/width/360/height/450?cb=20190205113053'
         let link = 'https://api.lolhuman.xyz/api/memegen?apikey=' + api + '&texttop=' + txt1 + '&textbottom=' + txt2 + '&img=' + anu.display_url;
