@@ -11,16 +11,17 @@ let handler = async (m, { conn, text }) => {
   let caption = `
 *[   GROUP LINK INSPECTOR   ]*
 
-*> Nama Grup:* ${res.subject}
-*> ID:* ${res.id}
-*> Dibuat Pada:* ${formatDate(res.creation * 1000)}
-*> Nama Diubah Oleh:* @${res.subjectOwner.split`@`[0]} *Pada* ${formatDate(res.subjectTime * 1000)}
-*> Deskripsi Dibuat Oleh:* @${res.descOwner.split`@`[0]} *Pada* ${formatDate(res.descTime * 1000)}
-*> Deskripsi:*
-${res.desc}
+*Judul:* ${res.subject}
+*Dibuat Pada* ${formatDate(res.creation * 1000)}
+*Judul Diubah Oleh:* @${res.subjectOwner.split`@`[0]} *Pada* ${formatDate(res.subjectTime * 1000)}${res.descOwner ? `
+*Deskripsi diubah Oleh* @${res.descOwner.split`@`[0]} *Pada* ${formatDate(res.descTime * 1000)}` : ''}
+*Jumlah Member:* ${res.size}
+*Member Yang Diketahui Join*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Tidak Ada!'}
+${res.desc ? `*Deskripsi:*
+${res.desc}` : '*Tidak Ada Deskripsi!*'}
 
-
-*SGDC-BOT*
+*JSON Version*
+\`\`\`${JSON.stringify(res, null, 1)}\`\`\`
 `.trim()
   m.reply(caption, false, {
     contextInfo: {
