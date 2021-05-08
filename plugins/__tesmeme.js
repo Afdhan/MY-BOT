@@ -38,7 +38,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     	 conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
   })
-        /} else {
+        /*} else {
         m.reply('_Reply Fotonya!_')
         }*/
     } catch (e) {
