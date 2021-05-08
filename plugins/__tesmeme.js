@@ -12,9 +12,9 @@ let kntl = require("../src/kntl.json")
 let axios = require("axios");
 let handler = async(m, { conn, text, args, bot, command }) => {
     let api = (kntl.lolkey)
-    let [txt1, txt2] = text.split("|")
+    /*let [txt1, txt2] = text.split("|")
     if(!txt1) return m.reply('_Masukkan Teks Satu!_')
-    if(!txt2) return m.reply('_Masukkan Teks Dua!_')
+    if(!txt2) return m.reply('_Masukkan Teks Dua!_')*/
     const type = Object.keys(m.message)[0]
     const content = JSON.stringify(m.message)
     const isMedia = (type === 'imageMessage' || type === 'videoMessage')
