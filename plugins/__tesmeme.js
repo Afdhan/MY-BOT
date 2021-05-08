@@ -29,12 +29,14 @@ let handler = async(m, { conn, text, args, bot, command }) => {
         anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
            // let url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaVPHWMTO7jGoZP0QHiqlbODT9Gjxo1HnSug&usqp=CAU'
             let res = await axios.get(`https://api.lolhuman.xyz/api/memegen?apikey=${api}&texttop=${txt1}&textbottom=${txt2}&img=${anu.display_url}`)
-    	    let buff = await sticker(res, false, global.packname, global.author)
+    	    let stiker = await sticker(res, false, global.packname, global.author)
             // let ress = await imageToBase64(res.data.result)
            // let buf = Buffer.from(ress, 'base64')
             let str = `*SGDC-BOT*`
-          //conn.sendFile(m.chat, buff, 'Nyenye_SGDC-BOT.jpg', str, m)
-       conn.sendMessage(m.chat, { url: buff }, MessageType.sticker)
+            await conn.sendFile(m.chat, res, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+           conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+      quoted: m
+     })
     }
     } catch (e) {
   	m.reply('```Error```')
