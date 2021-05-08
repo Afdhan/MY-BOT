@@ -11,8 +11,8 @@ if (!s1) return m.reply("Masukkan Username")
 if (!s2) return m.reply("Masukkan Comment")
 
    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-   let media = await conn.getProfilePicture(who)
-   let anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
+    media = await conn.getProfilePicture(who)
+    anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
    let pict = `${anu.display_url}`
    let ytc = 'https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + pict + '&light=true'
         conn.sendMessage(m.chat, ytc, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" } )
