@@ -35,10 +35,10 @@ let handler = async(m, { conn, text, args, bot, command }) => {
             // let ress = await imageToBase64(res.data.result)
            // let buf = Buffer.from(ress, 'base64')
            // let str = `*SGDC-BOT*`
-            conn.sendFile(m.chat, img, 'SGDC-BOT.png', '*SGDC-BOT*', m)
-          /* conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+           // conn.sendFile(m.chat, img, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+           conn.sendMessage(m.chat, img, MessageType.image, { mimetype: "image/jpeg", caption: "*SGDC-BOT*" }, {
       quoted: m
-     })*/
+     })
    // }
     } catch (e) {
   	m.reply('```Error```')
