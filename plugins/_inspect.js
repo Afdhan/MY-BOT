@@ -21,8 +21,7 @@ let handler = async (m, { conn, text }) => {
 ${res.desc ? `*Deskripsi:*
 ${res.desc}` : '*Tidak Ada Deskripsi!*'}
 
-*JSON Version*
-\`\`\`${JSON.stringify(res, null, 1)}\`\`\`
+*SGDC-BOT*
 `.trim()
   m.reply(caption, false, {
     contextInfo: {
