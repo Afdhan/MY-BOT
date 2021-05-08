@@ -21,7 +21,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
     const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
     const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
    try {
-    /var imgBB = require('imgbb-uploader')
+    var imgBB = require('imgbb-uploader')
        if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
         await m.reply(global.wait)
         ngntd = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
