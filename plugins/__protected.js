@@ -2,6 +2,7 @@ let imgBB = require("imgbb-uploader");
 let { sticker } = require('../lib/sticker');
 let fetch = require('node-fetch');
 let path = require('path');
+let axios = require("axios");
 let util = require('util');
 let fs = require('fs');
 let { MessageType } = require('@adiwajshing/baileys');
@@ -17,7 +18,7 @@ if (!s2) return m.reply("Masukkan Comment")
 
    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
    let media = await conn.getProfilePicture(who)
-   let res = await fetch(media)
+   let res = await axios.get(media)
    let image = res.buffer()
    let anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", image)
    let pict = `${anu.display_url}`
