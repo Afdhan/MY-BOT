@@ -26,9 +26,11 @@ let handler = async(m, { conn, text, args, bot, command }) => {
         ngntd = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
         media = await conn.downloadAndSaveMediaMessage(ngntd)
         anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
+        let link = 'https://api.lolhuman.xyz/api/memegen?apikey=' + api + '&texttop=' + txt1 + '&textbottom=' + txt2 + '&img=' + anu.display_url;
         let meme = await fetch('https://api.lolhuman.xyz/api/memegen?apikey=' + api + '&texttop=' + txt1 + '&textbottom=' + txt2 + '&img=' + encodeURIComponent(anu.display_url));
         let img = await meme.buffer()
         let stiker = await sticker(img, false, global.packname, global.author)
+        conn.sendFile(m.chat, link, 'SGDC-BOT.jpg', "*SGDC-BOT*", m)
     	 conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
   })
