@@ -28,9 +28,9 @@ let handler = async(m, { conn, text, args, bot, command }) => {
         media = await conn.downloadAndSaveMediaMessage(ngntd)
         anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", media)
            */ let url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaVPHWMTO7jGoZP0QHiqlbODT9Gjxo1HnSug&usqp=CAU'
-            let img = 'https://api.lolhuman.xyz/api/memegen?apikey=' + api + '&texttop=' + txt1 + '&textbottom=' + txt2 + '&img=' + url 
+            let res = await fetch('https://api.lolhuman.xyz/api/memegen?apikey=' + api + '&texttop=' + txt1 + '&textbottom=' + txt2 + '&img=' + url) 
                 //anu.display_url
-           
+           let img = await res.buffer()
     	    //let stiker = await sticker(img, false, global.packname, global.author)
             // let ress = await imageToBase64(res.data.result)
            // let buf = Buffer.from(ress, 'base64')
