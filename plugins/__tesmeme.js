@@ -39,7 +39,7 @@ let handler = async(m, { conn, text, args, bot, command }) => {
            conn.sendMessage(m.chat, stiker, MessageType.sticker, {          
       quoted: m
      })
-   // }
+    }
     } catch (e) {
   	m.reply('```Error```')
     console.log(e)
