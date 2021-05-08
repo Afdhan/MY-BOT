@@ -19,7 +19,7 @@ if (!s2) return m.reply("Masukkan Comment")
    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
    let media = await conn.getProfilePicture(who)
    let res = await axios.get(media)
-   let image = res.buffer()
+   let image = res.data
    let anu = await imgBB("3ea1465ef91578a90ee81f7d41c59a1f", image)
    let pict = `${anu.display_url}`
    let ytc = 'https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + pict + '&light=true'
