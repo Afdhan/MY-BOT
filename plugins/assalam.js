@@ -6,12 +6,10 @@ let convert = require("../lib/converter");
 let { spawn } = require('child_process')
 
 let handler = async (m, { conn, args }) => {
-//let user = m.sender
-  /*let vnn ='src/SALAM.m4a'
-  let toPTT = convert.toPTT
-  let vn = await toPTT(vnn, vnn)*/
-  //m.reply('_Waalaikumsalam Kak @${user.split("@")[0]} :)_')
-  conn.sendFile(m.chat, './src/SALAM.opus', `vn.opus`, null, m, { Audio: false })
+conn.sendFile(m.chat, './src/SALAM.opus', 'SGDC-BOT.opus', null, m, true, {
+  type: 'audioMessage', // paksa tanpa convert di ffmpeg
+  ptt: true // true diatas ga work, sebab dipaksa tanpa convert ;v
+  })
 }
 handler.command = new RegExp
 handler.customPrefix = /^(p(unten|ermisi)?|samlekom|hai|halo|hallo)$/i
