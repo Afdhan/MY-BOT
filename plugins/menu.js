@@ -107,6 +107,7 @@ device_model
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
+HP: ${device}
 *ƗNFØ ȻĦȺŦ*
 *❍ Nama Grup:* ${ngc}
 *❍ Welcome:* ${chat.welcome ? 'ON':'OFF'}
