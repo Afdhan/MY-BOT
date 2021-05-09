@@ -4,10 +4,12 @@ let axios = require ('axios')
 let fs = require ('fs')
 let util = require('util')
 let path = require('path')
+let os = require("os")
 let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, text, command, isOwner, usedPrefix: _p }) => {
+                    
 if(command == 'setreply'){
         if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -35,10 +37,23 @@ let old = performance.now()
 })*/
 let neww = performance.now()
  try {
-    //let gmbr = conn.getProfilePicture(m.sender)
-    //let old = performance.now()
-    //await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*MEMUAT LIST MENU*')
-    //let neww = performance.now()
+let { 
+wa_version, 
+mcc, 
+mnc,
+os_version, 
+device_manufacturer, 
+device_model 
+} = conn.user.phone
+ let platfrom = os.platform()
+ let core = os.cpus().length
+ let ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB / ' + Math.round(require('os').totalmem / 1024 / 1024) + 'MB'
+ let wa_versi = wa_version
+ let _mcc = mcc
+ let _mnc = mnc
+ let versi_os = os_version
+ let device = device_manufacturer
+ let versi_hp = device_model
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let bname = package.name
     let vers = package.version
