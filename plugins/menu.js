@@ -37,6 +37,7 @@ let old = performance.now()
 })*/
 let neww = performance.now()
  try {
+let chalk = require("chalk");
 let { 
 wa_version, 
 mcc, 
@@ -54,6 +55,20 @@ device_model
  let versi_os = os_version
  let device = device_manufacturer
  let versi_hp = device_model
+   console.log(chalk.bold.red(`
+SGDC-BOT Service Running
+
+WhatsApp Version: ${wa_versi}
+Platform: ${platfrom}
+MCC: ${_mcc}
+MNC: ${_mnc}
+Core: ${core}
+Device: ${device}
+OS Version: ${versi_os}
+Device Version: ${versi_hp}
+
+Powered By SGDC-BOT || M AFDHAN
+`))
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let bname = package.name
     let vers = package.version
@@ -131,7 +146,7 @@ device_model
 *❍ Total User:* ${reg}
 *❍ Peform:* ${ping}
 *❍ Uptime:* ${uptime}
-*❍ License:* GPL-3.0
+*❍ Versi WA:* ${wa_versi}
 *❍ Github:* https://github.com/Afdhan/SGDC-55
 
 *ƗNFØ ⱣɆNǤɆMɃȺNǤ*
