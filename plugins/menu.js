@@ -63,6 +63,7 @@ Platform: ${platfrom}
 MCC: ${_mcc}
 MNC: ${_mnc}
 Core: ${core}
+RAM: ${ram}
 Device: ${device}
 OS Version: ${versi_os}
 Device Version: ${versi_hp}
@@ -573,6 +574,16 @@ function clockString(ms) {
   let h = Math.floor(ms / 3600000)
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
-  console.log(chalk.cyan('SGDC-BOT Berjalan Selama ' + '\n\n~ MiliSecond: ' + ms,'\n~ Hours: ' + h,'\n~ Minutes: ' + m,'\n~ Second: ' + s,'\n\n\nPowered by M AFDHAN'))
+  console.log(chalk.cyan(`
+Secondary Process Uptime
+
+${h} Hours
+${m} Minutes
+${s} Second
+
+Performance Now ${ms} MS
+
+Powered By SGDC-BOT || M AFDHAN
+`))
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
