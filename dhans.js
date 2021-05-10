@@ -155,7 +155,13 @@ conn.on(`CB:action,,battery`, json => {
     const chalk = require("chalk");
     const batteryLevelStr = json[2][0][1].value
     const batterylevel = parseInt(batteryLevelStr)
-    console.log(chalk.bold.green("\n\nSisa Baterai Perangkat > " + batterylevel + "%\n\nPowered by SGDC-BOT | M AFDHAN\n\n"))
+    console.log(`
+${chalk.red('Device Battery Info')}
+
+${chalk.red('Sisa Baterai Perangkat > ')} ${chalk.bold.green}${batterylevel}%
+
+${chalk.red('Powered by SGDC-BOT | M AFDHAN')}
+  `)
 })
 let pluginFolder = path.join(__dirname, 'plugins')
 let pluginFilter = filename => /\.js$/.test(filename)
