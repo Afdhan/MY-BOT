@@ -42,9 +42,7 @@ let {
 wa_version, 
 mcc, 
 mnc,
-browser,
-servers,
-server,
+browserDescription,
 os_version, 
 device_manufacturer, 
 device_model 
@@ -60,9 +58,7 @@ device_model
  let versi_hp = device_model
    console.log(chalk.bold.red(`
 SGDC-BOT Service Running
-${browser}
-${servers}
-${server}
+${browserDescription}
 			     
 WhatsApp Version: ${wa_versi}
 Platform: ${platfrom}
