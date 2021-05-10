@@ -6,8 +6,8 @@ const { toAudio, toPTT, toVideo } = require('../lib/converter')
 let { spawn } = require('child_process')
 
 let handler = async (m, { conn, args }) => {
-  let pok = './src/SALAM.opus'
-  let vn = await toPTT(pok, pok.ext)
+  let pok = './src/SALAM.m4a'
+  let vn = await toPTT(pok, pok.m4a)
 conn.sendFile(m.chat, vn, 'SGDC-BOT.opus', null, m, true, {
   type: 'audioMessage', // paksa tanpa convert di ffmpeg
   ptt: true // true diatas ga work, sebab dipaksa tanpa convert ;v
