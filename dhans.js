@@ -161,7 +161,7 @@ conn.on(`CB:action,,battery`, json => {
     console.log(`
 ${chalk.red('Device Battery Info')}
 
-${chalk.red('Sisa Baterai Perangkat > ')} ${chalk.bold.green}${batterylevel}%
+${chalk.red('Sisa Baterai Perangkat > ')} ${chalk.bold.green}(${batterylevel})%
 
 ${chalk.red('Powered by SGDC-BOT | M AFDHAN')}
   `)
