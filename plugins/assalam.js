@@ -13,7 +13,7 @@ let handler = async (m, { conn, args }) => {
         try { throw { json: JSON.parse(file.toString()) } }
         catch (e) { if (e.json) console.log(e.json) }
       }
-conn.sendMessage(m.chat, vn, MessageType.audio, { quoted: m }) 
+conn.sendFile(m.chat, vn, '', null, m, true) 
  /* type: 'audioMessage', // paksa tanpa convert di ffmpeg
   ptt: true // true diatas ga work, sebab dipaksa tanpa convert ;v
   })*/
