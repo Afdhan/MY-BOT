@@ -13,10 +13,10 @@ let handler = async (m, { conn, args }) => {
         try { throw { json: JSON.parse(file.toString()) } }
         catch (e) { if (e.json) console.log(e.json) }
       }
-conn.sendFile(m.chat, vn, 'SGDC-BOT.opus', null, m, true, {
-  type: 'audioMessage', // paksa tanpa convert di ffmpeg
+conn.sendFile(m.chat, vn, 'SGDC-BOT.opus', null, m, true) 
+ /* type: 'audioMessage', // paksa tanpa convert di ffmpeg
   ptt: true // true diatas ga work, sebab dipaksa tanpa convert ;v
-  })
+  })*/
 }
 handler.command = new RegExp
 handler.customPrefix = /^(p(unten|ermisi)?|samlekom|hai|halo|hallo)$/i
