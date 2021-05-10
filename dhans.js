@@ -53,7 +53,7 @@ if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => {
   generate(qr, { small: false })
-  console.log(chalk.red('['(chalk.cyan(' SGDC-BOT '(chalk.red(']'(chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!'))))))))
+  console.log(`${chalk.red('[')} ${chalk.cyan(' SGDC-BOT ')} ${chalk.red(']')} ${chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!')}`)
 })
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 let lastJSON = JSON.stringify(global.DATABASE.data)
