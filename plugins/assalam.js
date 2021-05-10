@@ -1,7 +1,7 @@
 let util = require('util')
 let path = require('path')
 let fs = require("fs")
-let Mimetype = require("@adiwajshing/baileys")
+let MessageType = require("@adiwajshing/baileys")
 const { toAudio, toPTT, toVideo } = require('../lib/converter')
 let { spawn } = require('child_process')
 
@@ -13,7 +13,7 @@ let handler = async (m, { conn, args }) => {
         try { throw { json: JSON.parse(file.toString()) } }
         catch (e) { if (e.json) console.log(e.json) }
       }
-conn.sendFile(m.chat, vn, 'SGDC-BOT.opus', null, m, true) 
+conn.sendMessage(m.chat, vn, MessageType.audio, null, { quoted: m }, true) 
  /* type: 'audioMessage', // paksa tanpa convert di ffmpeg
   ptt: true // true diatas ga work, sebab dipaksa tanpa convert ;v
   })*/
