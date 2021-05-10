@@ -21,7 +21,7 @@ if(command == 'setreply'){
   } else {
 let gmbr = './src/SGDC_BOT.jpg'
 let old = performance.now()
- await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '6283159600193@s.whatsapp.net', '*' + m.text + '*')
+ await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '6283159600193@s.whatsapp.net', '*SGDC-BOT PROCESSING*')
   /*key: { 
       remoteJid: 'status@broadcast', 
       participant: '0@s.whatsapp.net', 
