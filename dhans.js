@@ -51,19 +51,12 @@ let authFile = `${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
-if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
+if (opts['big-qr'] || opts['server']) conn.on('qr', qr => {
+  generate(qr, { small: false })
+  console.log(chalk.red('['(chalk.cyan(' SGDC-BOT '(chalk.red(']'(chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!'))))))))
+})
 if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 let lastJSON = JSON.stringify(global.DATABASE.data)
-if (!opts['test']) setInterval(() => {
-  conn.logger.info('SGDC-BOT @dhans11__ ~> Saving Database...')
-  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('SGDC-BOT @dhans11__ ~> Database Updated!')
-  else {
-    global.DATABASE.save()
-    conn.logger.info('SGDC-BOT @dhans11__ ~> Success Database Saved!')
-    lastJSON = JSON.stringify(global.DATABASE.data)
-  }
-}, 60 * 1000)
-
 
 
 
