@@ -115,6 +115,7 @@ Powered By SGDC-BOT || M AFDHAN
     let about = (await conn.getStatus(mmk)).status
     let nom = PhoneNumber('+' + mmk.replace('@s.whatsapp.net', '')).getNumber('international')
     //let poto = 'src/SGDC_BOT.jpg'
+    let prem = global.prems.indexOf(mmk)
     let chat = global.DATABASE.data.chats[m.chat]
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
@@ -139,6 +140,7 @@ Powered By SGDC-BOT || M AFDHAN
 *❍ Mention:* @${mmk.split("@")[0]}
 *❍ Nomor:* ${nom}
 *❍ Link:* https://wa.me/${mmk.split`@`[0]}
+*❍ Prems:* ${prem ? 'YES':'NO'}
 
 *ƗNFØ ɃØŦ*
 *❍ Nama:* ${bname}
