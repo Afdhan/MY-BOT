@@ -106,6 +106,7 @@ Powered By SGDC-BOT || M AFDHAN
     let ampm = time >= 12 ? 'PM' : 'AM';
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
+    let premi = global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
     //let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
     let reg = Object.values(global.DATABASE._data.users).filter(user => user.registered == false).length
     let own = '6282252655313@s.whatsapp.net'
@@ -139,7 +140,7 @@ Powered By SGDC-BOT || M AFDHAN
 *❍ Mention:* @${mmk.split("@")[0]}
 *❍ Nomor:* ${nom}
 *❍ Link:* https://wa.me/${mmk.split`@`[0]}
-*❍ Prems:* ${isPrems ? 'YES':'NO'}
+*❍ Prems:* ${premi ? 'YES':'NO'}
 
 *ƗNFØ ɃØŦ*
 *❍ Nama:* ${bname}
