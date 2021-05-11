@@ -115,7 +115,7 @@ Powered By SGDC-BOT || M AFDHAN
     let about = (await conn.getStatus(mmk)).status
     let nom = PhoneNumber('+' + mmk.replace('@s.whatsapp.net', '')).getNumber('international')
     //let poto = 'src/SGDC_BOT.jpg'
-    let premi = global.prems.indexOf(mmk, 1)
+    let premi = global.prems.indexOf(mmk)
     let prem = fs.readFileSync('./config.js',JSON.stringify(premi));
     let chat = global.DATABASE.data.chats[m.chat]
     let ngc
