@@ -15,7 +15,7 @@ function isStickerMsg(m){
             let found = false;
             for (let i of global.cspam){
                 if(i.m === m){
-                    if (i.msg >= 12) {
+                    if (i.msg >= 1) {
                         found === true 
                         conn.reply(m.chat, '*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 」*\nKamu telah SPAM STICKER di grup, kamu akan di kick otomatis oleh Elaina', m).then(() => {
                           //  conn.groupRemove(m.chat, id)
