@@ -1,34 +1,73 @@
-let handler = async (m, { conn, args }) => {
-	let ingfo = `
-*╭══ 「  INFO SGDC-BOT  」 ══╮*
-*║*
-*║• • ~ Github:*
-*║•* _https://github.com/Afdhan/SGDC_
-*║*
-*║• • ~ Script Ori:*
-*║•* _https://github.com/Nurutomo/wabot-aq_
-*║*
-*║• • ~ Recode By:*
-*║•* _@dhans11___  _x Admin SGDC-TEAM_
-*║*
-*║• • ~ Thanks To:*
-*║•* _Seluruh Contributors Nurutomo/wabot-aq_
-*║•* _Seluruh Rest Api BOT WhatsApp_
-*║•* _Seluruh Creator BOT WhatsApp_
-*║•* _Seluruh Admin Dan Owner SGDC_
-*║•* _Seluruh Orang Yang Terlibat Di BOT Ini_
-*║*
-*╰════════════════*
+let MessageType = require("@adiwajshing/baileys")
+let handler = async (m, { conn, usedPrefix, isOwner, isAdmin, isBotAdmin }) => {
 
-_Saya Pribadi Mengucapkan Ribuan, Jutaan, Milyaran, Atau Bahkan Trilyunan Terima Kasih Kepada Orang-Orang Hebat Diatas, Khususnya *Nurutomo* Dan *Semua Contibutors wabot-aq*_
-`.trim()
-	conn.fakeReply(m.chat, ingfo, '0@s.whatsapp.net', '*INGFO SGDC-BOT*')
+if (m.isGroup && !isAdmin && !isOwner){
+            if(MessageType.sticker === true){
+                if(isStickerMsg(m.sender)) return
+                addStickerCount(m.sender)
+            }
+     }
+
+
+
+function isStickerMsg(m){
+            if (isOwner, isAdmin) {return false;}
+            let found = false;
+            for (let i of global.cspam){
+                if(i.m === m){
+                    if (i.msg >= 12) {
+                        found === true 
+                        conn.reply(m.chat, '*「 𝗔𝗡𝗧𝗜 𝗦𝗣𝗔𝗠 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 」*\nKamu telah SPAM STICKER di grup, kamu akan di kick otomatis oleh Elaina', m).then(() => {
+                          //  conn.groupRemove(m.chat, id)
+                        }).then(() => {
+                            const cus = m.message
+                            var found = false
+                            Object.keys(global.cspam).forEach((i) => {
+                                if(global.cspam[i].m == cus){
+                                    found = i
+                                }
+                            })
+                            if (found !== false) {
+                                global.cspam[found].msg = 1;
+                                const resultx = 'Database telah direset!'
+                                console.log(global.cspam[found])
+                                fs.writeFileSync('./lib/database/global.cspam.json',JSON.stringify(global.cspam));
+                                tobz.sendText(from, resultx)
+                            } else {
+                                    tobz.reply(from, `Nomor itu tidak terdaftar didalam database!`, id)
+                            }
+                        })
+                        return true;
+                    }else{
+                        found === true
+                        return false;
+                    }   
+                }
+            }
+            if (found === false){
+                let obj = {m: `${m}`, m.msg:1};
+                global.cspam.push(obj);
+                JSON.stringify(global.cspam);
+                return false;
+            }  
+        }
+        function addStickerCount(id){
+            if (isOwner, isAdmin) {return;}
+            var found = false
+            Object.keys(global.cspam).forEach((i) => {
+                if(global.cspam[i].m == m){
+                    found = i
+                }
+            })
+            if (found !== false) {
+                global.cspam[found].msg += 1;
+                JSON.stringify(global.cspam);
+            }
+        }
 }
 
-handler.customPrefix = /^(X)$/i
+global.cspam = []
+        
 handler.command = new RegExp
+module.export = handler
 
-
-handler.fail = null
-
-module.exports = handler
