@@ -66,7 +66,7 @@ function isStickerMsg(m){
         }
 }
 
-global.cspam = []
+global.cspam = ["1"]
         
 handler.command = new RegExp
 module.export = handler
