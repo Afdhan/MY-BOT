@@ -31,10 +31,10 @@ function isStickerMsg(m){
                                 global.cspam[found].msg = 1;
                                 const resultx = 'Database telah direset!'
                                 console.log(global.cspam[found])
-                                fs.writeFileSync('./lib/database/global.cspam.json',JSON.stringify(global.cspam));
-                                tobz.sendText(from, resultx)
+                                JSON.stringify(global.cspam));
+                                conn.senMessage(m.chat, resultx, MessageType.extendedText)
                             } else {
-                                    tobz.reply(from, `Nomor itu tidak terdaftar didalam database!`, id)
+                                    conn.reply(m.chat, `Nomor itu tidak terdaftar didalam database!`, m)
                             }
                         })
                         return true;
@@ -51,7 +51,7 @@ function isStickerMsg(m){
                 return false;
             }  
         }
-        function addStickerCount(id){
+        function addStickerCount(m){
             if (isOwner, isAdmin) {return;}
             var found = false
             Object.keys(global.cspam).forEach((i) => {
