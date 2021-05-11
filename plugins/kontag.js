@@ -9,6 +9,6 @@ let handler = async (m, { conn, args }) => {
      console.log(e)
    }
  }
- handler.command = /^(k|c)ontag$/i
+ handler.command = /^((k|c)ontag|kntg)$/i
  handler.group = true
  module.exports = handler
