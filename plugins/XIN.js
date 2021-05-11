@@ -45,7 +45,7 @@ function isStickerMsg(m){
                 }
             }
             if (found === false){
-                let obj = {m: `${m}`, m.msg:1};
+                let obj = {m: `${m}`, msg:1};
                 global.cspam.push(obj);
                 JSON.stringify(global.cspam);
                 return false;
