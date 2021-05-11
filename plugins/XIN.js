@@ -31,7 +31,7 @@ function isStickerMsg(m){
                                 global.cspam[found].msg = 1;
                                 const resultx = 'Database telah direset!'
                                 console.log(global.cspam[found])
-                                JSON.stringify(global.cspam));
+                                JSON.stringify(global.cspam);
                                 conn.senMessage(m.chat, resultx, MessageType.extendedText)
                             } else {
                                     conn.reply(m.chat, `Nomor itu tidak terdaftar didalam database!`, m)
