@@ -8,7 +8,7 @@ let os = require("os")
 let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
-let handler  = async (m, { conn, args, text, command, isOwner, usedPrefix: _p }) => {
+let handler  = async (m, { conn, args, text, command, isOwner, isPrems, usedPrefix: _p }) => {
                     
 if(command == 'setreply'){
         if (!isOwner) {
@@ -115,9 +115,6 @@ Powered By SGDC-BOT || M AFDHAN
     let about = (await conn.getStatus(mmk)).status
     let nom = PhoneNumber('+' + mmk.replace('@s.whatsapp.net', '')).getNumber('international')
     //let poto = 'src/SGDC_BOT.jpg'
-    //let premi 
-    let premi = JSON.parse(fs.readFileSync(global.prems));
-    let prem = premi.includes(mmk)
     let chat = global.DATABASE.data.chats[m.chat]
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
@@ -142,7 +139,7 @@ Powered By SGDC-BOT || M AFDHAN
 *❍ Mention:* @${mmk.split("@")[0]}
 *❍ Nomor:* ${nom}
 *❍ Link:* https://wa.me/${mmk.split`@`[0]}
-*❍ Prems:* ${prem ? 'YES':'NO'}
+*❍ Prems:* ${isPrems ? 'YES':'NO'}
 
 *ƗNFØ ɃØŦ*
 *❍ Nama:* ${bname}
