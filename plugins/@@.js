@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, args, command: cmd, usedPrefix: _p }) => {
         let prf = `${pickRandom(global.rpf)}`
-	if(cmd.startsWith(_p) || cmd.startsWith(prf)) {
+	if(cmd.startsWith(_p) || cmd.startsWith(prf) === undefined) {
 	let user = m.sender
         conn.reply(m.chat, `Maaf @${user.split("@")[0]}, Command *${m.text}* Tidak Ditemukan`, m, { contextInfo: { mentionedJid: [user]}})
        /*let users = global.DATABASE._data.users
