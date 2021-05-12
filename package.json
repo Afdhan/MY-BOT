@@ -53,6 +53,7 @@
     "request": "^2.88.2",
     "syntax-error": "^1.4.0",
     "terminal-image": "^1.2.1",
+    "tiktok-scraper": "^1.4.7",
     "url-regex": "^5.0.0",
     "yargs": "^16.2.0"
   }
