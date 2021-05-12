@@ -551,7 +551,7 @@ conn.reply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, {
     }
 })
   } catch (e) {
-    conn.fakeReply(m.chat, '_TERJADI KESALAHAN PADA SAAT MEMUAT MENU!_', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*')
+    conn.reply(m.chat, '```Menu Gagal Dimuat!!!```', '0@s.whatsapp.net', '*MENU ERROR! SEGERA LAPORKAN KE OWNER!*', 'status@broadcast')
     //throw e
    /*const lapor = `Menu Error\n\n ${e}`
    for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid && v != '6283129011845@s.whatsapp.net'))
