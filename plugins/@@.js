@@ -7,11 +7,11 @@ let handler = async (m, { conn, text, args, command: cmd, usedPrefix: _p }) => {
        /*let users = global.DATABASE._data.users
        users[user].banned = true*/
        //}
-   }
+   }/*
 handler.command = new RegExp
 
 module.exports = handler
-
+*/
 global.rpf = [
 "♤","◇","~","●","@","•","♡",",","♧",
 "○","¥","+","+","×","%","$","☆","/","^",
