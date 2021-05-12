@@ -1,29 +1,60 @@
+const { removeBackgroundFromImageFile: Hapus } = require('remove.bg')
 const { MessageType } = require('@adiwajshing/baileys')
-const { sticker } = require('../lib/sticker')
-const { removeBackgroundFromImageFile: _Rmbg } = require('remove.bg')
-const fs = require('fs')
+const fetch = require('node-fetch')
+const chalk = require('chalk');
+const request = require('request');
+const fs = require('fs');
+const kntl = require("../src/kntl.json");
 const path = require('path')
 const { spawn } = require('child_process')
-const { fromBuffer } = require('file-type')
-const kntl = require("../src/kntl.json");
-let handler  = async (m, { conn, args, command }) => {
-   await m.reply(global.wait)
+const FormData = require('form-data')
+
+let handler  = async (m, { conn, args, usedPrefix }) => {
+  await m.reply('Sedang Membuat..  Mohon tunggu sebentar.')
   let stiker = false
   try {
     let q = m.quoted ? { message: { [m.quoted.mtype]: m.quoted }} : m
     if (/image/.test((m.quoted ? m.quoted : m.msg).mimetype || '')) {
-      let img = await q.download()   //conn.downloadM(q)
-      if (!img) throw '_Tipe Tidak Diketahui!_'
-      let api = (kntl.rmbg)
-      let inp = path.join(tmp, + new Date + '.jpeg')
-      let png = inp + '.png'
-      let out = png + '.webp'
-      await _Rmbg({ path: media, apiKey: api, size: 'auto', type: 'auto', png }).then(res => {
-      	fs.unlinkSync(img)
-        let buffer = Buffer.from(res.base64img, 'base64')
-        fs.writeFileSync(png, buffer, (e) => {
-          if (e) return m.reply('Gagal, Terjadi Kesalahan Pada Saat Removing Background!')
-        })
+      let img = await conn.downloadM(q)
+      if (!img) throw img
+      buf = await Removed(img, 'auto')
+      stiker = await sticker2(buf)
+    } else if (args[0]) stiker = await sticker2(false, args[0])
+      else {
+      m.reply(`Kirim Perintah ${usedPrefix}stiker dengan caption di gambar atau reply gambar yang tersedia.`)
+    }
+  } finally {
+    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+      quoted: m
+    })
+  }
+}
+
+handler.command = /^sbg$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+
+module.exports = handler
+
+let tmp = path.join(__dirname, '../tmp')
+function sticker2(img, url) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (url) {
+        let res = await fetch(url)
+        img = await res.buffer()
+      }
+      let inp = path.join(tmp, +new Date + '.jpeg')
+      let png = path.join(tmp, +new Date + '.png')
+      let out = path.join(tmp, +new Date + '.webp')
       fs.writeFileSync(inp, img)
       spawn('ffmpeg', [
         '-y',
@@ -39,17 +70,96 @@ let handler  = async (m, { conn, args, command }) => {
         .on('close', () => {
           fs.unlinkSync(png)
           resolve(fs.readFileSync(out))
-          if (e) return m.reply('Gagal, Terjadi KeslahanPada Saat Mengonversi Media Ke Sticker!') console.log (e)
-          let buff = fs.unlinkSync(out)
-          if (buff) conn.sendMessage(m.chat, buff, MessageType.sticker, { quoted: m })
+          fs.unlinkSync(out)
         })
       })
-     }
-    }  catch (e) {
-    	m.reply ("```ERROR``` _Conversation Full Failed_")
-    console.log (e)
+    } catch (e) {
+      reject(e)
     }
-  }
-handler.command = /^(sbg)$/i
+  })
+}
 
-module.exports = handler
+async function canvas(code, type = 'png', quality = 0.92) {
+    let res = await fetch('https://nurutomo.herokuapp.com/api/canvas?' + queryURL({
+        type,
+        quality
+    }), {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain',
+            'Content-Length': code.length
+        },
+        body: code
+    })
+    let image = await res.buffer()
+    return image
+}
+
+function queryURL(queries) {
+    return Object.entries(queries).map(([key, value]) => key + (value ? '=' + encodeURIComponent(value) : '')).join('&')
+}
+
+function Removed(buffer, size) {
+let API = (kntl.rmbg)
+return new Promise(async (resolve, reject) => {
+  try {
+request.post({
+  url: 'https://api.remove.bg/v1.0/removebg',
+  formData: {
+    image_file: buffer ? fs.createReadStream(buffer) : fs.createReadStream('./src/SGDC.jpg')
+    size: size ? size : 'auto',
+  },
+  headers: {
+    'X-Api-Key': API;
+  },
+  encoding: null
+ }, function(error, response, body) {
+  if(error) return console.error(chalk.red('TERJADI KESALAHAN:\n\n', error));
+  if(response.statusCode != 200) return console.error(chalk.red('RESPONSE ERROR:\n\n', response.statusCode, body.toString('utf8')));
+  if (response.status === 200 || response.statusCode === 200) { 
+  fs.writeFileSync("no-bg.png", body);
+       }
+    });
+    } catch (e) {
+      reject(e)
+    }
+    })
+  }
+
+
+let { fromBuffer } = require('file-type')
+async function sticker(img, url) {
+    url = url ? url : await uploadImage(img)
+    let {
+        mime
+    } = url ? {mime:'image/jpeg'} : await fromBuffer(img)
+    let sc = `let im = await loadImg('data:${mime};base64,'+(await window.loadToDataURI('${url}')))
+c.width = c.height = 512
+let max = Math.max(im.width, im.height)
+let w = 512 * im.width / max
+let h = 512 * im.height / max
+ctx.drawImage(im, 256 - w / 2, 256 - h / 2, w, h)
+`
+    return await canvas(sc, 'webp')
+}
+
+function uploadImage(buffer) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const {
+                ext
+            } = await fromBuffer(buffer)
+            let form = new FormData()
+            form.append('file', buffer, 'tmp.' + ext)
+            let res = await fetch('https://telegra.ph/upload', {
+                method: 'POST',
+                body: form
+            })
+            let img = await res.json()
+            if (img.error) reject(img.error)
+            else resolve('https://telegra.ph' + img[0].src)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
