@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const { spawn } = require('child_process')
 const { fromBuffer } = require('file-type')
-
+const kntl = require("../src/kntl.json");
 let handler  = async (m, { conn, args, command }) => {
    await m.reply(global.wait)
   let stiker = false
@@ -14,10 +14,11 @@ let handler  = async (m, { conn, args, command }) => {
     if (/image/.test((m.quoted ? m.quoted : m.msg).mimetype || '')) {
       let img = await q.download()   //conn.downloadM(q)
       if (!img) throw '_Tipe Tidak Diketahui!_'
+      let api = (kntl.rmbg)
       let inp = path.join(tmp, + new Date + '.jpeg')
       let png = inp + '.png'
       let out = png + '.webp'
-      await _Rmbg({ path: media, apiKey: "ku7CybpBNXacsoWMyeZeLGQq", size: 'auto', type: 'auto', png }).then(res => {
+      await _Rmbg({ path: media, apiKey: api, size: 'auto', type: 'auto', png }).then(res => {
       	fs.unlinkSync(img)
         let buffer = Buffer.from(res.base64img, 'base64')
         fs.writeFileSync(png, buffer, (e) => {
