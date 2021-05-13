@@ -22,7 +22,7 @@ if (chat.simi) {
   } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
 }
 
-handler.customPrefix = /^(!|.)$/
+handler.customPrefix = /^!$/
 handler.command = new RegExp
 //handler.command = /(?:)/i
 
