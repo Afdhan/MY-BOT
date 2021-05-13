@@ -58,7 +58,7 @@ const Eraser = async (buffer) => new Promise(async (resolve, reject) => {
 let kntl = require("../src/kntl.json")
 let API = (kntl.rmbg)
 let attachmentData = `data:image/jpeg;base64,${buffer.toString('base64')}`
-let poto = JSON.stringify(attachmentData)
+let poto = JSON.stringify(encodeURIComponent(attachmentData))
 //let { ext } = await fromBuffer(attachmentData)
 let tmp = path.join(__dirname, '../tmp', + new Date  + '.jpeg')
 let out = tmp + '.png'
@@ -66,7 +66,7 @@ try {
    request.post({
                url: 'https://api.remove.bg/v1.0/removebg',
                formData: {
-               image_file: fs.createReadStream(buffer),
+               image_file: fs.createReadStream(poto),
                size: 'auto',
             },
                headers: {
@@ -77,7 +77,7 @@ try {
          function(error, response, body) {
   if(error) { 
 	  console.error(chalk.red('TERJADI KESALAHAN:\n\n', error)) 
-	  reject('*ERROR:*\n\n' + error);
+	  reject('*ERROR! Terjadi Kesalahan*');
 	  }
   if(response.statusCode != 200) return console.error(chalk.red('RESPONSE ERROR:\n\n', response.statusCode, body.toString('utf8')));
   if (response.status == 200 || response.statusCode == 200) { 
