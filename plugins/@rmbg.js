@@ -110,7 +110,7 @@ request.post({
     size: 'auto',
   },
   headers: {
-    'X-Api-Key': API;
+    'X-Api-Key': API
   },
   encoding: null
  }, function(error, response, body) {
