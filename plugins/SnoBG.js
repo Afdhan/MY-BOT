@@ -100,10 +100,10 @@ if (user.prems) {*/
           const encmedia = JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo 
           const media = await mans.downloadAndSaveMediaMessage(encmedia)
           const ran = getRandom('.mp3')
-					exec(`ffmpeg -i ${media} -filter_complex "vibrato=f=${req}" ${ran}`, (err, stderr, stdout) => {
-						fs.unlinkSync(media)
-						if (err) return m.reply('Error!') 
-           let hah = fs.readFileSync(ran)
+        exec(`ffmpeg -i ${media} -filter_complex "vibrato=f=vibra-a" ${ran}`, (err, stderr, stdout) => {
+	fs.unlinkSync(media)
+	if (err) return m.reply('Error!') 
+        let hah = fs.readFileSync(ran)
                conn.sendMessage(m.chat, hah, MessageType.audio, { mimetype: 'audio/mp4', ptt:true, quoted: m })
      })
    }
