@@ -5,12 +5,13 @@ let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
 if (chat.simi) {
         let api = (kntl.zekskey)
-        let res = await fetch(`https://api.zeks.xyz/api/simi?apikey=${api}&text=${text}`) ///.then ((res) => {
-	let json = await res.json()
+        let res = await axios.get(`https://api.zeks.xyz/api/simi?apikey=${api}&text=${text}`) ///.then ((res) => {
+	let json = res.data
+	    ///await res.json()
         let simih = json.result
         //if (simih.status == '200') {
         //if (json.status) 
-        m.reply('```' + json.result + '```')
+        m.reply('```' + simih + '```')
        // else throw "BOT TIDAK MENGERTI"
 	//return false
         /*} else {
