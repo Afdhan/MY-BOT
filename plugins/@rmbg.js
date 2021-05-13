@@ -17,7 +17,7 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
     if (/image/.test((m.quoted ? m.quoted : m.msg).mimetype || '')) {
       let img = await conn.downloadM(q)
       if (!img) throw img
-      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto' }).then(res => {
+      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto' })
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
