@@ -16,8 +16,12 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
     let q = m.quoted ? { message: { [m.quoted.mtype]: m.quoted }} : m
     if (/image/.test((m.quoted ? m.quoted : m.msg).mimetype || '')) {
       let img = await conn.downloadM(q)
-      if (!img) throw img
-      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto' })
+      if (!img) throw img      
+      let tmp = path.join(__dirname, '../tmp')
+      let inp = path.join(tmp, +new Date + '.jpeg')
+      let png = path.join(tmp, +new Date + '.png')
+      let out = path.join(tmp, +new Date + '.webp')
+      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', png})
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
