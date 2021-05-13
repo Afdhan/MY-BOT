@@ -21,7 +21,7 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
       let inp = path.join(tmp, +new Date + '.jpeg')
       let png = path.join(tmp, +new Date + '.png')
       let out = path.join(tmp, +new Date + '.webp')
-      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', png})
+      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', png })
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
