@@ -18,10 +18,9 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
       let img = await conn.downloadM(q)
       if (!img) throw img      
       let tmp = path.join(__dirname, '../tmp')
-      let inp = path.join(tmp, +new Date + '.jpeg')
-      let png = path.join(tmp, +new Date + '.png')
-      let out = path.join(tmp, +new Date + '.webp')
-      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', png })
+      let ranw = getRandom('.webp')
+      let ranp = getRandom('.png')
+      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', ranp })
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
@@ -47,6 +46,11 @@ handler.botAdmin = false
 handler.fail = null
 
 module.exports = handler
+
+const getRandom = (ext) => {
+  return `${Math.floor(Math.random() * 10000)}${ext}`
+}
+
 
 let tmp = path.join(__dirname, '../tmp')
 function sticker2(img, url) {
