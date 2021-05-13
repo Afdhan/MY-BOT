@@ -10,7 +10,7 @@ if (chat.simi) {
         let simih = json.result
         //if (simih.status == '200') {
         //if (json.status) 
-	conn.reply(m.chat, simih, m)
+        m.reply('```' + json.result + '```')
        // else throw "BOT TIDAK MENGERTI"
 	//return false
         /*} else {
