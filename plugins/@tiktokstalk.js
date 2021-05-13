@@ -1,12 +1,11 @@
 let axios = require("axios");
-let tiktod = require('tiktok-scraper')
 let MessageType = require("@adiwajshing/baileys");
 let { image } = MessageType
-let handler = async (m, { conn, args, text }) => {
+/*let handler = async (m, { conn, args, text }) => {
 		if (text) return m.reply("Username nya tod?")
 		await m.reply(global.wait)
 	try{
-        let { user, stats } = await tiktod.getUserProfileInfo(text)
+        //let { user, stats } = await tiktod.getUserProfileInfo(text)
 		let tod = `
 *User ID:* ${user.id}
 *Username:* ${user.uniqueId}
@@ -24,7 +23,7 @@ let handler = async (m, { conn, args, text }) => {
   }
 }
 					
-
+*/
 handler.command = /^tiktokstalk$/i
 handler.owner = false
 handler.mods = false
@@ -37,4 +36,4 @@ handler.botAdmin = false
 
 handler.fail = null
 
-module.exports = handler
+//odule.exports = handler
