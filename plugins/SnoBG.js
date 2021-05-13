@@ -15,7 +15,9 @@ if (user.prems) {*/
     const isMedia = (type === 'imageMessage' || type === 'videoMessage')
     const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
     const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
-    if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
+    const isAudio = type === 'audioMessage'
+    const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
+    /*if ((isMedia && !m.message.videoMessage || isQuotedImage) && args.length == 0) {
       const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
       const media = await conn.downloadAndSaveMediaMessage(encmedia)
       const ran = getRandom('.webp')
@@ -92,7 +94,23 @@ if (user.prems) {*/
     console.log(e)
   }
  //   } else if (!user.prems) m.reply('*FITUR INI KHUSUS UNTUK USER PREMIUM!*'
-}
+}*/
+    if (isQuotedAudio) {
+          let req = args.join(' ')
+          const encmedia = JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo : m
+          const media = await mans.downloadAndSaveMediaMessage(encmedia)
+          const ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${media} -filter_complex "vibrato=f=${req}" ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(media)
+						if (err) return m.reply('Error!') 
+           let hah = fs.readFileSync(ran)
+               conn.sendMessage(m.chat, hah, MessageType.audio, { mimetype: 'audio/mp4', ptt:true, quoted: m })
+     })
+   }
+  }catch(e){
+    console.log(e)
+    }
+  }
 handler.command = /^(sgif2|snobg)$/i
 
 handler.owner = false
