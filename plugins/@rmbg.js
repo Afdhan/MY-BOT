@@ -74,7 +74,7 @@ try {
          encoding: null
    },
          function(error, response, body) {
-  if(error) return console.error(chalk.red('TERJADI KESALAHAN:\n\n', error));
+  if(error) return console.error(chalk.red('TERJADI KESALAHAN:\n\n', error)) reject('*ERROR:*\n\n' + error);
   if(response.statusCode != 200) return console.error(chalk.red('RESPONSE ERROR:\n\n', response.statusCode, body.toString('utf8')));
   if (response.status == 200 || response.statusCode == 200) { 
   fs.writeFileSync(out, body)
