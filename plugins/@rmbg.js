@@ -58,7 +58,7 @@ const Eraser = async (buffer) => new Promise(async (resolve, reject) => {
 let kntl = require("../src/kntl.json")
 let API = (kntl.rmbg)
 let attachmentData = `data:image/jpeg;base64,${buffer.toString('base64')}`
-let { ext } = await fromBuffer(buffer)
+let { ext } = await fromBuffer(attachmentData)
 let tmp = path.join(__dirname, '../tmp', + new Date  + '.' + ext)
 let out = tmp + '.png'
 try {
