@@ -4,7 +4,8 @@ let kntl = require("../src/kntl.json")
 let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
 if (chat.simi) {
-        let api = (kntl.zekskey)
+        let api = "B9IbhNbRGGlUUplsZCV1ihQrsyd"
+        let apii = (kntl.zekskey)
         let res = await axios.get(`https://api.zeks.xyz/api/simi?apikey=${api}&text=${text}`) ///.then ((res) => {
 	let json = res.data
 	    ///await res.json()
