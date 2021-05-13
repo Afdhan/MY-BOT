@@ -17,7 +17,7 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
     if (/image/.test((m.quoted ? m.quoted : m.msg).mimetype || '')) {
       let img = await conn.downloadM(q)
       if (!img) throw img
-      buf = await Removed(img, 'auto')
+      let buf = await Removed(img)
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
@@ -99,15 +99,15 @@ function queryURL(queries) {
     return Object.entries(queries).map(([key, value]) => key + (value ? '=' + encodeURIComponent(value) : '')).join('&')
 }
 
-function Removed(buffer, size) {
+function Removed(buffer) {
 let API = (kntl.rmbg)
 return new Promise(async (resolve, reject) => {
   try {
 request.post({
   url: 'https://api.remove.bg/v1.0/removebg',
   formData: {
-    image_file: buffer ? fs.createReadStream(buffer) : fs.createReadStream('./src/SGDC.jpg')
-    size: size ? size : 'auto',
+    image_file: fs.createReadStream(buffer)
+    size: 'auto',
   },
   headers: {
     'X-Api-Key': API;
