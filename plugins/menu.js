@@ -332,6 +332,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}okick
 ├≽ ${_p}getpp
 ├≽ ${_p}rptag
+├≽ ${_p}listadmin
 ├≽ ${_p}hidetag
 ├≽ ${_p}ohidetag
 ├≽ ${_p}fitnah
