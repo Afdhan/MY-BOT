@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, participants }) => {
     txt += `[${no.toString()}] @${admon.split('@')[0]}\n`
       }
     txt += '\n\n*SGDC-BOT*'
-conn.reply(m.chat, txt, m, { contextInfo: { mentionedJid: isAdmin }})
+conn.reply(m.chat, txt, m, { contextInfo: { mentionedJid: groupAdmins }})
 }
 handler.command = /^(adminlist|listadmin)$/i
 
