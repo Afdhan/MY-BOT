@@ -1,14 +1,17 @@
 let fetch = require('node-fetch')
 let axios = require("axios");
+let kntl = require("../src/kntl.json")
 let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
 if (chat.simi) {
-        let res = await fetch(`https://videfikri.com/api/simsimi/?teks=${text}`) ///.then ((res) => {
+        let api = (kntl.zekskey)
+        let res = await fetch(`https://api.zeks.xyz/api/simi?apikey=${api}&text=${text}`) ///.then ((res) => {
 	let json = await res.json()
         let simih = json.result
         //if (simih.status == '200') {
-	conn.reply(m.chat, simih.jawaban, m)
-        //return false
+        if (json.status === true) conn.reply(m.chat, simih, m)
+        else throw "BOT TIDAK MENGERTI"
+	//return false
         /*} else {
 	m.reply('Ngomong Apa?') 
 	}*/
