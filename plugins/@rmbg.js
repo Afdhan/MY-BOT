@@ -173,7 +173,7 @@ request.post({
   }
 
 
-let { fromBuffer } = require('file-type')
+//let { fromBuffer } = require('file-type')
 async function sticker(img, url) {
     url = url ? url : await uploadImage(img)
     let {
