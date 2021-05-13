@@ -70,7 +70,8 @@ try {
                size: 'auto',
             },
                headers: {
-               'X-Api-Key': API
+               "X-Api-Key": API,
+               "Content-Type": "application/json",
            },
          encoding: null
    },
