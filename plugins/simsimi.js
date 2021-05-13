@@ -24,6 +24,6 @@ if (chat.simi) {
 
 //handler.customPrefix = /^tod/
 //handler.command = new RegExp
-handler.command = /^(tod)$/i
+handler.command = /^(!)$/i
 
 module.exports = handler
