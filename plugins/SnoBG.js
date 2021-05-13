@@ -97,7 +97,7 @@ if (user.prems) {*/
 }*/
     if (isQuotedAudio) {
           let req = args.join(' ')
-          const encmedia = JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo : m
+          const encmedia = JSON.parse(JSON.stringify(m).replace('quotedM','m')).message.extendedTextMessage.contextInfo 
           const media = await mans.downloadAndSaveMediaMessage(encmedia)
           const ran = getRandom('.mp3')
 					exec(`ffmpeg -i ${media} -filter_complex "vibrato=f=${req}" ${ran}`, (err, stderr, stdout) => {
