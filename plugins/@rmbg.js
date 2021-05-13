@@ -106,7 +106,7 @@ return new Promise(async (resolve, reject) => {
 request.post({
   url: 'https://api.remove.bg/v1.0/removebg',
   formData: {
-    image_file: fs.createReadStream(buffer)
+    image_file: fs.createReadStream(buffer),
     size: 'auto',
   },
   headers: {
