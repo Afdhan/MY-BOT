@@ -22,11 +22,8 @@ if (chat.simi) {
   } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
 }
 
-handler.customPrefix = /^tod/
-handler.command = new RegExp
-//handler.command = /(?:)/i
-
-
-handler.fail = null
+//handler.customPrefix = /^tod/
+//handler.command = new RegExp
+handler.command = /^(tod)$/i
 
 module.exports = handler
