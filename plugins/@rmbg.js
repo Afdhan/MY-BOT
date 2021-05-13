@@ -1,13 +1,14 @@
-const { removeBackgroundFromImageFile: Hapus } = require('remove.bg')
-const { MessageType } = require('@adiwajshing/baileys')
-const fetch = require('node-fetch')
+const { removeBackgroundFromImageFile: Hapus } = require('remove.bg');
+const { MessageType } = require('@adiwajshing/baileys');
+const fetch = require('node-fetch');
 const chalk = require('chalk');
 const request = require('request');
 const fs = require('fs');
 const kntl = require("../src/kntl.json");
-const path = require('path')
-const { spawn } = require('child_process')
-const FormData = require('form-data')
+const path = require('path');
+const { spawn } = require('child_process');
+const { fromBuffer } = require('file-type');
+const FormData = require('form-data');
 
 let handler  = async (m, { conn, args, usedPrefix }) => {
   await m.reply('Sedang Membuat..  Mohon tunggu sebentar.')
@@ -20,7 +21,9 @@ let handler  = async (m, { conn, args, usedPrefix }) => {
       let tmp = path.join(__dirname, '../tmp')
       let ranw = getRandom('.webp')
       let ranp = getRandom('.png')
-      let buf = await Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', ranp })
+      let buf = await Eraser(img)
+      await conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m })
+      //Hapus({ path: img, apiKey: (kntl.rmng), size: 'auto', type: 'auto', ranp })
       stiker = await sticker2(buf)
     } else if (args[0]) stiker = await sticker2(false, args[0])
       else {
@@ -50,6 +53,41 @@ module.exports = handler
 const getRandom = (ext) => {
   return `${Math.floor(Math.random() * 10000)}${ext}`
 }
+
+const Eraser = async (buffer) => new Promise(async (resolve, reject) => {
+let kntl = require("../src/kntl.json")
+let API = (kntl.rmbg)
+let attachmentData = `data:image/jpeg;base64,${buffer.toString('base64')}`
+let { ext } = await fromBuffer(buffer)
+let tmp = path.join(__dirname, '../tmp', + new Date  + '.' + ext)
+let out = tmp + '.png'
+try {
+   request.post({
+               url: 'https://api.remove.bg/v1.0/removebg',
+               formData: {
+               image_file: fs.createReadStream(buffer),
+               size: 'auto',
+            },
+               headers: {
+               'X-Api-Key': API
+           },
+         encoding: null
+   },
+         function(error, response, body) {
+  if(error) return console.error(chalk.red('TERJADI KESALAHAN:\n\n', error));
+  if(response.statusCode != 200) return console.error(chalk.red('RESPONSE ERROR:\n\n', response.statusCode, body.toString('utf8')));
+  if (response.status == 200 || response.statusCode == 200) { 
+  fs.writeFileSync(out, body)
+  fs.unlinkSync(tmp)
+      resolve(fs.readFileSync(out))
+      if (fs.existsSync(out)) fs.unlinkSync(out)
+       }
+      })
+   } catch (e) {
+		console.log('ERROR', e)
+		reject(`CONVERSI GAGAL TOTAL!`)
+	}
+  })
 
 
 let tmp = path.join(__dirname, '../tmp')
