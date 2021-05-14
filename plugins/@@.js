@@ -3,6 +3,7 @@ const { sticker: TES } = require('../lib/sticker')
 const util = require('util')
 let handler = async (m, { conn, participants, args }) => {
 let stiker = false
+     await m.reply(globalm.wait)
   try {
 	let q = { message: { [m.quoted.mtype]: m.quoted }}
 	if (!m.quoted) return m.reply('Tag Stickernya!')
@@ -12,13 +13,14 @@ let stiker = false
     if (!stick) throw "Sticker Tidak Ditemukan!"
 	let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
 	stiker = await TES(stick, false, global.packname, global.author)
-	conn.sendMessage(m.chat, stiker, MessageType.sticker, { 
-                 contextInfo: { 
-                           mentionedJid: users 
-               }
-          }, {
+	conn.sendMessage(m.chat, stiker, MessageType.sticker, {
          quoted: m
-         })
+         },
+         { 
+                 contextInfo: { 
+                           mentionedJid: [users]
+               }
+          })
        } else {
 	    m.reply('_Gagal Mengambil ContextInfo!_')
       }
