@@ -1,6 +1,7 @@
 const { MessageType } = require('@adiwajshing/baileys')
 const { sticker: TES } = require('../lib/sticker')
 const util = require('util')
+const fs = require('fs')
 let handler = async (m, { conn, participants, args }) => {
 let stiker = false
      await m.reply(global.wait)
@@ -37,7 +38,7 @@ let stiker = false
       }
    } catch (e) {
    	m.reply('```Error```')
-   console.log ('Error\n\n' + e)
+   console.log ('Error\n\n', e)
    }
 }
 handler.command = /^(s(tag|tickertag|tikertag))$/
