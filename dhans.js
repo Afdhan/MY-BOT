@@ -222,7 +222,12 @@ async function _quickTest() {
 }
 
 //_quickTest()
-
+let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+  fs.unwatchFile(file)
+  console.log(chalk.redBright("Update 'lib/print.js'"))
+  delete require.cache[file]
+})
 
 
 /*
