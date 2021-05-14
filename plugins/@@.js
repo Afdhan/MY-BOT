@@ -16,7 +16,9 @@ let stiker = false
                  contextInfo: { 
                            mentionedJid: users 
                }
-          })
+          }, {
+         quoted: m
+         })
        } else {
 	    m.reply('_Gagal Mengambil ContextInfo!_')
       }
