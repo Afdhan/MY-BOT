@@ -34,6 +34,7 @@ module.exports = {
           lastclaim: 0,
           registered: false,
           name: this.getName(m.sender),
+          pesan: m.text,
           age: -1,
           regTime: -1,
           afk: -1,
