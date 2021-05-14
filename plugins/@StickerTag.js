@@ -20,7 +20,7 @@ let stiker = false
                }
           })
        } else {
-	    m.reply('_Gagal Mengambil ContextInfo!_')
+	    m.reply('_Sticker Tidak Ditemukan!_')
       }
    } catch (e) {
    	m.reply('```Error```')
