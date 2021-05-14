@@ -3,7 +3,7 @@ const { sticker: TES } = require('../lib/sticker')
 const util = require('util')
 let handler = async (m, { conn, participants, args }) => {
 let stiker = false
-     await m.reply(globalm.wait)
+     await m.reply(global.wait)
   try {
 	let q = { message: { [m.quoted.mtype]: m.quoted }}
 	if (!m.quoted) return m.reply('Tag Stickernya!')
