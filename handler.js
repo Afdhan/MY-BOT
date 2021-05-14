@@ -33,6 +33,7 @@ module.exports = {
           limit: 100,
           lastclaim: 0,
           registered: false,
+          number: m.sender,
           name: this.getName(m.sender),
           pesan: m.text,
           age: -1,
