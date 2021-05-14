@@ -1,23 +1,32 @@
-let handler = async (m, { conn, text, args, command: cmd, usedPrefix: _p }) => {
-        let prf = `${pickRandom(global.rpf)}`
-        let ch = m.message
-        //if(cmd.startsWith(_p + cmd) || cmd.startsWith(prf + cmd) == undefined) {
-	let user = m.sender
-        conn.reply(m.chat, `Maaf @${user.split("@")[0]}, Command *${m.text}* Tidak Ditemukan`, m, { contextInfo: { mentionedJid: [user]}})
-       /*let users = global.DATABASE._data.users
-       users[user].banned = true*/
-       //}
-   }/*
-handler.command = new RegExp
-
-module.exports = handler
-*/
-global.rpf = [
-"♤","◇","~","●","@","•","♡",",","♧",
-"○","¥","+","+","×","%","$","☆","/","^",
-"#","?","€","7","*","Q","0","Z",".","1","!","-",
-]
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
+const { MessageType } = require('@adiwajshing/baileys')
+const { sticker: TES } = require('../lib/sticker')
+const util = require('util')
+let handler = async (m, { conn, text, args }) => {
+let stiker = false
+  try {
+	let q = { message: { [m.quoted.mtype]: m.quoted }}
+	if (!m.quoted) return m.reply('Tag Stickernya!')
+	if (m.quoted != /sticker/) return m.reply('Sticker Aja Tod!')
+	if (/sticker/.test(m.quoted.mtype)) {
+    let stick = await conn.downloadM(q)
+    if (!stick) throw "Sticker Tidak Ditemukan!"
+	let users = participants.map(u => u.jid)
+	stiker = await TES(stick, false, global.packname, global.author)
+	if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { 
+               quoted: m 
+              }, { 
+                 contextInfo: { 
+                           mentionedJid: users 
+               }
+          })
+          else throw '_Gagal Mengambil ContextInfo!_'
+       }
+   } catch (e) {
+   	m.reply('```Error```')
+   console.log ('Error\n\n' + e)
+   }
 }
+handler.command = /^(s(tag|tickertag|tikertag))$/
+module.exports = handler
+
+// Muhammad Afdhan
