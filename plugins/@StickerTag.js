@@ -20,7 +20,7 @@ let stiker = false
                }
           })
        } else {
-	    m.reply('_Sticker Tidak Ditemukan!_')
+	    m.reply('_Sticker Aja Tod!_')
       }
    } catch (e) {
    	m.reply('```Error```')
