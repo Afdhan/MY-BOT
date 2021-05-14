@@ -6,7 +6,7 @@ let stiker = false
   try {
 	let q = { message: { [m.quoted.mtype]: m.quoted }}
 	if (!m.quoted) return m.reply('Tag Stickernya!')
-	if (m.quoted != /sticker/.test(m.quoted.mtype)) return m.reply('Sticker Aja Tod!')
+  //if (m.quoted != /sticker/.test(m.quoted.mtype)) return m.reply('Sticker Aja Tod!')
 	if (/sticker/.test(m.quoted.mtype)) {
     let stick = await conn.downloadM(q)
     if (!stick) throw "Sticker Tidak Ditemukan!"
@@ -27,6 +27,7 @@ let stiker = false
    }
 }
 handler.command = /^(s(tag|tickertag|tikertag))$/
+handler.group = true
 module.exports = handler
 
 // Muhammad Afdhan
