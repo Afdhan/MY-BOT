@@ -15,20 +15,6 @@ let stiker = false
 	let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
 	stiker = await TES(stick, false, global.packname, global.author)
 	conn.sendMessage(m.chat, stiker, MessageType.sticker, {
-      key: { 
-      remoteJid: 'status@broadcast', 
-      participant: '0@s.whatsapp.net', 
-      fromMe: false 
-     }, 
-      message: { 
-        "imageMessage": { 
-        "mimetype": "image/jpeg", 
-        "caption":  'Hayolohh, Ke tag kan :)', 
-        "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
-              }
-            }
-         },
-         { 
               contextInfo: { 
                      mentionedJid: users
                }
