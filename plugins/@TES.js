@@ -12,7 +12,7 @@ let handler = async(m, { conn, args, participants }) => {
     let usersLevel = sortedLevel.map(enumGetKey)
     console.log(participants)
     let teks = `
-${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}
+${sortedLevel.slice(0).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}
 `.trim()
     conn.reply(m.chat, teks, m, {
     contextInfo: {
