@@ -12,15 +12,14 @@ let stiker = false
     if (!stick) throw "Sticker Tidak Ditemukan!"
 	let users = (await conn.groupMetadata(m.chat)).participants.map(u => u.jid)
 	stiker = await TES(stick, false, global.packname, global.author)
-	if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { 
-               quoted: m 
-              }, { 
+	conn.sendMessage(m.chat, stiker, MessageType.sticker, { 
                  contextInfo: { 
                            mentionedJid: users 
                }
           })
-          else throw '_Gagal Mengambil ContextInfo!_'
-       }
+       } else {
+	    m.reply('_Gagal Mengambil ContextInfo!_')
+      }
    } catch (e) {
    	m.reply('```Error```')
    console.log ('Error\n\n' + e)
