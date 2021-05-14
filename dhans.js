@@ -60,8 +60,10 @@ if (opts['server']) conn.on('qr', qr => {
   console.log(chalk.red('[') + chalk.cyan(' SGDC-BOT ') + chalk.red(']') + chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!'))
 })
 let lastJSON = JSON.stringify(global.DATABASE.data)
-
-
+if (!opts['test']) setInterval(() => {
+  global.DATABASE.save()
+  lastJSON = JSON.stringify(global.DATABASE.data)
+}, 60 * 1000)
 
 if (opts['test']) {
   conn.user = {
