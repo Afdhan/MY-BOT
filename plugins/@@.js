@@ -24,7 +24,7 @@ let stiker = false
         "imageMessage": { 
         "mimetype": "image/jpeg", 
         "caption":  'Hayolohh, Ke tag kan :)', 
-        "jpegThumbnail": fs.readFileSync('./src/SGDC-BOT.jpg')
+        "jpegThumbnail": fs.readFileSync('./src/SGDC_BOT.jpg')
               }
             }
          },
