@@ -1,7 +1,7 @@
 const { MessageType } = require('@adiwajshing/baileys')
 const { sticker: TES } = require('../lib/sticker')
 const util = require('util')
-let handler = async (m, { conn, text, args }) => {
+let handler = async (m, { conn, participants, args }) => {
 let stiker = false
   try {
 	let q = { message: { [m.quoted.mtype]: m.quoted }}
