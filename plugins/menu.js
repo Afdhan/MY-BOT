@@ -247,7 +247,8 @@ ${week}, ${islami} *H*
 ├≽ ${_p}attp2
 ├≽ ${_p}semoji
 ├≽ ${_p}triggered
-├≽ ${_p}snbg
+├≽ ${_p}stag
+├≽ ${_p}stickertag
 ├≽ ${_p}sticgif
 ├≽ ${_p}sticker
 ├≽ ${_p}stickerwm
