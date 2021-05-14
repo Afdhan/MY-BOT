@@ -1,6 +1,6 @@
 let handler = async(m, { conn, args }) => {
-	let data = Object.entries(global.DATABASE.data.users)
-	let out = `*DATA USERS*`
+	let data = Object.values(global.DATABASE.data.users)
+	let out = `*DATA USERS*\n\n`
 	for (let i = 0; i < data.length; i++) {
        out += `${data[i]}\n`
     }
