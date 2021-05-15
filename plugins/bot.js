@@ -1,8 +1,9 @@
+let fs = require("fs");
 let handler = async (m, { conn, usedPrefix }) => {
     let nama = conn.getName(m.sender)
     let ayam = m.sender
     if (m.fromMe) return
-  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${pickRandom(global.prefix)}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
+  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${pickRandom(JSON.parse(fs.readFileSync(global.prefix)))}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
       contextInfo: { 
           mentionedJid: [ayam] 
       } 
