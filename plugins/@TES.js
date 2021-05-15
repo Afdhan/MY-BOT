@@ -12,17 +12,17 @@ let handler = async(m, { conn, args, participants }) => {
     let usersLevel = sortedLevel.map(enumGetKey)
     console.log(participants)
     let teks = `
-${sortedLevel.slice(0).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}`).join`\n`}
+${sortedLevel.slice(0).map(({ jid, level }, i) => `${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}`).join`\n`}
 `.trim()
     conn.reply(m.chat, teks, m, {
     contextInfo: {
       mentionedJid: [...usersLevel.slice(0)].filter(v => !participants.some(p => v === p.jid))
     }
   })
-    //conn.reply(m.chat, `${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}, m)
+    ///conn.reply(m.chat, `${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}, m)
  }
 
-handler.command = /^(data)$/i
+handler.command = /^((data|total)(user)?)$/i
 
 module.exports = handler
 
