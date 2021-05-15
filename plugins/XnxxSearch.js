@@ -16,9 +16,9 @@ let handler = async (m, { conn, text }) => {
            hsl += `*Views:* ${json.result[i].views}\n`
            hsl += `*Duration:* ${json.result[i].duration}\n`
            hsl += `*Uploader:* ${json.result[i].uploader}\n`
-           hsl += `*Download:*\n${json.result[i].link}\n`
+           hsl += `*Download:*\n${json.result[i].link}\n\n`
          }
-           hsl += '\n*SGDC-BOT*'
+           hsl += '*SGDC-BOT*'
         conn.reply(m.chat, hsl, m)
     }catch(e){
         m.reply("ERROR")
