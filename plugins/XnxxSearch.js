@@ -17,7 +17,7 @@ let handler = async (m, { conn, text }) => {
            hsl += `*Views:* ${json.result[i].views}\n`
            hsl += `*Duration:* ${json.result[i].duration}\n`
            hsl += `*Uploader:* ${json.result[i].uploader}\n`
-           hsl += `*Download:*\n${json.result[i].link}\n\n`
+           hsl += `*Link:*\n${json.result[i].link}\n\n`
          }
            hsl += '*SGDC-BOT*'
         conn.reply(m.chat, hsl, m)
@@ -29,6 +29,6 @@ let handler = async (m, { conn, text }) => {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
    }
-handler.command = /^(xnxxsearch|searchxnxx|sxnxx)$/
+handler.command = /^(xnxxsearch|searchxnxx|xnxx)$/
 handler.premium = true
 module .exports = handler
