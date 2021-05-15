@@ -1,4 +1,5 @@
 let fetch = require("node-fetch")
+let axios = require("axios")
 let kntl = require("../src/kntl.json")
 let handler = async (m, { conn, text }) => {
   let api = (kntl.lolkey)
@@ -7,8 +8,8 @@ let handler = async (m, { conn, text }) => {
       if (!text) return m.reply("_Masukkan Kata Kunci_")
       await m.reply(global.wait)
      try {
-      let res = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${api}&query=${text}`)
-      let json = await res.json()
+      let res = await axios.get(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${api}&query=${text}`)
+      let json = res.data
       //let ress = json.result
       let hsl = `*[ XNXX SEARCH ]*\n\n`
       for (let i = 0; i < json.result.length; i++) {
