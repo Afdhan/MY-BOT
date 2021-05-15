@@ -8,7 +8,7 @@ let handler = async (m, { conn, text }) => {
       await m.reply(global.wait)
      try {
       let res = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${api}&query=${text}`)
-      let json = res.json()
+      let json = await res.json()
       //let ress = json.result
       let hsl = `*[ XNXX SEARCH ]*\n\n`
       for (let i = 0; i < json.result.length; i++) {
