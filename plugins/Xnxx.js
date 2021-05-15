@@ -12,8 +12,8 @@ let handler = async (m, { conn, args, text, command }) => {
     if (!text) return m.reply("_Masukkan Link XNXX_")
         await m.reply(global.wait)
   try {
-let res = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=${api}&url=${text}`)
-let json = await res.json()
+let res = await axios.get(`https://api.lolhuman.xyz/api/xnxx?apikey=${api}&url=${text}`)
+let json = res.data
 let data = json.result
 let url = data.link
 
@@ -48,7 +48,8 @@ for (let i = 0; i < data.link.length; i++) {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
  }
-handler.command = /^(xnxx(dl)?)$/
+handler.command = /^(xnxxdl)$/
+handler.premium = true
 module.exports = handler
 
 //M AFDHAN
