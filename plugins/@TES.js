@@ -10,7 +10,7 @@ let handler = async(m, { conn, args, participants }) => {
   })
     let dia = users.map
     let tot = dia.length
-    let usersLevel = dia.map(enumGetKey)
+    let usersLevel = dia.length(enumGetKey)
     console.log(participants)
     let teks = `
 *TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
