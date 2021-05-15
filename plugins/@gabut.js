@@ -12,6 +12,9 @@ let res = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=${api}&url=${tex
 let json = await res.json()
 let data = json.result
 let url = data.link
+/*for (let x of data.link) {
+     url += x.type} x.link + '\n\n'
+ }*/
 
 let txt = `
 *Title:* ${data.title}
@@ -27,9 +30,6 @@ let txt = `
 *LINK*
 ${url}
 `.trim()
-for (let x of url) {
-      txt += `${x.type} - ${x.link}\n\n`
- }
       //let ress = await fetch(data.thumbnail)
      // let thum = await ress.buffer()
       conn.sendFile(m.chat, data.thumbnail, txt, m)
