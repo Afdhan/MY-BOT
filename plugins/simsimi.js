@@ -22,9 +22,8 @@ try {
      // })
     } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
   }catch(e){
-    let ress = await fetch(`https://videfikri.com/api/simsimi/?teks=${text}`)
-    let hsl = await ress.json()
-    m.reply(hsl.result.message)
+    m.reply('```Ngomong apa?```')
+	  console.log(e)
     }
 }
 
