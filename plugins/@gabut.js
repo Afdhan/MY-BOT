@@ -24,17 +24,17 @@ let txt = `
 *Like:* ${data.like}
 *Dislike:* ${data.dislike}
 *Comment:* ${data.comment}
-*tag:* ${data.tag.join(",")}
+*tag:* ${data.tag.join("\n")}
 *Description:* ${data.description}
 
-*LINK*
+*DOWNLOAD*
 `.trim()
 
 for (let i = 0; i < data.link.length; i++) {
-    txt += `Type: ${data.link[i].type}`
-    txt += `Link: ${data.link[i].link}`
+    txt += `\nType: ${data.link[i].type}\n`
+    txt += `Link: ${data.link[i].link}\n\n`
    }
-    txt += '\n\n*SGDC-BOT*'
+    txt += '\n*SGDC-BOT*'
       //let ress = await fetch(data.thumbnail)
      // let thum = await ress.buffer()
       await m.reply(txt)
