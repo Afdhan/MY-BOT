@@ -30,12 +30,13 @@ ${url}
 for (let x of url) {
       txt += `${x.type} - ${x.link}\n\n`
  }
-      let ress = await fetch(data.thumbnail)
-      let thum = await ress.buffer()
-      conn.sendFie(m.chat, thum, txt, m)
+      //let ress = await fetch(data.thumbnail)
+     // let thum = await ress.buffer()
+      conn.sendFie(m.chat, data.thumbnail, txt, m)
       }catch(e){
           m.reply ("ERROR")
-          }
+          console.log (e)
+       }
 }
 handler.command = /^(tes)$/
 module.exports = handler
