@@ -28,8 +28,13 @@ let txt = `
 *Description:* ${data.description}
 
 *LINK*
-${url}
 `.trim()
+
+for (let i = 0; i < data.link.length; i++) {
+    txt += `Type: ${data.link[i].type}`
+    txt += `Link: ${data.link[i].link}`
+   }
+    txt += '\n\n*SGDC-BOT*'
       //let ress = await fetch(data.thumbnail)
      // let thum = await ress.buffer()
       await m.reply(txt)
