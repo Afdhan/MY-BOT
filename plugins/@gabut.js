@@ -7,7 +7,7 @@ let data = Object.entries(global.DATABASE._data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
 let dia = data.map(toNumber('number')).sort(sort('number'))
-let makhluk = dia.map(enumGetKey)
+let makhluk = data.map(enumGetKey)
 let out = dia.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`
 
 //let tes = await CreateLink(user, text)
