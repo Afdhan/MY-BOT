@@ -1,10 +1,4 @@
 let handler = async(m, { conn, args, participants }) => {
-        /*let data = Object.entries(global.DATABASE.data.users)
-	let out = `*DATA USERS*\n\n`
-	for (let i = 0; i < data.length; i++) {
-       out += `${data[i]}\n`
-    }
-    conn.reply(m.chat, out, m)*/
     let users = Object.entries(global.DATABASE.data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
@@ -18,6 +12,12 @@ let handler = async(m, { conn, args, participants }) => {
 ${dia.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`}
 
 *TOTAL ADA: ${tot}*
+
+*NOTE:*
+_Data diri anda tersimpan didalam database selama SGDC-BOT aktif, dan akan reset otomatis setelah SGDC-BOT dinonaktifkan._
+_Yaitu, Termasuk data Chat atau Pesan, Command yang diconversi, Nomor pengguna, ID WhatsApp, Command yang di reject, Command yang gagal diconversi, dan Nama pengguna._
+
+_Jadi bijaklah dalam memanfaatkan fasilitas :)_
 `.trim()
     conn.reply(m.chat, teks, m, {
     contextInfo: {
