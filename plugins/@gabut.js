@@ -32,7 +32,7 @@ for (let x of url) {
  }
       //let ress = await fetch(data.thumbnail)
      // let thum = await ress.buffer()
-      conn.sendFie(m.chat, data.thumbnail, txt, m)
+      conn.sendFile(m.chat, data.thumbnail, txt, m)
       }catch(e){
           m.reply ("ERROR")
           console.log (e)
