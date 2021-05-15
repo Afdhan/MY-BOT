@@ -58,15 +58,15 @@ device_model
    console.log(chalk.bold.red(`
 SGDC-BOT Service Running
 			     
-WhatsApp Version: ${chalk.bold.green + wa_versi}
-Platform: ${chalk.bold.green + platfrom}
-MCC: ${chalk.bold.green + _mcc}
-MNC: ${chalk.bold.green + _mnc}
-Core: ${chalk.bold.green + core}
-RAM: ${chalk.bold.green + ram}
-Device: ${chalk.bold.green + device}
-OS Version: ${chalk.bold.green + versi_os}
-Device Version: ${chalk.bold.green + versi_hp}
+WhatsApp Version: ${chalk.bold.green(wa_versi)}
+Platform: ${chalk.bold.green(platfrom)}
+MCC: ${chalk.bold.green(_mcc)}
+MNC: ${chalk.bold.green(_mnc)}
+Core: ${chalk.bold.green(core)}
+RAM: ${chalk.bold.green(ram)}
+Device: ${chalk.bold.green(device)}
+OS Version: ${chalk.bold.green(versi_os)}
+Device Version: ${chalk.bold.green(versi_hp)}
 
 Powered By SGDC-BOT || M AFDHAN
 `))
