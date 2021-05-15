@@ -402,6 +402,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}mark
 ├≽ ${_p}google
 ├≽ ${_p}sfile
+├≽ ${_p}xnxx
 ├≽ ${_p}wiki
 ├≽ ${_p}kbbi
 ├≽ ${_p}lirik
@@ -447,7 +448,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}ytmp4
 ├≽ ${_p}playmp3
 ├≽ ${_p}playmp4
-├≽ ${_p}playstore
+├≽ ${_p}xnxxdl
 ├─────────────────
 │                  *❏ TOOLS ❏*
 │
