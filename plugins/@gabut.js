@@ -3,7 +3,7 @@ let MessageType = require("@adiwajshing/baileys");
 let { image } = MessageType
 let CreateLink = require('../lib/CreateLink')
 let handler = async (m, { conn, args, text }) => {
-let data = Object.values(global.DATABASE._data.users).filter(user => user.number)
+let data = Object.values(global.DATABASE._data.users[m.sender]).filter(user => user.number)
 let out = `*DATA USERS*`
 	for (let i = 0; i < data.length; i++) {
        out += `${data[i]}\n`
