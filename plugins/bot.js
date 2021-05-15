@@ -1,7 +1,7 @@
 let fs = require("fs");
 let handler = async (m, { conn, usedPrefix }) => {
     let nama = conn.getName(m.sender)
-    let Prefix = m.text.replace('', usedPrefix)
+    let Prefix = m.text.replace('', pickRandom(global.rpf))
     let ayam = m.sender
     if (m.fromMe) return
   conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${Prefix}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
