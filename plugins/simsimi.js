@@ -3,7 +3,8 @@ let axios = require("axios");
 let kntl = require("../src/kntl.json")
 let handler = async (m, { conn, text }) => {
 let chat = global.DATABASE.data.chats[m.chat]
-if (chat.simi) {
+try {
+    if (chat.simi) {
         let api = "B9IbhNbRGGlUUplsZCV1ihQrsyd"
         let apii = (kntl.zekskey)
         let res = await axios.get(`https://api.zeks.xyz/api/simi?apikey=${api}&text=${text}`) ///.then ((res) => {
@@ -19,7 +20,12 @@ if (chat.simi) {
 	m.reply('Ngomong Apa?') 
 	}*/
      // })
-  } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
+    } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
+  }catch(e){
+    let ress = await fetch(`https://videfikri.com/api/simsimi/?teks=${text}`)
+    let hsl = await ress.json()
+    m.reply(hsl.result.message)
+    }
 }
 
 //handler.customPrefix = /^tod/
