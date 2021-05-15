@@ -68,7 +68,8 @@ for (let i = 0; i < data.link.length; i++) {
         m.reply("ERROR")
         console.log(e)
      }
-    } else {
+    }
+   } else {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
  }
