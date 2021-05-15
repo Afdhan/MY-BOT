@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, text, command }) => {
     let api = (kntl.lolkey)
     let chat = global.DATABASE.data.chats[m.chat]
     if (chat.nsfw) { 
-    if(command == 'xnxx' || command == 'xnxxdl') {
+    
     if (!text) return m.reply("_Masukkan Link XNXX_")
         await m.reply(global.wait)
   try {
@@ -47,28 +47,6 @@ for (let i = 0; i < data.link.length; i++) {
           m.reply ("ERROR")
           console.log (e)
        }
-    } else if (command == 'xnxxsearch' || command == 'searchxnxx') {
-      if (!text) return m.reply("_Masukkan Kata Kunci_")
-      await m.reply(global.wait)
-     try {
-      let res = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${api}&query=${text}`)
-      let json = res.json()
-      //let ress = json.result
-      let hsl = `*[ XNXX SEARCH ]*\n\n`
-      for (let i = 0; i < json.result.length; i++) {
-           hsl += `*Title:* ${json.result[i].title}\n`
-           hsl += `*Views:* ${json.result[i].views}\n`
-           hsl += `*Duration:* ${json.result[i].duration}\n`
-           hsl += `*Uploader:* ${json.result[i].uploader}\n`
-           hsl += `*Download:*\n${json.result[i].link}\n`
-         }
-           hsl += '\n*SGDC-BOT*'
-        conn.reply(m.chat, hsl, m)
-    }catch(e){
-        m.reply("ERROR")
-        console.log(e)
-     }
-    }
    } else {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
