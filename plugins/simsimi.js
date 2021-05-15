@@ -20,7 +20,9 @@ try {
 	m.reply('Ngomong Apa?') 
 	}*/
      // })
-    } else throw '*SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!*'
+    } else {
+    m.reply('SIMI BELUM DIAKTIFKAN UNTUK CHAT INI!')
+    }
   }catch(e){
     m.reply('```Ngomong apa?```')
 	  console.log(e)
