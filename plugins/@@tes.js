@@ -7,7 +7,8 @@ let handler = async (m, { conn, text, args }) => {
   for (let i = 0; i < yy.length; i++) {
       dua = `@${yy[i].split("@")[0]}`
     }
-  m.reply(dua)
+  let tuga = await conn.groupMetadataMinimal(m.chat)
+  m.reply(tuga)
 }
 handler.command = /^tes$/
 module.exports = handler
