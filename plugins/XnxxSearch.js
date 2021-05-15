@@ -31,4 +31,4 @@ let handler = async (m, { conn, text }) => {
    }
 handler.command = /^(xnxxsearch|searchxnxx|xnxx)$/
 handler.premium = true
-module .exports = handler
+module.exports = handler
