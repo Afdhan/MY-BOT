@@ -53,14 +53,14 @@ for (let i = 0; i < data.link.length; i++) {
      try {
       let res = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${api}&query=${text}`)
       let json = res.json()
-      let ress = json.result
+      //let ress = json.result
       let hsl = `*[ XNXX SEARCH ]*\n\n`
-      for (let i = 0; i < ress.length; i++) {
-           hsl += `*Title:* ${ress[i].title}\n`
-           hsl += `*Views:* ${ress[i].views}\n`
-           hsl += `*Duration:* ${ress[i].duration}\n`
-           hsl += `*Uploader:* ${ress[i].uploader}\n`
-           hsl += `*Download:*\n${ress[i].link}\n`
+      for (let i = 0; i < json.result.length; i++) {
+           hsl += `*Title:* ${json.result[i].title}\n`
+           hsl += `*Views:* ${json.result[i].views}\n`
+           hsl += `*Duration:* ${json.result[i].duration}\n`
+           hsl += `*Uploader:* ${json.result[i].uploader}\n`
+           hsl += `*Download:*\n${json.result[i].link}\n`
          }
            hsl += '\n*SGDC-BOT*'
         conn.reply(m.chat, hsl, m)
