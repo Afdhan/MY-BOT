@@ -13,7 +13,7 @@ let handler = async(m, { conn, args, participants }) => {
     let makhluk = dia.map(enumGetKey)
     console.log(participants)
     let teks = `
-*TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
+*TOTAL PENGGUNA YANG TERDETEKSI*
 
 ${dia.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`}
 
