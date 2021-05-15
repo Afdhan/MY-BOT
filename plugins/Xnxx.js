@@ -16,9 +16,6 @@ let res = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=${api}&url=${tex
 let json = await res.json()
 let data = json.result
 let url = data.link
-/*for (let x of data.link) {
-     url += x.type} x.link + '\n\n'
- }*/
 
 let txt = `
 *Title:* ${data.title}
@@ -51,7 +48,7 @@ for (let i = 0; i < data.link.length; i++) {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
  }
-handler.command = /^(xnxx(dl)?|xnxxsearch|searchxnxx)$/
+handler.command = /^(xnxx(dl)?)$/
 module.exports = handler
 
 //M AFDHAN
