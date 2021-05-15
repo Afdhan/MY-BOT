@@ -8,20 +8,20 @@ let handler = async(m, { conn, args, participants }) => {
     let users = Object.entries(global.DATABASE.data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
-    let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
-    let tot = sortedLevel.slice(0).length
-    let usersLevel = sortedLevel.map(enumGetKey)
+    let dia = users.map
+    let tot = dia.slice(0).length
+    let usersLevel = dia.map(enumGetKey)
     console.log(participants)
     let teks = `
 *TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
 
-${sortedLevel.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`}
+${dia.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`}
 
 *TOTAL ADA: ${tot}*
 `.trim()
     conn.reply(m.chat, teks, m, {
     contextInfo: {
-      mentionedJid: [...usersLevel.slice(0)].filter(v => !participants.some(p => v === p.jid))
+      mentionedJid: [...usersLevel.slice(0)]
     }
   })
     ///conn.reply(m.chat, `${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Level ${level}*`).join`\n`}, m)
