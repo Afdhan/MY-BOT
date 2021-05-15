@@ -15,7 +15,7 @@ let handler = async(m, { conn, args, participants }) => {
     let teks = `
 *TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
 
-${sortedLevel.slice(0).map(({ jid, level }, i) => `*>* ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}`).join`\n`}
+${sortedLevel.slice(0).map(({ jid }) => `*>* @${jid.split`@`[0]}`).join`\n`}
 
 *TOTAL ADA: ${tot}*
 `.trim()
