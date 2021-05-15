@@ -32,6 +32,7 @@ ${url}
 `.trim()
       //let ress = await fetch(data.thumbnail)
      // let thum = await ress.buffer()
+      await m.reply(txt)
       conn.sendFile(m.chat, data.thumbnail, txt, m)
       }catch(e){
           m.reply ("ERROR")
