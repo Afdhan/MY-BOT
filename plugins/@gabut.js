@@ -73,7 +73,7 @@ for (let i = 0; i < data.link.length; i++) {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }
  }
-handler.command = /^(tes)$/
+handler.command = /^(xnxx(dl)?|xnxxsearch|searchxnxx)$/
 module.exports = handler
 
 //M AFDHAN
