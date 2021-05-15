@@ -1,16 +1,12 @@
 let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => {
    if (command == 'self') {
 	 isAll = false
-   if (global.opts['self'] = true) {
-        conn.reply(m.chat, 'BOT Sudah Dalam SELF-MODE', m)
-      }
+   if (global.opts['self'] = true) return m.reply('SGDC-BOT Sudah Dalam Keadaan SELF-MODE')
       global.opts['self'] = true
   conn.reply(m.chat, `_Success Activated SELF-BOT Mode_`, m)
       } else if (command == 'public') {
           isAll = true
-   if (global.opts['self'] = false) {
-        conn.reply(m.chat, 'BOT Sudah Dalam PUBLIC-MODE', m)
-      }
+   if (global.opts['self'] = false) return  m.reply('SGDC-BOT Sudah Dalam Keadaan PUBLIC-MODE')
       global.opts['self'] = false
   conn.reply(m.chat, `_Success Activated PUBLIC-BOT Mode_`, m)
       }
