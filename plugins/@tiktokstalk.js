@@ -23,7 +23,7 @@ let { image } = MessageType
   }
 }
 					
-*/
+
 handler.command = /^tiktokstalk$/i
 handler.owner = false
 handler.mods = false
@@ -35,5 +35,5 @@ handler.admin = false
 handler.botAdmin = false
 
 handler.fail = null
-
+*/
 //odule.exports = handler
