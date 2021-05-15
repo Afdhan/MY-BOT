@@ -9,7 +9,7 @@ let handler = async(m, { conn, args, participants }) => {
     return {...value, jid: key}
   })
     let dia = users.map
-    let tot = dia.slice(0).length
+    let tot = dia.length
     let usersLevel = dia.map(enumGetKey)
     console.log(participants)
     let teks = `
