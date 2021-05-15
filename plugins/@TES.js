@@ -8,7 +8,7 @@ let handler = async(m, { conn, args, participants }) => {
     let users = Object.entries(global.DATABASE.data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
-    let dia = users.map().sort()
+    let dia = users.map()
     let tot = dia.length
     let makhluk = dia.map(enumGetKey)
     console.log(participants)
