@@ -9,10 +9,15 @@ let handler = async(m, { conn, args, participants }) => {
     return {...value, jid: key}
   })
     let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
+    let tot = sortedLevel.slice(0).length
     let usersLevel = sortedLevel.map(enumGetKey)
     console.log(participants)
     let teks = `
-${sortedLevel.slice(0).map(({ jid, level }, i) => `${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}`).join`\n`}
+*TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
+
+${sortedLevel.slice(0).map(({ jid, level }, i) => `*>* ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}`).join`\n`}
+
+*TOTAL ADA: ${tot}*
 `.trim()
     conn.reply(m.chat, teks, m, {
     contextInfo: {
