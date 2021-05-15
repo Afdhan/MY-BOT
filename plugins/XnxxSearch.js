@@ -1,5 +1,7 @@
-let fetch = require("node-fetch")    
+let fetch = require("node-fetch")
+let kntl = require("../src/kntl.json")
 let handler = async (m, { conn, text }) => {
+  let api = (kntl.lolkey)
   let chat = global.DATABASE.data.chats[m.chat]
    if (chat.nsfw) { 
       if (!text) return m.reply("_Masukkan Kata Kunci_")
