@@ -33,6 +33,9 @@ for (let x of url) {
       let ress = await fetch(data.thumbnail)
       let thum = await ress.buffer()
       conn.sendFie(m.chat, thum, txt, m)
+      }catch(e){
+          m.reply ("ERROR")
+          }
 }
 handler.command = /^(tes)$/
 module.exports = handler
