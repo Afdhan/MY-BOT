@@ -8,9 +8,9 @@ let handler = async(m, { conn, args, participants }) => {
     let users = Object.entries(global.DATABASE.data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
-    let dia = users.map
+    let dia = users.map(toNumber('level')).sort(sort('level'))
     let tot = dia.length
-    let usersLevel = dia.length(enumGetKey)
+    let usersLevel = dia.map(enumGetKey)
     console.log(participants)
     let teks = `
 *TOTAL PENGGUNA SGDC-BOT YANG TERDETEKSI*
