@@ -79,7 +79,7 @@ Powered By SGDC-BOT || M AFDHAN
     //let ree = await axios.get(`https://xinzbot-api.herokuapp.com/api/ucapan?apikey=${apikey}&timeZone=Asia/Jakarta`)
     //let cpn = ree.data.result
     let res = await axios.get(`https://xinzbot-api.herokuapp.com/api/hitungmundur?apikey=${apikey}&tanggal=12&bulan=5`)
-    let rmd = res.data.result
+    let rmd = "Berakhir"
     let gc = 'https://tinyurl.com/ygu7vxny'
     let desc = 'Powered by'
     let ping = neww - old + ' ms'
@@ -511,7 +511,7 @@ ${week}, ${islami} *H*
 ├≽ ${_p}off
 │
 └──────────────────╯
-                   \`\`\`${bname}@^${vers}\`\`\`
+                    \`\`\`${bname}@^${vers}\`\`\`
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
@@ -576,7 +576,7 @@ function clockString(ms) {
   let h = Math.floor(ms / 3600000)
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
-  console.log(chalk.cyan(`
+  console.log(chalk.green(`
 Secondary Process Uptime
 
 ${h} Hours
