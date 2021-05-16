@@ -78,8 +78,8 @@ Powered By SGDC-BOT || M AFDHAN
     let apikey = (kntl.xinzbot)
     //let ree = await axios.get(`https://xinzbot-api.herokuapp.com/api/ucapan?apikey=${apikey}&timeZone=Asia/Jakarta`)
     //let cpn = ree.data.result
-    let res = await axios.get(`https://xinzbot-api.herokuapp.com/api/hitungmundur?apikey=${apikey}&tanggal=12&bulan=5`)
-    let rmd = "Berakhir"
+    let res = await axios.get(`https://xinzbot-api.herokuapp.com/api/hitungmundur?apikey=${apikey}&tanggal=19&bulan=7`)
+    let rmd = res.data.result
     let gc = 'https://tinyurl.com/ygu7vxny'
     let desc = 'Powered by'
     let ping = neww - old + ' ms'
@@ -159,7 +159,7 @@ Powered By SGDC-BOT || M AFDHAN
 *❍ Instagram:* @dhans11__
 
 ─────────────────────
-*ＲＯＡＤ ＴＯ ＩＤＵＬ ＦＩＴＲＩ １４４２ Ｈ*
+*ＲＯＡＤ ＴＯ ＩＤＵＬ ＡＤＨＡ １４４２ Ｈ*
 *❍* ${rmd}
 
 *ＷＡＫＴＵ:* ${time} ${ampm}
