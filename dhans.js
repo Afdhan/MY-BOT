@@ -1,5 +1,5 @@
 let chalk = require('chalk')
-console.log(chalk.bold.cyan(`SGDC-BOT Connecting to WhatsApp Web server...`))
+console.log(chalk.cyan(`SGDC-BOT Connecting to WhatsApp Web server...`))
 require('./config.js')
 let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
@@ -225,7 +225,7 @@ async function _quickTest() {
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
   fs.unwatchFile(file)
-  console.log(chalk.redBright("Update 'lib/print.js'"))
+  console.log(chalk.redBright("Update 'dhans.js'"))
   delete require.cache[file]
 })
 
