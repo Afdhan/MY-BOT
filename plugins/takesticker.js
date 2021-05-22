@@ -11,7 +11,7 @@ let handler  = async (m, { conn, args, text }) => {
     let mime = (q.msg || q).mimetype || ''
     if (/image|video/.test(mime)) {
       let img = await q.download()
-      if (!img) throw '_Foto/Video tidak ditemukan!_'
+      if (!img) throw '_Media Tidak Ditemukan!_'
       stiker = await sticker(img, false, kontol, memek)
     } else if (args[0]) stiker = await sticker(false, args[0], kontol, memek)
   } finally {

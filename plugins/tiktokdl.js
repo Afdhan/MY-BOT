@@ -1,7 +1,8 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
- if (!text) return conn.reply(m.chat, '_Masukkan Link Video TikTok_', m)
+	m.reply('```Kami Butuh Apikey Untuk Memperbaiki Fitur Ini!```')
+/* if (!text) return conn.reply(m.chat, '_Masukkan Link Video TikTok_', m)
 try {
   await m.reply(global.wait)
     axios.get(`https://fzn-gaz.herokuapp.com/api/tiktok?url=${text}`)
@@ -17,7 +18,7 @@ try {
 *Link:* ${res.data.result}
 
 
-_Download Sendiri, Jangan Manja :v_
+ _Download Sendiri, Jangan Manja :v_
 
 *SGDC-BOT*
 `.trim()
@@ -26,7 +27,7 @@ _Download Sendiri, Jangan Manja :v_
     })
   } catch (e) {
    m.reply('```Error```')
-  }
+  }*/
 }
 
 handler.command = /^(tiktokdl)$/i

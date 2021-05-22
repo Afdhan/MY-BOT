@@ -1,5 +1,6 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let handler = async(m, { conn, text }) => {
  if (!text) return conn.reply(m.chat, '_Masukkan Username Twitter_', m)
  try {
@@ -19,7 +20,7 @@ let handler = async(m, { conn, text }) => {
 
 *SGDC-BOT*
 `.trim()
-     conn.sendFile(m.chat, buf, 'SGDC.png', str, m)
+     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
         })
     })
   } catch (e) {

@@ -20,7 +20,7 @@ let url = data.link
 let txt = `
 *Title:* ${data.title}
 *Duration:* ${data.duration}
-*views:* ${data.view}
+*Views:* ${data.view}
 *Rating:* ${data.rating}
 *Like:* ${data.like}
 *Dislike:* ${data.dislike}
@@ -36,10 +36,7 @@ for (let i = 0; i < data.link.length; i++) {
     txt += `Link: ${data.link[i].link}\n`
    }
     txt += '\n*SGDC-BOT*'
-      //let ress = await fetch(data.thumbnail)
-     // let thum = await ress.buffer()
-      //await m.reply(txt)
-      conn.sendFile(m.chat, data.thumbnail, "STOPCOLY.jpg", txt, m)
+      conn.sendMessage(m.chat, data.thumbnail, MessageType.image, { quoted: m, caption: txt })
       }catch(e){
           m.reply ("ERROR")
           console.log (e)

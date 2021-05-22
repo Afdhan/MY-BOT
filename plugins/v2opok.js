@@ -4,9 +4,9 @@ let handler = async m => m.reply(`
 vmess://eyJhZGQiOiJjb3ZpZDE5LmdvLmlkIiwiYWlkIjoiMCIsImhvc3QiOiJtYWxheXNpYS12aXAuanN0b3Bvay50ayIsImlkIjoiNWRjYjIwZWUtODQyOS0xMWViLTlhMmUtMDAxNjNlMDAxMjg4IiwibmV0Ijoid3MiLCJwYXRoIjoiL0E5T21xUEt0LyIsInBvcnQiOiI4MCIsInBzIjoiIiwidGxzIjoiIiwidHlwZSI6IiIsInYiOiIxIn0=
 
 
-*BY _@JSTFREENET_*
+BY _@JSTFREENET_
 
-*[ • SGDC-BOT • ]*
+*SGDC-BOT*
 `.trim()) 
 
 handler.command = /^(v2rayopok|v2rayisat(opok)|v2rayopok(isat))$/i

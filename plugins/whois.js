@@ -9,18 +9,18 @@ let txt = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : text
 	 	let hasil = `
 *WHOIS IP LOOKUP*
 	
-*IP Adress:* ${res.data.result.ip}
-*City:* ${res.data.result.city}
-*Region:* ${res.data.result.region}
-*Region Name:* ${res.data.result.region_name}
-*Country:* ${res.data.result.country}
-*Country Code:* ${res.data.result.country_code}
-*Latitude:* ${res.data.result.latitude}
-*Longtitude:* ${res.data.result.longtitude}
-*TimeZone:* ${res.data.result.timezone}
-*ISP:* ${res.data.result.isp}
-*ORG:* ${res.data.result.org}
-*AS:* ${res.data.result.as}
+IP Adress: _${res.data.result.ip}_
+City: _${res.data.result.city}_
+Region: _${res.data.result.region}_
+Region Name: _${res.data.result.region_name}_
+Country: _${res.data.result.country}_
+Country Code: _${res.data.result.country_code}_
+Latitude: _${res.data.result.latitude}_
+Longtitude: _${res.data.result.longtitude}_
+TimeZone: _${res.data.result.timezone}_
+ISP: _${res.data.result.isp}_
+ORG: _${res.data.result.org}_
+AS: _${res.data.result.as}_
 
 *SGDC-BOT*
 `.trim()
@@ -32,7 +32,7 @@ let txt = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : text
   }
 }
 
-handler.command = /^(whois)$/i
+handler.command = /^(whois|iplokup)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

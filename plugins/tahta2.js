@@ -1,12 +1,13 @@
 let axios = require("axios");
 let kntl = require("../src/kntl.json");
+let MessageType = require("@adiwajshing/baileys")
 let handler = async(m, { conn, text }) => {
 let api = (kntl.xteam)
     if (text.length > 10) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 10 huruf!_', m)
  try {
     await m.reply(global.wait)
-    let link = 'https://api.xteam.xyz/tahta?text=' + text + '&APIKEY=' + api;
-    conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+    let link = 'https://api.xteam.xyz/tahta?text=' + encodeURIComponent(text) + '&APIKEY=' + api;
+    conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
    } catch (e) {
    m.reply('```Error```')
   }

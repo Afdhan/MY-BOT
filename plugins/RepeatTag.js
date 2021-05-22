@@ -7,6 +7,7 @@ let handler = async(m, { conn, text }) => {
 *「  REPEAT TAG  」*
 
 Dari: @${kon.split("@")[0]}
+Pesan: ${text ? text : '-'}
 
 🤣 @${who.split("@")[0]}
 🤣 @${who.split("@")[0]}
@@ -1412,7 +1413,7 @@ Dari: @${kon.split("@")[0]}
 🤣 @${who.split("@")[0]}
 🤣 @${who.split("@")[0]}
 
-*「    SGDC-BOT    」*
+*SGDC-BOT*
 `.trim()
 
 conn.reply(m.chat, repeat, m, {

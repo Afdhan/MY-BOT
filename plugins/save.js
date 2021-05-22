@@ -1,7 +1,7 @@
 let handler = function (m, { conn, text }) {
 	if (!text) return conn.reply(m.chat, '_Namanya Siapa?_', m)
 	if (text.length > 15) return conn.reply(m.chat, '_Nama Kepanjangan!_', m)
-var nomor = m.sender
+   let nomor = m.sender
     this.sendContact(m.chat, nomor.split("@s.whatsapp.net")[0], `${text}`, m)
 }
 

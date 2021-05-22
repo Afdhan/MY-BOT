@@ -10,9 +10,6 @@ let handler = async(m, { conn, text }) => {
 
 handler.command = /^(mark)$/i
 
-handler.botAdmin = false
-
-handler.fail = null
 
 //  MUHAMMAD AFDHAN
 

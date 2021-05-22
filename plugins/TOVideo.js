@@ -44,7 +44,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                 balas(m.chat, '```Error```')
                 if (fs.existsSync(savedFilename)) fs.unlinkSync(savedFilename)
             })
-    } else throw `kirim stiker kemudian reply dengan caption ${usedPrefix}tovid`
+    } else throw `kirim stiker kemudian reply dengan caption ${usedPrefix}tovideo`
 }
 
 

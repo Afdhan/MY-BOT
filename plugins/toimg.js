@@ -18,7 +18,7 @@ let handler  = async (m, { conn }) => {
     im.stdin.end()
     im.on('exit', () => {
      // conn.reply(m.chat, '*[ WAIT ]* *_Sedang di proses..._*', m)
-      conn.sendFile(m.chat, Buffer.concat(bufs),'SGDC-BOT.png', '*[ • SGDC-BOT • ]*', m)
+      conn.sendFile(m.chat, Buffer.concat(bufs),'SGDC-BOT.jpg', '*SGDC-BOT*', m)
     })
    } 
  } catch (e) { 

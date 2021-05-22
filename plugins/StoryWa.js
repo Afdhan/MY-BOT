@@ -27,7 +27,7 @@ let handler = async (m, { conn, text }) => {
         backgroundArgb: pickRandom(colors)
     }, 'extendedTextMessage')
     if (m.quoted && text) _m = conn.forwardMessage('status@broadcast', await m.quoted.cMod('status@broadcast', text))
-    m.reply((await _m).key.id)
+    m.reply('Key:' + (await _m).key.id + '\n\n*SGDC-BOT*')
 }
 handler.command = /^(upsw?|sw)$/i
 
@@ -37,7 +37,6 @@ function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-//module.exports = handler
 
 
 // By Nurutomo
