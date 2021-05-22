@@ -1,35 +1,33 @@
 let handler = async m => m.reply(`
-*╭═════════════════════╮*
-                                 *Bug IM3Class*
-*┏═════════════════════╯*
-*║•  www.cisco.com*
-*║•  www.tangkil.com*
-*║•  www.webex.com*
-*║•  www.ruangguru.com*
-*║•  e-learning.ruangguru.com*
-*║•  videocdn.ruangguru.com*
-*║•  bimbel.ruangguru.com*
-*║•  meet.google.com*
-*║•  classroom.google.com*
-*║•  hangouts.google.com*
-*║•  www.quipper.com*
-*║•  api.quipper.com*
-*║•  zenius.imgix.net*
-*║•  ilk.zenius.net*
-*║•*
-*┣━━━━━━►*
-*║•  Proxy -> 124.158.167.170:8080*
-*║•                   124.158.167.172:8080*
-*┗═════════════════════╮*
-                                 *SGDC-TEAM*
-*┏═════════════════════╯*
-*║★ https://t.me/SGDC_TEAM*
-*║★ https://t.me/SobatGretong*
-*║★ https://t.me/DesaConfig*
-*║★ https://t.me/DesaConfigCh*
-*┗═════════════════════╮*
-                                  *SGDC - BOT*
-*╰═════════════════════╯*
+─────────────────────
+                        *Bug IM3Class*
+─────────────────────
+www.cisco.com
+www.tangkil.com
+www.webex.com
+www.ruangguru.com
+e-learning.ruangguru.com
+videocdn.ruangguru.com
+bimbel.ruangguru.com
+meet.google.com
+classroom.google.com
+hangouts.google.com
+www.quipper.com
+api.quipper.com
+zenius.imgix.net
+ilk.zenius.net
+──────────
+Proxy -> 124.158.167.170:8080
+─────────────────────
+                  *ＳＧＤＣ－ＴＥＡＭ*
+─────────────────────
+• https://t.me/SGDC_TEAM
+• https://t.me/SobatGretong
+• https://t.me/DesaConfig
+• https://t.me/DesaConfigCh
+─────────────────────
+                    *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
 `.trim()) 
 
 handler.command = /^(bugimclass|bugim3class)$/i

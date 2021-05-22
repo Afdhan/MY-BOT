@@ -9,14 +9,14 @@ let api = (kntl.xteam)
     let hasil = `
 *INFO CUACA INDONESIA*
     
-*Kota:* _${res.data.message.kota}_
-*Hari:* _${res.data.message.hari}_
-*Cuaca:* _${res.data.message.cuaca}_
-*Deskripsi:* _${res.data.message.deskripsi}_
-*Suhu:* _${res.data.message.suhu}_
-*Pressure:* _${res.data.message.pressure}_
-*Kelembaban:* _${res.data.message.kelembapan}_
-*Angin:* _${res.data.message.angin}_
+Kota: _${res.data.message.kota}_
+Hari: _${res.data.message.hari}_
+Cuaca: _${res.data.message.cuaca}_
+Deskripsi: _${res.data.message.deskripsi}_
+Suhu: _${res.data.message.suhu}_
+Pressure: _${res.data.message.pressure}_
+Kelembaban: _${res.data.message.kelembapan}_
+Angin: _${res.data.message.angin}_
 
 
 *SGDC-BOT*
@@ -28,16 +28,6 @@ conn.reply(m.chat, hasil, m)
   }
 }
 handler.command = /^(cuaca)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
-
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
 
 
 module.exports = handler

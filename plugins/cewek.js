@@ -3,9 +3,9 @@ let axios = require("axios");
 let handler = async(m, { conn, text }) => {
  try {
     await m.reply(global.wait)
-    let items = ["ullzang girl", "cewe cantik", "hijab cantik", "korean girl", "remaja cantik", "cewek korea", "cewek jepang"];
+    let items = ["cewe imut berhijab", "cewe cantik", "hijab cantik", "korean girl", "remaja cantik", "cewek korea", "cewek jepang"];
     let cewe = items[Math.floor(Math.random() * items.length)];
-    let url = "https://api.fdci.se/rep.php?gambar=" + cewe;
+    let url = "https://api.fdci.se/rep.php?gambar=" + encodeURIComponent(cewe);
     let str = `
 Jangan Ngaceng :v
 
@@ -21,7 +21,7 @@ Jangan Ngaceng :v
             (response) => {
 	let buf = Buffer.from(response, 'base64');
 
-    conn.sendFile(m.chat, buf, 'CIWEY-SGDC.jpg', str, m)
+    conn.sendFile(m.chat, buf, 'Cangtip.jpg', str, m)
             }
         )
         .catch(

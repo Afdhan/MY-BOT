@@ -1,4 +1,5 @@
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let handler = async(m, { conn, text }) => {
  try {
    let [s1, s2] = text.split `|`
@@ -7,8 +8,8 @@ let handler = async(m, { conn, text }) => {
     if (s1.length > 10) return conn.reply(m.chat, '_Teks1 Terlalu Panjang! Maksimal 10 huruf!_', m)
     if (s2.length > 10) return conn.reply(m.chat, '_Teks2 Terlalu Panjang! Maksimal 10 huruf!_', m)
    await m.reply(global.wait)
-   let link = 'https://videfikri.com/api/textmaker/tiktokeffect/?text1=' + s1 + '&text2=' + s2
-   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
+   let link = 'https://videfikri.com/api/textmaker/tiktokeffect/?text1=' + encodeURIComponent(s1) + '&text2=' + encodeURIComponent(s2)
+   conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
    } catch (e) {
    m.reply('```Error```')
   }

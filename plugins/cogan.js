@@ -3,9 +3,9 @@ let axios = require("axios");
 let handler = async(m, { conn, text }) => {
  try {
     await m.reply(global.wait)
-    let items = ["cowok idaman", "cowo ganteng", "cowok personil bts", "korean boy", "artis cowok korea", "cowok korea", "cowok jepang"];
+    let items = ["cowok idaman", "cowo ganteng", "cowok ganteng", "korean boy", "artis cowok korea", "cowok korea", "cowok jepang"];
     let cowo = items[Math.floor(Math.random() * items.length)];
-    let url = "https://api.fdci.se/rep.php?gambar=" + cowo;
+    let url = "https://api.fdci.se/rep.php?gambar=" + encodeURIComponent(cowo);
     let str = `
  *SGDC-BOT*
 `.trim()

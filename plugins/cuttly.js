@@ -7,8 +7,8 @@ let api = (kntl.xteam)
     await m.reply(global.wait)
     axios.get(`https://api.xteam.xyz/shorturl/cuttly?url=${text}&APIKEY=${api}`).then((res) => {
     let hasil = `
-*Link:* ${res.data.result.fullLink}
-*Short:* ${res.data.result.shortLink}
+Link: ${res.data.result.fullLink}
+Short: ${res.data.result.shortLink}
 
 *SGDC-BOT*
 `.trim()

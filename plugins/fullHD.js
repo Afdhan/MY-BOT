@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+let MessageType = require("@adiwajshing/baileys")
 const FormData = require('form-data')
 
 let handler = async (m) => {
@@ -16,7 +17,8 @@ let handler = async (m) => {
     body
   })
   if (res.status !== 200) throw await res.json()
-  await conn.sendFile(m.chat, await res.buffer(), 'hd.jpg', 'Nih HD ga?\n\n*SGDC-BOT*', m)
+  let link = await res.buffer()
+  conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
    } catch (e) {
    m.reply('```Error```')
     console.log(e)

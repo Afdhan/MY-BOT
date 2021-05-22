@@ -4,11 +4,10 @@ let handler = async (m, { conn, text}) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0]
     else who = m.chat
-    //let name = conn.ge
     if (!who) throw '_Tag salah satu mbah!_'
     let users = global.DATABASE._data.users
     users[who].banned = true
-    conn.reply(m.chat, `_User Berhasil Dibanned!_`, m)
+    conn.reply(m.chat, `_${who.split("@")[0]} Berhasil Dibanned!_`, m, { contextInfo: { mentionedJid: [who]}})
 }
 
 handler.command = /^bann$/i

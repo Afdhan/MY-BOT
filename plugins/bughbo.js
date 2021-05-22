@@ -1,36 +1,36 @@
 let handler = async m => m.reply(`
-*╭═════════════════════╮*
-                                *Bug HBO GO*
-*┏═════════════════════╯*
-*║•  stage.hbogo.eu*
-*║•  t.hbogo.eu*
-*║•  telkomsel.hbogo.eu*
-*║•  testcdn.hbogo.eu*
-*║•  twcbuilds.hbogo.eu*
-*║•  rush.hbogo.eu*
-*║•  api.ugw.hbogo.eu*
-*║•  upcnlorigin.hbogo.eu*
-*║•  us.hbogo.eu*
-*║•  vcms.hbogo.eu*
-*║•  vectraedge1a.hbogo.eu*
-*║•  videocdn.hbogo.eu*
-*║•  vidio.hbogo.eu*
-*║•  webmail.hbogo.eu*
-*║•  www.hbogo.eu*
-*║•  maxtream.hbogo.eu*
-*║•  me.hbogo.eu*
-*║•  meapi.hbogo.eu*
-*║•  media.hbogo.eu*
-*┗═════════════════════╮*
-                                 *SGDC-TEAM*
-*┏═════════════════════╯*
-*║★ https://t.me/SGDC_TEAM*
-*║★ https://t.me/SobatGretong*
-*║★ https://t.me/DesaConfig*
-*║★ https://t.me/DesaConfigCh*
-*┗═════════════════════╮*
-                                  *SGDC - BOT*
-*╰═════════════════════╯*
+─────────────────────
+                        *Bug HBO GO*
+─────────────────────
+stage.hbogo.eu
+t.hbogo.eu
+telkomsel.hbogo.eu
+testcdn.hbogo.eu
+twcbuilds.hbogo.eu
+rush.hbogo.eu
+api.ugw.hbogo.eu
+upcnlorigin.hbogo.eu
+us.hbogo.eu
+vcms.hbogo.eu
+vectraedge1a.hbogo.eu
+videocdn.hbogo.eu
+vidio.hbogo.eu
+webmail.hbogo.eu
+www.hbogo.eu
+maxtream.hbogo.eu
+me.hbogo.eu
+meapi.hbogo.eu
+media.hbogo.eu
+─────────────────────
+                  *ＳＧＤＣ－ＴＥＡＭ*
+─────────────────────
+• https://t.me/SGDC_TEAM
+• https://t.me/SobatGretong
+• https://t.me/DesaConfig
+• https://t.me/DesaConfigCh
+─────────────────────
+                    *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
 `.trim()) 
 
 handler.command = /^(bughbo?go|bughbogo)$/i

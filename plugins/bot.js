@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let Prefix = m.text.replace('', pickRandom(global.rpf))
     let ayam = m.sender
     if (m.fromMe) return
-  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${global.opts['prefix']}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
+  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${global.rpf}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
       contextInfo: { 
           mentionedJid: [ayam] 
       } 

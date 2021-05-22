@@ -4,7 +4,7 @@ let handler = async(m, { conn, text }) => {
     if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
     if (text.length > 10) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 10 huruf!_', m)
     await m.reply(global.wait)
-    let link = 'https://videfikri.com/api/textmaker/coffeecup2/?text=' + text;
+    let link = 'https://videfikri.com/api/textmaker/coffeecup2/?text=' + encodeURIComponent(text);
     conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
   	m.reply('```Error```')

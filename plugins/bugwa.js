@@ -1,32 +1,32 @@
 let handler = async m => m.reply(`
-*╭═════════════════════╮*
-                             *Bug WhatsApp*
-*┏═════════════════════╯*
-*║•  whatsapp.com*
-*║•  v.whatsapp.com*
-*║•  b.whatsapp.com*
-*║•  api.whatsapp.com*
-*║•  blog.whatsapp.com*
-*║•  dev-web.whatsapp.com*
-*║•  faq.whatsapp.com*
-*║•  test-web.whatsapp.com*
-*║•  translate.whatsapp.com*
-*║•  privatestats.whatsapp.com*
-*║•  www.whatsapp.com*
-*║•  c.whatsapp.net*
-*║•  mmg.whatsapp.net*
-*║•  pps.whatsapp.net*
-*║•  static.whatsapp.net*
-*┗═════════════════════╮*
-                                 *SGDC-TEAM*
-*┏═════════════════════╯*
-*║★ https://t.me/SGDC_TEAM*
-*║★ https://t.me/SobatGretong*
-*║★ https://t.me/DesaConfig*
-*║★ https://t.me/DesaConfigCh*
-*┗═════════════════════╮*
-                                  *SGDC - BOT*
-*╰═════════════════════╯*
+─────────────────────
+                          *Bug WhatsApp*
+─────────────────────
+whatsapp.com
+v.whatsapp.com
+b.whatsapp.com
+api.whatsapp.com
+blog.whatsapp.com
+dev-web.whatsapp.com
+faq.whatsapp.com
+test-web.whatsapp.com
+translate.whatsapp.com
+privatestats.whatsapp.com
+www.whatsapp.com
+c.whatsapp.net
+mmg.whatsapp.net
+pps.whatsapp.net
+static.whatsapp.net
+─────────────────────
+                   *ＳＧＤＣ－ＴＥＡＭ*
+─────────────────────
+• https://t.me/SGDC_TEAM
+• https://t.me/SobatGretong
+• https://t.me/DesaConfig
+• https://t.me/DesaConfigCh
+─────────────────────
+                      *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
 `.trim()) 
 
 handler.command = /^(bugwa|bugwhatsapp)$/i

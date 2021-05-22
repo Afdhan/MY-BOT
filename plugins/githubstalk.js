@@ -1,5 +1,6 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let handler = async(m, { conn, text }) => {
  try {
  if (!text) return conn.reply(m.chat, '_Masukkan Username Github_', m)
@@ -11,18 +12,18 @@ let handler = async(m, { conn, text }) => {
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
             let str = `
-*GITHUB STALKER*
+*GITHUB STALK*
 
-*ID:* ${res.data.result.id}
-*Username:* ${res.data.result.username}
-*Followers:* ${res.data.result.followers}
-*Following:* ${res.data.result.following}
-*Repository:* ${res.data.result.public_repository}
-*Profile Url:* ${res.data.result.profile_url}
+ID: ${res.data.result.id}
+Username: ${res.data.result.username}
+Followers: ${res.data.result.followers}
+Following: ${res.data.result.following}
+Repository: ${res.data.result.public_repository}
+Profile Url: ${res.data.result.profile_url}
 
 *SGDC-BOT*
 `.trim()
-     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', str, m)
+     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
         })
     })
    } catch (e) {

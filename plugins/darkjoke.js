@@ -1,5 +1,6 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, text }) => {
 let api = (kntl.zekskey)
@@ -13,7 +14,7 @@ let api = (kntl.zekskey)
             let buf = Buffer.from(ress, 'base64')
             let str = `Ini Darkk ?`
 
-     conn.sendFile(m.chat, buf, 'Nyenye_SGDC-BOT.jpg', str, m)
+     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
         })
     })
     } catch (e) {
