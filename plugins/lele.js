@@ -7,7 +7,7 @@ let handler = async (m, { conn, args }) => {
 }
 
 handler.command = /^(leave|out)$/i
-handler.rowner = true
+handler.owner = true
 handler.group = true
 handler.fail = null
 

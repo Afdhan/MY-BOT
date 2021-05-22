@@ -11,8 +11,6 @@ if (!text) return conn.reply(m.chat, '_Masukkan Nama Nabi_', m)
           (ress) => {
             let buf = Buffer.from(ress, 'base64')*/
             let str = `
-*HASIL SEARCHING*       
-           
 *Nama Nabi:* ${res.data.result.nama}
 *Tahun Lahir:* ${res.data.result.tahun_kelahiran}
 *Tempat Lahir:* ${res.data.result.tempat_lahir}
@@ -24,8 +22,6 @@ ${res.data.result.description}
 *SGDC-BOT*
 `.trim()
      conn.reply(m.chat, str, m)
-     //conn.sendFile(m.chat, buf, 'SGDC-BOT.jpg', str, m)
-        //})
     })
   } catch (e) {
    m.reply('```Error```')

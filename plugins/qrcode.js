@@ -1,7 +1,7 @@
 let qrcode = require("qrcode")
 
 let handler  = async (m, { conn, text }) => {
-  conn.sendFile(m.chat, await qrcode.toDataURL(text.slice(0, 2048), { scale: 8 }), 'QR-SGDC.png', '*[ • SGDC-BOT • ]*', m)
+  conn.sendFile(m.chat, await qrcode.toDataURL(text.slice(0, 2048), { scale: 8 }), 'QR-SGDC.png', '*SGDC-BOT*', m)
 }
 
 handler.command = /^qr(code)?$/i

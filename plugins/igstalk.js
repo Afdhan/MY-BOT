@@ -1,5 +1,6 @@
 let imageToBase64 = require('image-to-base64');
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let handler = async(m, { conn, text }) => {
 try {
  if (!text) return conn.reply(m.chat, '_Masukkan Username Instagram!_', m)
@@ -11,15 +12,15 @@ try {
           (ress) => {
             let buf = Buffer.from(ress, 'base64')
             let str = `
-*Nama:* ${res.data.Name}
-*Username:* ${res.data.Username}
-*Followers:* ${res.data.Jumlah_Followers}
-*Following:* ${res.data.Jumlah_Following}
-*Bio:* ${res.data.Biodata}
+Nama: _${res.data.Name}_
+Username: _${res.data.Username}_
+Followers: _${res.data.Jumlah_Followers}_
+Following: _${res.data.Jumlah_Following}_
+Bio: _${res.data.Biodata}_
 
 *SGDC-BOT*
 `.trim()
-     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', str, m)
+     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
         })
     })
   } catch (e) {

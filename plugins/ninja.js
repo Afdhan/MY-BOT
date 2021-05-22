@@ -16,7 +16,7 @@ Adalah : ${res.data.result.ninja}
   }
 }
 
-handler.command = /^(ninja)$/i
+handler.command = /^((nama)?ninja)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

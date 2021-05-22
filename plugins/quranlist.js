@@ -6,17 +6,17 @@ try {
 	 	let hasil = `
 *Random AL-QUR'AN*
 	
-*Nama Surah:* ${res.data.result.name}
-*Nomor:* ${res.data.result.nomor}
-*Ayat:* ${res.data.result.ayat}
-*Asma:* ${res.data.result.asma}
-*Tipe:* ${res.data.result.tipe}
-*No Urut:* ${res.data.result.no_urut}
-*Rukuk:* ${res.data.result.rukuk}
-*Arti:* ${res.data.result.arti}
-*Keterangan:* ${res.data.result.keterangan}
+Nama Surah: ${res.data.result.name}
+Nomor: ${res.data.result.nomor}
+Ayat: ${res.data.result.ayat}
+Asma: ${res.data.result.asma}
+Tipe: ${res.data.result.tipe}
+No Urut: ${res.data.result.no_urut}
+Rukuk: ${res.data.result.rukuk}
+Arti: ${res.data.result.arti}
+Keterangan: ${res.data.result.keterangan}
 
-*SGDC-BOT*
+SGDC-BOT
 `.trim()
     conn.reply(m.chat, hasil, m)
 	})
@@ -25,7 +25,7 @@ try {
   }
 } 
 
-handler.command = /^(randquran|quran)$/i
+handler.command = /^(random)?quran)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

@@ -1,4 +1,5 @@
 let axios = require("axios");
+let MessageType = require("@adiwajshing/baileys")
 let kntl = require("../src/kntl.json");
 let handler  = async (m, { conn, text }) => {
     let api = (kntl.zekskey)
@@ -6,7 +7,7 @@ let handler  = async (m, { conn, text }) => {
   await m.reply(global.wait)
   axios.get(`https://api.zeks.xyz/api/memeindo?apikey=${api}`).then((res) => {
  let link = res.data.result
-conn.sendFile(m.chat, link, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
+conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
   })
   } catch (e) {
    m.reply('```Error```')
@@ -17,7 +18,7 @@ handler.command = /^(meme(indo)?)$/i
 
 handler.owner = false
 handler.mods = false
-handler.premium = true
+handler.premium = false
 handler.group = false
 handler.private = false
 

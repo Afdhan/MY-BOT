@@ -1,5 +1,6 @@
 let util = require('util')
 let path = require('path')
+let MessageType = require("@adiwajshing/baileys")
 let { spawn } = require('child_process')
    
 // Font By MFarelS:V
@@ -52,7 +53,7 @@ let handler  = async (m, { conn, args }) => {
   ])
   .on('error', e => conn.reply(m.chat, util.format(e), m))
   .on('exit', () => {
-    conn.sendFile(m.chat, outputPath, 'SGDC-BOT.jpg', '*SGDC-BOT*', m)
+conn.sendMessage(m.chat, outputPath, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
   })
 }
 

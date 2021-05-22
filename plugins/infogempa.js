@@ -4,8 +4,6 @@ try {
     await m.reply(global.wait)
 	axios.get(`https://videfikri.com/api/infogempa/`).then ((res) => {
 let hasil = `
-*INFORMASI HASIL*
-
 *Wilayah:* ${res.data.result.wilayah}
 *Bujur:* ${res.data.result.bujur}
 *Lintang:* ${res.data.result.lintang}

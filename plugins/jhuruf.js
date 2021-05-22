@@ -5,7 +5,7 @@ let handler = async(m, { conn, text }) => {
     if (!txt) return conn.reply(m.chat, '_Silahkan masukan kata kunci!_', m)
     axios.get(`https://videfikri.com/api/jumlahhuruf/?query=${txt}`).then((res) => {
     let hasil = `
-_UMLAH ADA: *${res.data.result.jumlah}*
+JUMLAH ADA: *${res.data.result.jumlah}*
 
 *SGDC-BOT*
 `.trim()

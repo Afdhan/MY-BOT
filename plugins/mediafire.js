@@ -5,10 +5,10 @@ try {
     await m.reply(global.wait)
     axios.get(`https://videfikri.com/api/mediafire/?query=${text}`).then((res) => {
 	let hasil = `
-*FileName:* ${res.data.result.filename}
-*Size:* ${res.data.result.size}
-*Upload:* ${res.data.result.uploaded_on}
-*Download:* ${res.data.result.download}
+FileName: ${res.data.result.filename}
+Size: ${res.data.result.size}
+Upload: ${res.data.result.uploaded_on}
+Download: ${res.data.result.download}
 
 _Download sendiri, jangan manja:v_
 
@@ -24,7 +24,7 @@ conn.sendFile(m.chat, res.data.result.download, `${res.data.result.filename}`, m
    m.reply('```Error```')
   }
 }
-handler.command = /^(mediafire)$/i
+handler.command = /^(mediafire(dl)?)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

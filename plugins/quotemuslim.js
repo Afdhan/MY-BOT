@@ -1,7 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
 
-  await m.reply('*[ WAIT ]* _Searching..._')
+  await m.reply(global.wait)
 	axios.get(`https://xnxx-tbot.herokuapp.com/api/randomquote/muslim?apikey=tbot`).then ((res) => {
 	 	
     conn.reply(m.chat, `${res.data.result.text_id}`, m)

@@ -1,23 +1,21 @@
 let util = require('util')
 let path = require('path')
-
 let { spawn } = require('child_process')
-
-
 let handler = async (m, { conn, args }) => {
   let musicmax ='src/spotify.hc'
 await conn.reply(m.chat, `
-*╭════[DESCRIPTION]════╮*
-*┏════════════════*
-*║•  Title : MusicMax*
-*║•  Ekstensi : hc*
-*║•  Aplikasi : HTTP Custom*
-*║•  Version : HC 239 (Playstore)*
-*║•  Expires : LifeTime*
-*║•  Mode : SSH / SSL*
-*║•  Note : Ganti SSH*
-*┣════════════════*
-*║ [ • WAIT • ]* _Config Sedang Dikirim..._
+─────────────────────
+                      *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
+_Config Ini Dibuat Sejak 4 Bulan Yang Lalu!_
+_Jika Tidak Terkoneksi, Sangat Disarankan Untuk Mencari Config Yang Lain!_
+_Gunakan Aplikasi HTTP Custom Versi 239 Playstore Dan Jangan Lupa Ganti Akun SSH!._
+_Jika Confignya Mode Psiphon, Silahkan Input Kode Trial._
+
+_Gak Ada Update Terbaru, Saya Sudah Vakum Masalah Perconfigan_
+─────────────────────
+                       *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
 `.trim(), m)
 conn.sendFile(m.chat, musicmax, 'MusicMax.hc','ini', m)
 }

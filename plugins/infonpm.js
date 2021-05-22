@@ -5,8 +5,6 @@ let handler = async(m, { conn, text }) => {
     await m.reply(global.wait)
 	axios.get(`https://videfikri.com/api/npm/?query=${text}`).then ((res) => {
 	let hasil = `
-*INFORMASI HASIL*
-	
 *ID:* ${res.data.result.id}
 *REV:* ${res.data.result.rev}
 *Name:* ${res.data.result.name}

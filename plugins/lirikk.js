@@ -5,12 +5,10 @@ let handler = async(m, { conn, text }) => {
    await m.reply(global.wait)
    axios.get(`https://videfikri.com/api/liriklagu/?query=${text}`).then((res) => {
   let hasil = `
-*Lirik Lagu*
-  
-*Judul:* ${res.data.result.title}
-*Artist:* ${res.data.result.artist}
-*Lirik:* 
-${res.data.result.lirik}
+Judul: ${res.data.result.title}
+Artist: ${res.data.result.artist}
+Lirik:
+_${res.data.result.lirik}_
 
 *SGDC-BOT*
 `.trim()

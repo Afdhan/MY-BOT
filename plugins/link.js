@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args }) => {
-  conn.reply(m.chat, 'https://chat.whatsapp.com/' + (await conn.groupInviteCode(m.chat)) + '\n\nSupport *SGDC-BOT*', m)
+  conn.reply(m.chat, 'https://chat.whatsapp.com/' + (await conn.groupInviteCode(m.chat)) + '\n\nJoin: https://t.me/SobatGretong\n\n*SGDC-BOT*', m)
 }
 
 handler.command = /^(linkgrup|linkgc|link|linkgroup)$/i
