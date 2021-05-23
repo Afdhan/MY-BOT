@@ -20,6 +20,7 @@ try {
   }
 
    } catch (e) {
+	   console.log (e)
   	m.reply('```Error```')
   }
 }
