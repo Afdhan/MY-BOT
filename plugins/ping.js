@@ -1,62 +1,78 @@
-let axios = require("axios");
-let os = require("os")
+let os = require('os')
+let util = require('util')
 let { performance } = require('perf_hooks')
-let handler = async(m, { conn, text }) => {
-     let { 
-wa_version, 
-mcc, 
-mnc,
-os_version, 
-device_manufacturer, 
-device_model 
-} = conn.user.phone
-	axios.get(`https://api.zeks.xyz/api`).then ((res) => {
-		let up = process.uptime() * 1000
-		let per = performance.now() % 10000
-		let ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB / ' + Math.round(require('os').totalmem / 1024 / 1024) + 'MB'
-	 	let hasil = `
-*[  BOT STATUS  ]*
+let { sizeFormatter } = require('human-readable')
+let format = sizeFormatter({
+  std: 'JEDEC', // 'SI' (default) | 'IEC' | 'JEDEC'
+  decimalPlaces: 2,
+  keepTrailingZeroes: false,
+  render: (literal, symbol) => `${literal} ${symbol}B`,
+})
+let handler = async (m, { conn }) => {
+  const chats = conn.chats.all()
+  const groups = chats.filter(v => v.jid.endsWith('g.us'))
+  const groupsIn = groups.filter(v => !v.read_only)
+  const used = process.memoryUsage()
+  const cpus = os.cpus().map(cpu => {
+    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+    return cpu
+  })
+  const cpu = cpus.reduce((last, cpu, _, { length }) => {
+    last.total += cpu.total
+    last.speed += cpu.speed / length
+    last.times.user += cpu.times.user
+    last.times.nice += cpu.times.nice
+    last.times.sys += cpu.times.sys
+    last.times.idle += cpu.times.idle
+    last.times.irq += cpu.times.irq
+    return last
+  }, {
+    speed: 0,
+    total: 0,
+    times: {
+      user: 0,
+      nice: 0,
+      sys: 0,
+      idle: 0,
+      irq: 0
+    }
+})
+//${util.format(conn.user.phone)}
+  let old = performance.now()
+  await m.reply('```Testing Response```')
+  let neww = performance.now()
+  let speed = neww - old
+  let txt = `
+─────────────────────
+                      *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
+\`\`\`Chats Info\`\`\`
+> Group Chats: *${groups.length}* 
+> Groups Joined: *${groupsIn.length}*
+> Groups Left: *${groups.length - groupsIn.length}*
+> Personal Chats: *${chats.length - groups.length}*
+> Total Chats: *${chats.length}*
 
-Status BOT: _78% Update_
-Ram: _${ram}_
-CPU: _${res.data.CPU}_
-Uptime: _${clockString(up)}_
-Versi WA: _
-Status Charging: _${pickRandom(['false','false','false','true','true','true','false','false','true','false','null'])}_
-Connection: _4G_
+\`\`\`Device Info\`\`\`
+Battery : ${conn.battery ? `${conn.battery.value}%` : 'Unknown'}
+Charging: ${conn.battery.live ? '```true```' : '```false```'}
 
-Ping: _${per} ms_
+\`\`\`Server Info\`\`\`
+RAM: ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}
+*NodeJS Memory Usage*
+${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${format(used[key])}`).join('\n') + '```'}
+${cpus[0] ? `*Total CPU Usage*
+${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
+*CPU Core(s) Usage (${cpus.length} Core CPU)*
+${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
 
-*[ • SGDC-BOT • ]*
+*SGDC-BOT* _Merespon dalam \`\`\`${speed}\`\`\` ms_
+─────────────────────
+                      *ＳＧＤＣ－ＢＯＴ*
+─────────────────────
 `.trim()
-    conn.reply(m.chat, hasil, m)
-	})
+  m.reply(txt)
 }
 
-handler.command = /^(status|ping)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
-
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
-
-
+handler.command = /^(ping)$/i
 module.exports = handler
-
-function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)]
-}
-
-// MUHAMMAD AFDHAN
-function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
-  let m = Math.floor(ms / 60000) % 60
-  let s = Math.floor(ms / 1000) % 60
-  
-  return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
-}
