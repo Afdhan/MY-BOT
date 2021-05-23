@@ -25,7 +25,7 @@ SGDC-BOT
   }
 } 
 
-handler.command = /^(random)?quran)$/i
+handler.command = /^(random)?quran$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
