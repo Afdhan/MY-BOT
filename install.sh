@@ -1,17 +1,12 @@
+#/usr/bin/bash
+
 pkg install nodejs -y
 pkg install ffmpeg -y
-pkg install imagemagick -y
+pkg install libwebp -y
 pkg install wget -y
-
-apt-get install nodejs -y
-apt-get install libwebp -y
-apt-get install ffmpeg -y
-apt-get install wget -y
 npm install
 npm audit fix
-
 clear
-
 echo ""
 echo ""
 echo "=+=+=+=+=+=+=+=+÷+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
