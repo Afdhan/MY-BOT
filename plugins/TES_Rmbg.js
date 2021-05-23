@@ -32,6 +32,7 @@ let handler  = async (m, { conn, args, command }) => {
                         reply(`Tag Stickernya!`)
                   }
                }catch (e){
+		  console.log(e)
                	m.reply('Error')
                }
          }
@@ -39,6 +40,6 @@ let handler  = async (m, { conn, args, command }) => {
 handler.command = /^remove$/i
 module.exports = handler
          
-function getRandom(ext) {
+const getRandom = (ext) => {
     return `${Math.floor(Math.random() * 10000)}${ext}`
 }
