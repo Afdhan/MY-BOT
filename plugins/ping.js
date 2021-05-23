@@ -12,7 +12,7 @@ device_model
 } = conn.user.phone
 	axios.get(`https://api.zeks.xyz/api`).then ((res) => {
 		let up = process.uptime() * 1000
-		let per = let old = performance.now() % 10000
+		let per = performance.now() % 10000
 		let ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB / ' + Math.round(require('os').totalmem / 1024 / 1024) + 'MB'
 	 	let hasil = `
 *[  BOT STATUS  ]*
