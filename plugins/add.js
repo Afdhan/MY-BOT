@@ -1,7 +1,11 @@
 let handler = async (m, { conn, text }) => {
   let users = text.split`,`.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v.length > 20)
+ try{
   await conn.groupAdd(m.chat, users)
-  m.reply('_Berhasil Menambahkan Beliau!_')
+  conn.reply(m.chat, `_Berhasil Menambahkan @${users.split("@")[0]}!_`, m, { contextInfo: { mentionedJid: [users]}})  
+  }catch(e){
+  	m.reply("Gagal! Mungkin Di Private")
+  }
 }
 
 handler.command = /^(add)$/i

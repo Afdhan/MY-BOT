@@ -29,6 +29,7 @@ let stiker = false
 }
 handler.command = /^(s(tag|tickertag|tikertag))$/
 handler.group = true
+handler.premium = true
 module.exports = handler
 
 // Muhammad Afdhan

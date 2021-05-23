@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix}) => {
   if (!mime) throw `_Kirim Foto Dengan Caption *${usedPrefix}wait* Atau Reply Foto Yang Sudah Terkirim!_`
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support!`
   let img = await q.download()
-  await m.reply('_Mencari Judul Anime..._')
+  await m.reply(global.wait)
   let anime = `data:image/jpeg;base64,${img.toString('base64')}`
   let response = await fetch("https://trace.moe/api/search", {
                  method: "POST",
@@ -18,12 +18,15 @@ let handler = async (m, { conn, usedPrefix}) => {
   let { is_adult, title, title_chinese, title_romaji, episode, season, similarity, filename, at, tokenthumb, anilist_id } = result.docs[0]
   let link = `https://media.trace.moe/video/${anilist_id}/${encodeURIComponent(filename)}?t=${at}&token=${tokenthumb}`
   let SGDC = `
-${similarity < 0.89 ? '*_SGDC BOT Tidak Sepenuhnya Yakin Akan Hal Ini_*' : ''}
+${similarity < 0.89 ? '_SGDC BOT Tidak Sepenuhnya Yakin Akan Hal Ini_' : ''}
+
 *>* Judul Jepang: *${title}*
 *>* Ejaan Judul: *${title_romaji}*
 *>* Similarity: *${(similarity * 100).toFixed(1)}%*
 *>* Episode: *${episode.toString()}*
-*>* Ecchi: *${is_adult ? 'Yes' : 'No'}*
+*>* Ecchi: *${is_adult ? 'YES' : 'NO'}*
+
+*SGDC-BOT*
 `.trim()
   conn.sendFile(m.chat, link, 'Hasil_SGDCBOT.mp4', `${SGDC}`, m)
 }
@@ -31,8 +34,3 @@ ${similarity < 0.89 ? '*_SGDC BOT Tidak Sepenuhnya Yakin Akan Hal Ini_*' : ''}
 handler.command = /^(wait|srchanime)$/i
 
 module.exports = handler
-
-/*
-* Thanks to
-* https://github.com/Nobuyaki
-*/

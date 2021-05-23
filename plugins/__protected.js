@@ -1,5 +1,6 @@
 let imgBB = require("imgbb-uploader");
-let uploadImage = require('../lib/uploadImage')
+let uploadImage = require('../lib/uploadImage');
+let { uploader } = require('../lib/uploadimg');
 let { sticker } = require('../lib/sticker');
 let fetch = require('node-fetch');
 let path = require('path');
@@ -11,24 +12,18 @@ let handler = async (m, { conn, text, args, participants }) => {
     if (!s1) return m.reply("Masukkan Username")
     if (!s2) return m.reply("Masukkan Comment")
    await m.reply(global.wait)
-       let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No media found'
-  let media = await q.download()
-       let link = await uploadImage(media)
-       let ytc = 'https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + link + '&light=true'
-        conn.sendMessage(m.chat, ytc, MessageType.image)  // { quoted: m, caption: "*SGDC-BOT*" } )
- try {
-   let yt = await fetch('https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + encodeURIComponent(link) + '&light=true')
-   let img = await yt.buffer()
-   let stiker = await sticker(img, false, global.packname, global.author)
-       conn.sendMessage(m.chat, stiker, MessageType.sticker, {
-    quoted: m
-  })
+   let pp = './src/avatar_contact.png'
+  try {
+    pp = await conn.getProfilePicture(m.sender)
   } catch (e) {
-    m.reply('```Error Mengonversi Sticker```')
-   // throw e
-  }
+        m.reply(`ERROR`)
+  } finally {
+  	  let link = await uploader(pp)
+        let ytc = 'https://some-random-api.ml/canvas/youtube-comment?username=' + s1 + '&comment=' + s2 + '&avatar=' + pp + '&light=true'
+        conn.sendMessage(m.chat, ytc, MessageType.image, { quoted: m, caption: "*SGDC-BOT*"})
+        let tytyd = await sticker(false, ytc, global.packname, global.author)
+        conn.sendMessage(m.chat, tytyd, MessageType.sticker, { quoted: m })
+     }
 }
 
 handler.command = /^(ytc(omm?ent?)?)$/i
