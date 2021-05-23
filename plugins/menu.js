@@ -18,7 +18,7 @@ if(command == 'setreply'){
 	global.cpt = text
 	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
   } else {
-let gmbr = './src/SGDC_BOT.jpg'
+let gmbr = './src/SGDC-BOT.jpg'
 let old = performance.now()
  await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*SGDC-BOT PROCESSING*')
 let neww = performance.now()
@@ -517,7 +517,7 @@ ${week}, ${islami} H
 `.trim()
 
 global.cpt = `Support Me With Donate :)`
-await conn.reply(m.chat, mn, {
+await conn.sendMessage(m.chat, gmbr, MessageType.image, { caption: mn }, {
   key: { 
       remoteJid: '6282252655313-1617529589@g.us', 
       participant: '0@s.whatsapp.net', 
