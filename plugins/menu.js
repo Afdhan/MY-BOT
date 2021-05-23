@@ -155,6 +155,10 @@ Powered By SGDC-BOT || M AFDHAN
 *ＨＡＲＩ ＩＮＩ* 
 ${week}, ${date} M
 ${week}, ${islami} H
+
+
+\`\`\`> For More Info\`\`\`
+\`\`\`${_p}info\`\`\`
 ─────────────────────
 ┌──────────────────╮
 │               *⸨   TEXT MAKER   ⸩*
