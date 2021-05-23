@@ -10,10 +10,10 @@ try {
     await m.reply(global.wait)
         let res = await fetch(`https://api.xteam.xyz/sticker/stickerly?q=${text}&APIKEY=${api}`)
     	let stic = res.json()
-        let tytyd = stic.result.stickerlist
+        let tytyd = stic.result.stickerlist[0]
 	   for (let x in tytyd) {
-        //let img = x[Math.floor(Math.random() * x.length)];
-        let stiker = await sticker(false, x, global.packname, global.author)
+        let img = x[Math.floor(Math.random() * x.length)]
+        let stiker = await sticker(false, img, global.packname, global.author)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
         })
