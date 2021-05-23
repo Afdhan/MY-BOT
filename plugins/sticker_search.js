@@ -10,15 +10,17 @@ try {
     await m.reply(global.wait)
         let res = await fetch(`https://api.lolhuman.xyz/api/stickerwa?apikey=761e676c13e7710a48011b2b&query=${text}`)
     	let stic = res.json()
-        let tytyd = stic.result[0].stickers
-	   for (let x of tytyd) {
+        let tytyd = stic.result
+        for (let i = 0; i < tytyd.length; i++) {
+               tytyd = tytyd[i].stickers
+	   for (var x of tytyd) {
         let img = x[Math.floor(Math.random() * x.length)]
         let stiker = await sticker(false, img, global.packname, global.author)
        conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
         })
   }
-
+}
    } catch (e) {
 	   console.log (e)
   	m.reply('```Error```')
