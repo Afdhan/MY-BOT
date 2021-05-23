@@ -1,5 +1,6 @@
 let request = require("request")
 let fs = require("fs")
+let uploadimg = require("../src/uploadimg")
 let kntl = require("../src/kntl.json")
 let handler  = async (m, { conn, args, command }) => {
 	let api = (kntl.rmbg)
@@ -10,11 +11,12 @@ let handler  = async (m, { conn, args, command }) => {
     if (/image/.test(mime)) {
     	let file_name = getRandom('.png')
     	let img = await q.download()
+        let imag = await uploadimg(img)
      await request({
       	url: `https://api.remove.bg/v1.0/removebg`,
           method: 'POST',
           formData: {
-          image_file: fs.createReadStream(img),
+          image_url: imag,
           size: 'auto',
         },
       headers: {
