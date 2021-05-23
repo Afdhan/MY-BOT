@@ -5,7 +5,6 @@ let { MessageType } = require('@adiwajshing/baileys')
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 module.exports = {
   async handler(chatUpdate) {
-    // console.log(chatUpdate)
     if (!chatUpdate.hasNewMessage) return
     if (!chatUpdate.messages && !chatUpdate.count) return
     let m = chatUpdate.messages.all()[0]
@@ -14,37 +13,31 @@ module.exports = {
       m.exp = 0
       m.limit = false
       try {
-        let user
-        if (user = global.DATABASE._data.users[m.sender]) {
-          if (!isNumber(user.exp)) user.exp = 0
-          if (!isNumber(user.limit)) user.limit = 100
-          if (!isNumber(user.lastclaim)) user.lastclaim = 0
+        let user = global.DATABASE._data.users[m.sender]
+        if (typeof user !== 'object') global.DATABASE._data.users[m.sender] = {}
+        if (user) {
           if (!'registered' in user) user.registered = false
           if (!user.registered) {
+            if (!'number' in user) user.number = m.sender.split("@")[0]
             if (!'name' in user) user.name = this.getName(m.sender)
-            if (!isNumber(user.age)) user.age = -1
-            if (!isNumber(user.regTime)) user.regTime = -1
+            if (!'pesan' in user) user.pesan = m.text
           }
           if (!isNumber(user.afk)) user.afk = -1
           if (!'afkReason' in user) user.afkReason = ''
           if (!'banned' in user) user.banned = false
-        } else global.DATABASE._data.users[m.sender] = {
-          exp: 0,
-          limit: 100,
-          lastclaim: 0,
+         } else global.DATABASE._data.users[m.sender] = {
           registered: false,
-          number: m.sender,
+          number: m.sender.split("@")[0],
           name: this.getName(m.sender),
           pesan: m.text,
-          age: -1,
-          regTime: -1,
           afk: -1,
           afkReason: '',
           banned: false,
         }
     
-        let chat
-        if (chat = global.DATABASE._data.chats[m.chat]) {
+        let chat = global.DATABASE._data.chats[m.chat]
+        if (typeof chat !== 'object') global.DATABASE._data.chats[m.chat] = {}
+        if (chat) {
           if (!'isBanned' in chat) chat.isBanned = false
           if (!'welcome' in chat) chat.welcome = false
           if (!'detect' in chat) chat.detect = false
@@ -77,16 +70,23 @@ module.exports = {
       if (opts['nyimak']) return
       if (!m.fromMe && opts['self']) return
       if (typeof m.text !== 'string') m.text = ''
+      for (let name in global.plugins) {
+        let plugin = global.plugins[name]
+        if (!plugin) continue
+        if (plugin.disabled) continue
+        if (!plugin.all) continue
+        await plugin.all.call(this, m)
+      }
       if (m.isBaileys) return
       m.exp += Math.ceil(Math.random() * 10)
 
       let usedPrefix
       let _user = global.DATABASE.data && global.DATABASE.data.users && global.DATABASE.data.users[m.sender]
 
-      let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-      let isOwner = isROwner || m.fromMe
-      let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-      let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isROwner = [global.conn.user.jid, ...global.rowner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isOwner = isROwner || m.fromMe || global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isMods = global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isPrems = global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let groupMetadata = m.isGroup ? await this.groupMetadata(m.chat) : {}
       let participants = m.isGroup ? groupMetadata.participants : []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {}
@@ -96,6 +96,7 @@ module.exports = {
       for (let name in global.plugins) {
     	let plugin = global.plugins[name]
       if (!plugin) continue
+      if (plugin.disabled) continue
       if (!opts['restrict']) if (plugin.tags && plugin.tags.includes('admin')) continue
         const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
         let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
@@ -113,7 +114,18 @@ module.exports = {
               [[[], new RegExp]]
         ).find(p => p[1])
         if (typeof plugin.before == 'function') if (await plugin.before.call(this, m, {
-          match, user, groupMetadata, chatUpdate
+          match,
+          conn: this,
+          participants,
+          groupMetadata,
+          user,
+          bot,
+          isROwner,
+          isOwner,
+          isAdmin,
+          isBotAdmin,
+          isPrems,
+          chatUpdate,
         })) continue
     	if ((usedPrefix = (match[0] || '')[0])) {
           let noPrefix = m.text.replace(usedPrefix, '')
@@ -247,13 +259,13 @@ module.exports = {
             if (!isNumber(stat.lastSuccess)) stat.lastSuccess = m.error ? 0 : now
           } else stat = stats[m.plugin] = {
             total: 1,
-            success: m.error ? 0 : 1,
+            success: m.error != null ? 0 : 1,
             last: now,
-            lastSuccess: m.error ? 0 : now
+            lastSuccess: m.error != null ? 0 : now
           }
           stat.total += 1
           stat.last = now
-          if (!m.error) {
+          if (m.error == null) {
             stat.success += 1
             stat.lastSuccess = now
           }
@@ -268,18 +280,12 @@ module.exports = {
     }
   },
    async participantsUpdate({ jid, participants, action }) {
-    let chat = global.DATABASE._data.chats[jid]
+    let chat = global.DATABASE._data.chats[jid] || {}
     let text = ''
     switch (action) {
       case 'add':
       case 'remove':
-        /*if (action == 'add') {
-          let user = participants
-          if(user.startsWith('62')) return
-          await this.sendMessage(jid, 'sorry this group is only for +62', MessageType.text)              
-           this.groupRemove(jid, user)
-          }*/
-        if (chat.welcome) {         
+        if (chat.welcome) {
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
             try {
@@ -331,14 +337,14 @@ _Terdeteksi *@${m.participant.split`@`[0]}* telah menghapus pesan!_
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: '```Command Khusus ROwner SGDC-BOT```',
-    owner: '```Command Khusus Owner SGDC-BOT```',
-    mods: '```Command Khusus Moderator SGDC-BOT```',
-    premium: '```Command Khusus User Premium!```',
-    group: '```Command Khusus Di Group!```',
-    private: '```Command Khusus Di Private Chat!```',
-    admin: '```Command Khusus Admin!```',
-    botAdmin: '```Jadikan SGDC-BOT Sebagai Admin!```',
+    rowner: "```[!] Only For Owner Script SGDC-BOT```",
+    owner: "```[!] Only For Owner SGDC-BOT```",
+    mods: "```[!] Only For Mods SGDC-BOT```",
+    premium: "```[!] Only For Premium Users!```",
+    group: "```[!] Only For Group Chats!```",
+    private: "```[!] Only For Private Chats!```",
+    admin: "```[!] Only For Group Admins!```",
+    botAdmin: "```[!] SGDC-BOT Must Be Admin To Use This Feature!```"
   }[type]
   if (msg) return m.reply(msg)
 }

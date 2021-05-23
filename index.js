@@ -45,17 +45,11 @@ CFonts.say(`${package.name}@^${package.version}\n---------------------\nMUHAMMAD
 })
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
-  CFonts.say([process.argv[0], ...args].join(' '), {
-    font: 'console',
-    align: 'center',
-    colors: ['gray'],
-    gradient: false
-  })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   })
   p.on('message', data => {
-    console.log('SGDC-BOT @dhans11_ ~> [ RECEIVED ] =>', data)
+    console.log('SGDC-BOT ~> [ RECEIVED ] =>', data)
     switch (data) {
       case 'reset':
         p.kill()

@@ -1,7 +1,7 @@
 {
   "name": "SGDC-BOT",
-  "version": "1.6.0",
-  "description": "SGDC-TEAM @SobatGretong",
+  "version": "1.6.5",
+  "description": "Simple WhatsApp BOT / Gretongers SGDC-TEAM",
   "depecrated": false,
   "main": "index.js",
   "directories": {
@@ -53,7 +53,6 @@
     "request": "^2.88.2",
     "syntax-error": "^1.4.0",
     "terminal-image": "^1.2.1",
-    "tiktok-scraper": "^1.4.7",
     "url-regex": "^5.0.0",
     "yargs": "^16.2.0"
   }

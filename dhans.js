@@ -1,7 +1,7 @@
 let chalk = require('chalk')
 console.log(chalk.cyan(`SGDC-BOT Connecting to WhatsApp Web server...`))
 require('./config.js')
-let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
+let { MessageType, WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let syntaxerror = require('syntax-error')
 let simple = require('./lib/simple')
@@ -38,14 +38,6 @@ if (!global.DATABASE.data.users) global.DATABASE.data = {
 if (!global.DATABASE.data.chats) global.DATABASE.data.chats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.stats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.msgs = {}
-if (opts['server']) {
-  let express = require('express')
-  global.app = express()
-  app.all('*', async (req, res) => {
-    res.end(await qrcode.toBuffer(global.qr))
-  })
-  app.listen(PORT, () => console.log('App listened on port', PORT))
-}
 global.conn = new WAConnection()
 let authFile = `${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
@@ -115,7 +107,7 @@ if (opts['test']) {
   })
 }
 process.on('uncaughtException', console.error)
-// let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
+
 
 let isInit = true
 global.reloadHandler = function () {
@@ -155,13 +147,24 @@ global.reloadHandler = function () {
   isInit = false
   return true
 }
-
+conn.on("CB:Call", json => {
+		let call;
+		calling = JSON.parse(JSON.stringify(json))
+		call = calling[1].from
+		setTimeout(function(){
+			conn.sendMessage(call, `Maaf, SGDC-BOT tidak bisa menerima panggilan. Anda akan diblokir otomatis!`, MessageType.text)
+			.then(() => conn.blockUser(call, "add"))
+			console.log('Users is blocked!')
+			}, 100);
+		}
+	)
 conn.on(`CB:action,,battery`, json => {
     const chalk = require("chalk");
     const batteryLevelStr = json[2][0][1].value
     const batterylevel = parseInt(batteryLevelStr)
-    console.log(chalk.red('Device Battery Info') + '\n\n' + chalk.red('Sisa Baterai Perangkat > ') + chalk.bold.green(`${batterylevel}` + '%') + '\n\n' + chalk.red('Powered by SGDC-BOT | M AFDHAN'))
+    console.log(chalk.red('Device Battery Info') + '\n\n' + chalk.red('Sisa Baterai Perangkat > ') + chalk.bold.green(`${batterylevel}` + '%') + '\n\n' + chalk.red('SGDC-BOT - M AFDHAN'))
 })
+
 let pluginFolder = path.join(__dirname, 'plugins')
 let pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
@@ -186,7 +189,7 @@ global.reload = (_event, filename) => {
       }
     } else conn.logger.info(`requiring new plugin '${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${err}`)
+    if (err) conn.logger.error(`syntax error while loading '${filename}'\n\n${err}`)
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {

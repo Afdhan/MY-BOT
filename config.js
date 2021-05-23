@@ -5,6 +5,7 @@ global.mods = ['6282252655313','6283159600193']
 global.packname = (sgdc.packname)
 global.author = (sgdc.author)
 global.wait = "```[!]``` _Ｓｅｄａｎｇ Ｄｉｐｒｏｓｅｓ．．．_"
+global.error = "```[!] ERROR [!]``` _Terjadi Kesalahan!_"
 global.prems = ['6282252655313']
 global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',
