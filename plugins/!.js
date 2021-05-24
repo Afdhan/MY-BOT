@@ -1,5 +1,5 @@
 const { uploadimg: imag } = require("../lib/uploadimg")
-let handler = (m, { conn, text, args }) => {
+let handler = async (m, { conn, text, args }) => {
   try {
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
