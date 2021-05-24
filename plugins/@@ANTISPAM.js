@@ -13,7 +13,7 @@ handler.all = async function (m) {
     } else try {
         this.spam[m.sender].spam += 1
         if (new Date - this.spam[m.sender].lastspam > 4000) {
-            if (this.spam[m.sender].spam > 2) {
+            if (this.spam[m.sender].spam > 10) {
                 this.spam[m.sender].spam = 0
                 this.spam[m.sender].lastspam = new Date * 1
                 global.DATABASE._data.users[m.sender].banned = true
@@ -26,7 +26,7 @@ handler.all = async function (m) {
                  global.DATABASE._data.users[m.chat].banned = true
               	this.blockUser(m.sender, "add")
               }else if(!m.isGroup){
-              	await m.reply('```Kamu Telah Melakukan Spam Di Grup Ini! Kamu Akan Di Blokir Oleh SGDC-BOT```')
+              	await m.reply('```Kamu Telah Melakukan Spam Di Diluar Batas! Kamu Akan Di Blokir Oleh SGDC-BOT```')
                    this.blockUser(m.sender, "add")
                    }
             } else {
