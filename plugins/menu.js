@@ -535,7 +535,7 @@ await conn.sendFile(m.chat, ppp, "SGDC_BOT.jpg", mn, {
         "jpegThumbnail": fs.readFileSync(gmbr)
        }
     }
-},
+}, false,
 { 
    contextInfo: { 
        mentionedJid: [mmk, own, cown]
