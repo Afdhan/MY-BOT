@@ -1,5 +1,5 @@
 let axios = require("axios");
-let { MessageType } = require("@adiwajshing/baileys")
+const { MessageType } = require("@adiwajshing/baileys")
 let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, text }) => {
 let api = (kntl.xteam)
