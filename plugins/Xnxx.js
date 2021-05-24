@@ -3,8 +3,7 @@ let MessageType = require("@adiwajshing/baileys");
 let { image } = MessageType
 let kntl = require("../src/kntl.json")
 let fetch = require('node-fetch')
-let CreateLink = require('../lib/CreateLink')
-let handler = async (m, { conn, args, text, command }) => {
+let handler = async (m, { conn, args, text, isPrems }) => {
     let api = (kntl.lolkey)
     let chat = global.DATABASE.data.chats[m.chat]
     if (chat.nsfw) { 
@@ -25,7 +24,7 @@ let txt = `
 *Like:* ${data.like}
 *Dislike:* ${data.dislike}
 *Comment:* ${data.comment}
-*Tag:* ${data.tag.join(", ")}
+*Tags:* ${data.tag.join(", ")}
 *Description:* ${data.description}
 
 *DOWNLOAD*
@@ -36,7 +35,7 @@ for (let i = 0; i < data.link.length; i++) {
     txt += `Link: ${data.link[i].link}\n`
    }
     txt += '\n*SGDC-BOT*'
-      conn.sendMessage(m.chat, data.thumbnail, MessageType.image, { quoted: m, caption: txt })
+      conn.sendFile(m.chat, data.thumbnail, "STOP-COLY.jpg", txt, m)
       }catch(e){
           m.reply ("ERROR")
           console.log (e)
