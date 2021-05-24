@@ -7,7 +7,7 @@ let api = (kntl.xteam)
  try {
     await m.reply(global.wait)
     let link = 'https://api.xteam.xyz/tahta?text=' + encodeURIComponent(text) + '&APIKEY=' + api;
-    conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+    conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
   }

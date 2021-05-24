@@ -7,7 +7,7 @@ let chat = global.DATABASE.data.chats[m.chat]
     let api = (kntl.lolkey)
   	await m.reply(global.wait)
       let link = 'http://lolhuman.herokuapp.com/api/random2/tits?apikey=' + api;
-      conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+      conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } else {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
       }

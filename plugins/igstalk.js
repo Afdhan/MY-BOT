@@ -20,7 +20,7 @@ Bio: _${res.data.Biodata}_
 
 *SGDC-BOT*
 `.trim()
-     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
+     conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
         })
     })
   } catch (e) {

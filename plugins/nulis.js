@@ -53,7 +53,7 @@ let handler  = async (m, { conn, args }) => {
   ])
   .on('error', e => conn.reply(m.chat, util.format(e), m))
   .on('exit', () => {
-conn.sendMessage(m.chat, outputPath, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+conn.sendFile(m.chat, outputPath, 'SGDC-BOT.png', '*SGDC-BOT*', m)
   })
 }
 

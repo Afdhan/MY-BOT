@@ -20,7 +20,7 @@ let handler = async(m, { conn, text }) => {
 
 *SGDC-BOT*
 `.trim()
-     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
+     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', str, m)
         })
     })
   } catch (e) {

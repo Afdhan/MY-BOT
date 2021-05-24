@@ -1,5 +1,5 @@
 let axios = require("axios");
-const { MessageType } = require("@adiwajshing/baileys")
+let MessageType = require("@adiwajshing/baileys")
 let kntl = require("../src/kntl.json");
 let handler = async(m, { conn, text }) => {
 let api = (kntl.xteam)
@@ -8,7 +8,7 @@ let api = (kntl.xteam)
    if (chat.nsfw) { 
    await m.reply(global.wait)
    let link = 'https://api.xteam.xyz/randomimage/hentai?APIKEY=' + api;
-   conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "Tobat Bang :)\n\n*SGDC-BOT*" })
+   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
     } else {
        m.reply('```Perlu Mengaktifkan Mode NSFW```')
     }

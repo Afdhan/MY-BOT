@@ -14,7 +14,7 @@ let api = (kntl.zekskey)
             let buf = Buffer.from(ress, 'base64')
             let str = `Ini Darkk ?`
 
-     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
+     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', '*SGDC-BOT*', m)
         })
     })
     } catch (e) {

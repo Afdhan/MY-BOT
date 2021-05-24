@@ -9,7 +9,7 @@ try {
     if (s2.length > 10) return conn.reply(m.chat, '_Teks2 Terlalu Panjang! Maksimal 10 huruf!_', m)
    await m.reply(global.wait)
     let link = 'https://videfikri.com/api/textmaker/8bit/?text1=' + s1 + '&text2=' + s2 
-    conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+    conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
   }

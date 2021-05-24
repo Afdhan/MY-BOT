@@ -6,7 +6,7 @@ let handler = async(m, { conn, text }) => {
     if (text.length > 10) return conn.reply(m.chat, '_Teks Terlalu Panjang! Maksimal 10 huruf!_', m)
    await m.reply(global.wait)
    let link = 'https://videfikri.com/api/textmaker/darkneon/?text=' + encodeURIComponent(text);
-   conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
     } catch (e) {
   	m.reply('```Error```')
   }

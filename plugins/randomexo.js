@@ -6,7 +6,7 @@ let handler  = async (m, { conn, text }) => {
   try {
   	await m.reply(global.wait)
       let link = 'http://lolhuman.herokuapp.com/api/random/exo?apikey=' + api;
-     conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+     conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
   }

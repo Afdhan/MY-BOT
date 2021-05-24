@@ -10,7 +10,7 @@ let chat = global.DATABASE.data.chats[m.chat]
     if (args[0] == 'random' || args[0] == 'blowjob' || args[0] == 'trap' || args[0] == 'loli' || args[0] == 'waifu' || args[0] == 'neko') {
    await m.reply(global.wait)
       let link = 'http://lolhuman.herokuapp.com/api/random/nsfw/' + args[0] + '?apikey=' + api;
-      conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+      conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
       }
     } else {
          m.reply('```Perlu Mengaktifkan Mode NSFW```')

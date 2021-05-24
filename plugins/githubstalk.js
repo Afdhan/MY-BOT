@@ -23,7 +23,7 @@ Profile Url: ${res.data.result.profile_url}
 
 *SGDC-BOT*
 `.trim()
-     conn.sendMessage(m.chat, buf, MessageType.image, { quoted: m, caption: str })
+     conn.sendFile(m.chat, buf, 'SGDC-BOT.png', str, m)
         })
     })
    } catch (e) {

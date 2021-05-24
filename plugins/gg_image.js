@@ -7,7 +7,7 @@ let handler  = async (m, { conn, text }) => {
    await m.reply(global.wait)
    if (!text) return conn.reply(m.chat, '_Masukan Teks!_', m)
    let link = 'http://lolhuman.herokuapp.com/api/gimage?apikey=' + api + '&query=' + encodeURIComponent(text);
-  conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+  conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
   }

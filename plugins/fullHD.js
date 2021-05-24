@@ -18,7 +18,7 @@ let handler = async (m) => {
   })
   if (res.status !== 200) throw await res.json()
   let link = await res.buffer()
-  conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+  conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
    } catch (e) {
    m.reply('```Error```')
     console.log(e)

@@ -7,7 +7,7 @@ let handler  = async (m, { conn, text }) => {
  try {
   await m.reply(global.wait)
   let link = 'https://api.zeks.xyz/api/nulis?text=' + text + '&apikey=' + api;
-   conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+   conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
   } catch (e) {
    m.reply('```Error```')
   }

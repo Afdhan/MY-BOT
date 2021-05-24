@@ -7,7 +7,7 @@ let handler  = async (m, { conn, text }) => {
   await m.reply(global.wait)
   axios.get(`https://api.zeks.xyz/api/memeindo?apikey=${api}`).then((res) => {
  let link = res.data.result
-conn.sendMessage(m.chat, link, MessageType.image, { quoted: m, caption: "*SGDC-BOT*" })
+conn.sendFile(m.chat, link, 'SGDC-BOT.png', '*SGDC-BOT*', m)
   })
   } catch (e) {
    m.reply('```Error```')
