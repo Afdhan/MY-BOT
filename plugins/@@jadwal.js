@@ -1,4 +1,4 @@
-const { MessageType } = require("@adiwajshing/baoleys")
+const { MessageType } = require("@adiwajshing/baileys")
 let handler = (m, { conn }) => {
 	var date = new Date();
 
