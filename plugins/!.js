@@ -13,5 +13,5 @@ let handler = async (m, { conn, text, args }) => {
       console.log (e)
     }
 }
-handler.command = /^tes$/i
+handler.command = /^testi$/i
 module.exports = handler
