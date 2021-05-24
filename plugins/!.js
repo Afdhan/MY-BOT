@@ -8,8 +8,9 @@ let handler = (m, { conn, text, args }) => {
       if (!img) throw '_Tipe Tidak Diketahui!_'
       let hasil = await imag(img)
       m.reply('link: ' + hasil)
-     }catch(e){
-        console.log (e)
+      }
+    }catch(e){
+      console.log (e)
     }
 }
 handler.command = /^tes$/i
