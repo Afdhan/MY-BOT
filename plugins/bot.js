@@ -1,10 +1,9 @@
 let fs = require("fs");
 let handler = async (m, { conn, usedPrefix }) => {
-    let nama = conn.getName(m.sender)
-    let Prefix = m.text.replace('', pickRandom(global.rpf))
     let ayam = m.sender
     if (m.fromMe) return
-  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${global.rpf}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
+    if(ayam === conn.user.jid) return
+  conn.reply(m.chat, `_Hai Kak @${ayam.split("@")[0]}, Ketik *${pickRandom(global.rpf)}menu* Untuk Memulai *SGDC-BOT*_`, m, { 
       contextInfo: { 
           mentionedJid: [ayam] 
       } 
