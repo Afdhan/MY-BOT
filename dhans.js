@@ -165,6 +165,13 @@ conn.on(`CB:action,,battery`, json => {
     console.log(chalk.red('Device Battery Info') + '\n\n' + chalk.red('Sisa Baterai Perangkat > ') + chalk.bold.green(`${batterylevel}` + '%') + '\n\n' + chalk.red('SGDC-BOT - M AFDHAN'))
 })
 
+conn.on('CB:Blocklist', json => {
+    if (global.block.length > 2) return
+    for (let i of json[1].blocklist) {
+    global.block.push(i.replace('c.us', 's.whatsapp.net'))
+    }
+})
+
 let pluginFolder = path.join(__dirname, 'plugins')
 let pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
