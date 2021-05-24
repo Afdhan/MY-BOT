@@ -524,7 +524,7 @@ let ppp = 'src/SGDC-BOT.jpg'
 global.cpt = `Support Me With Donate :)`
 await conn.sendFile(m.chat, ppp, "SGDC_BOT.jpg", mn, {
   key: { 
-      remoteJid: '6282252655313-1617529589@g.us', 
+      remoteJid: '6283159600193-1620323735@g.us', 
       participant: '0@s.whatsapp.net', 
       fromMe: false 
      }, 
