@@ -28,13 +28,13 @@ _Balas Pesan Ini Untuk Menjawab!_
         conn.sendMessage(m.chat, stiker, MessageType.sticker, {
      quoted: m
      }),
-        json, poin,
+        json,
         setTimeout(() => {
             if (conn.tebakbendera[id]) conn.reply(m.chat, `_Waktu habis! Jawabannya adalah *${json.jawaban}*_`, conn.tebakbendera[id][0])
             delete conn.tebakbendera[id]
         }, timeout)
     ]
-    await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+   // await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
 }
 
 handler.command = /^tebakbendera$/i
