@@ -71,7 +71,7 @@ let handler = async (m, { conn, text, args }) => {
 > Deskripsi:  \`\`\`${desci}\`\`\`
 > Online:  \`\`\`${uptime}\`\`\`
 > Baterai: \`\`\`${conn.battery ? `${conn.battery.value}%` : 'Unknown'}\`\`\`
-> Charging: \`\`\`${conn.battery.live ? '```true```' : '```false```'}\`\`\`
+> Charging: \`\`\`${conn.battery.live ? 'true' : 'false'}\`\`\`
 > Browser:  \`\`\`Chrome\`\`\`
 > Versi Chrome:  \`\`\`90.0.4430.210\`\`\`
 > Server:  \`\`\`Baileys\`\`\`
