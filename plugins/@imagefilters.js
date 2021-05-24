@@ -1,4 +1,5 @@
 const uploadImage = require('../lib/uploadImage')
+const uploadimg = require("../lib/uploadimg")
 const { sticker } = require('../lib/sticker')
 const { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
@@ -9,7 +10,7 @@ try {
   if (!mime) throw 'Tidak ada foto'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
   let img = await conn.downloadM(q)
-  let url = await uploadImage(img)
+  let url = await uploadimg(img)
   let stick = `https://some-random-api.ml/canvas/${command}?avatar=${url}`
   await conn.sendFile(m.chat, stick, "SGDC-BOT.jpg", "*SGDC-BOT*",  m)
   let stiker = await sticker(null, stick, global.packname, global.author)
