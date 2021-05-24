@@ -1,5 +1,5 @@
 const { MessageType } = require("@adiwajshing/baileys")
-let handler = (m, { conn }) => {
+let handler = (m, { conn, isNumber }) => {
 	var date = new Date();
 
 var bulan = date.getMonth();
@@ -17,9 +17,10 @@ _Selamat Adzan Maghrib Untuk Wilayah D.K.I Jakarta Dan Sekitarnya..._
 _*SGDC-BOT* Auto Reminder_
 `.trim()
 
-if (jam === 17 && menit === 49) {
-  for (let id of chats) conn.copyNForward(id, str, true) 
-//conn.sendMessage(chats, str, MessageType.text)
+if (isNumber(jam) === 21 && isNumber(menit) === 37) {
+	
+ // for (let id of chats) conn.copyNForward(id, str, true) 
+conn.sendMessage(m.chat, str, MessageType.text)
      }
 }
 
