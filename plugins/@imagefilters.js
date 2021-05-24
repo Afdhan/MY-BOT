@@ -8,7 +8,7 @@ try {
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Tidak ada foto'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
-  let img = await q.download()
+  let img = await conn.downloadM(q)
   let url = await uploadImage(img)
   let stick = `https://some-random-api.ml/canvas/${command}?avatar=${url}`
   await conn.sendFile(m.chat, stick, "SGDC-BOT.jpg", "*SGDC-BOT*",  m)
