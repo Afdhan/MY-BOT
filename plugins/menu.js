@@ -520,8 +520,9 @@ ${week}, ${islami} H
 ─────────────────────
 `.trim()
 
+let ppp = 'src/SGDC-BOT.jpg'
 global.cpt = `Support Me With Donate :)`
-await conn.reply(m.chat, gmbr, "SGDC_BOT.jpg", mn, {
+await conn.sendFile(m.chat, ppp, "SGDC_BOT.jpg", mn, {
   key: { 
       remoteJid: '6282252655313-1617529589@g.us', 
       participant: '0@s.whatsapp.net', 
