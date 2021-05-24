@@ -1,5 +1,6 @@
 let sgdc = require('./sgdc.json')
 
+global.block = []
 global.owner = [(sgdc.owner), '6283129011845']
 global.mods = ['6282252655313','6283159600193']
 global.packname = (sgdc.packname)
