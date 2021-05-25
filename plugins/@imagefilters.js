@@ -1,4 +1,4 @@
-const uploadImage = require('../lib/uploadImage')
+const { uploadImage: upp } = require('../lib/uploadImage')
 const uploadimg = require("../lib/uploadimg")
 const { imgbb } = require('imgbb-uploader')
 const kntl = require("../src/kntl.json")
@@ -13,8 +13,8 @@ try {
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Tidak ada foto'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
-  let img = await conn.downloadAndSaveMediaMessage(q)
-  let data = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", img)
+  let img = await q.download()
+  let data = await upp(img)
   let stick = `https://some-random-api.ml/canvas/${command}?avatar=${data.display_url}`
   await conn.sendFile(m.chat, stick, "SGDC-BOT.jpg", "*SGDC-BOT*",  m)
   let stiker = await sticker(null, stick, global.packname, global.author)
