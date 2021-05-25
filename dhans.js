@@ -153,9 +153,9 @@ conn.on("CB:Call", json => {
     console.log(chalk.red("Calling Warn!!! " + caller))
     setTimeout(function(){
     conn.sendMessage(caller, `Maaf, SGDC-BOT tidak bisa menerima panggilan. Anda akan diblokir otomatis!`, MessageType.text)
-			.then(() => conn.blockUser(caller, "add"))
-			console.log(chalk.blue('Users is blocked!'))
-			}, 1000);
+    .then(() => conn.blockUser(caller, "add"))
+    console.log(chalk.blue('Users is blocked!'))
+   }, 1000);
 })
 
 conn.on(`CB:action,,battery`, json => {
