@@ -14,7 +14,7 @@ try {
   if (!mime) throw 'Tidak ada foto'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
   let img = await q.download()
-  let data = await imgbb('cf02a7db378b0d5a4edeac30e87e36e7', img)
+  let data = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", img)
   let stick = `https://some-random-api.ml/canvas/${command}?avatar=${data.display_url}`
   await conn.sendFile(m.chat, stick, "SGDC-BOT.jpg", "*SGDC-BOT*",  m)
   let stiker = await sticker(null, stick, global.packname, global.author)
