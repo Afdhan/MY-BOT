@@ -3,11 +3,11 @@ const { MessageType } = require('@adiwajshing/baileys')
 
 let handler = async (m, { conn, args, text }) => {
  await m.reply(global.wait)
-let [ayam, geprek] = text.split ` | `
+//let [ayam, geprek] = text.split ` | `
  try {
   if (!ayam) throw '_Masukkan Tipe!_'
   if (!geprek) throw '_Emojinya mana?_'
-  let stic = await sticker(null, global.API('xteam', '/sticker/emojitopng' + ayam, { emo: geprek }, 'APIKEY'), global.packname, global.author)
+  let stic = await sticker(null, global.API('xteam', '/sticker/emojitopng' + args[0], { emo: args[1] }, 'APIKEY'), global.packname, global.author)
   conn.sendMessage(m.chat, stic, MessageType.sticker, {
     quoted: m
   })
