@@ -6,6 +6,7 @@ const { sticker } = require('../lib/sticker')
 const { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   await m.reply(global.wait)
+  var imgbb = require('imgbb-uploader')
   let api = (kntl.imgbb)
 try {
   let q = m.quoted ? m.quoted : m
