@@ -13,7 +13,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (res.status !== 200) throw await res.text()
     let json = await res.json()
     if (!json.status) throw json
-    let stiker = await sticker(null, global.API('xteam', '/sticker/emojitopngwhatsapp', { emo: json.bendera }, 'APIKEY'), `Jawabannya`, `${json.jawaban}`)
     let caption = `
 \`\`\`TEBAK BENDERA\`\`\`
 Bendera Negara Manakah Ini? : ${json.bendera}
@@ -31,6 +30,7 @@ _Balas Pesan Ini Untuk Menjawab!_
             delete conn.tebakbendera[id]
         }, timeout)
     ]
+   let stiker = await sticker(null, global.API('xteam', '/sticker/emojitopngwhatsapp', { emo: json.bendera }, 'APIKEY'), `Jawabannya`, `${json.jawaban}`)
    conn.sendMessage(m.chat, stiker, MessageType.sticker, {
      quoted: m
      })
