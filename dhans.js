@@ -147,17 +147,17 @@ global.reloadHandler = function () {
   isInit = false
   return true
 }
-conn.on("CB:Call", json => {
-		let call;
-		calling = JSON.parse(JSON.stringify(json))
-		call = calling[1].from
+/*conn.on("CB:Call", json => {
+    const ngntd = m.chat
+    const callerId = json[2][0][1]
+    console.log("call dari "+ callerId)
 		setTimeout(function(){
 			conn.sendMessage(call, `Maaf, SGDC-BOT tidak bisa menerima panggilan. Anda akan diblokir otomatis!`, MessageType.text)
 			.then(() => conn.blockUser(call, "add"))
 			console.log('Users is blocked!')
 			}, 100);
 		}
-	)
+	)*/
 conn.on(`CB:action,,battery`, json => {
     const chalk = require("chalk");
     const batteryLevelStr = json[2][0][1].value
