@@ -32,7 +32,7 @@ _Balas Pesan Ini Untuk Menjawab!_
     ]
    let stiker = await sticker(null, global.API('xteam', '/sticker/emojitopngwhatsapp', { emo: json.bendera }, 'APIKEY'), `Jawabannya`, `${json.jawaban}`)
    conn.sendMessage(m.chat, stiker, MessageType.sticker, {
-     quoted: conn.tebakbendera[id]
+     quoted: conn.tebakbendera[id][0]
      })
     }
 
