@@ -1,3 +1,4 @@
+const { MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
 let handler = m => m
 handler.before = async function (m) {
