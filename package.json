@@ -24,12 +24,13 @@
     "name": "M AFDHAN"
   },
   "repository": {
-    "url": "https://github.com/Afdhan/SGDC-BOT.git"
+    "type": "git",
+    "url": "git+https://github.com/Afdhan/SGDC-BOT.git"
   },
   "bugs": {
     "url": "https://github.com/Afdhan/SGDC-BOT/issues"
   },
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "@adiwajshing/baileys": "github:adiwajshing/baileys",
     "awesome-phonenumber": "^2.47.0",
