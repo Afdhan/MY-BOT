@@ -49,7 +49,8 @@ module.exports = {
           if (!'antiLink' in chat) chat.antiLink = false
           if (!'badWord' in chat) chat.badWord = false
           if (!'simi' in chat) chat.simi = false
-          if (!'nsfw' in chat) chat.nsfw = false          
+          if (!'nsfw' in chat) chat.nsfw = false       
+          if (!'gretong' in chat) chat.gretong = false   
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -63,9 +64,10 @@ module.exports = {
           badWord: false,
           simi: false,
           nsfw: false,
+          gretong: false,
         }
       } catch (e) {
-        console.log(e, global.DATABASE.data)
+        console.error(e)
       }
       if (opts['nyimak']) return
       if (!m.fromMe && opts['self']) return
@@ -75,7 +77,12 @@ module.exports = {
         if (!plugin) continue
         if (plugin.disabled) continue
         if (!plugin.all) continue
-        await plugin.all.call(this, m)
+        if (typeof plugin.all !== 'function') continue
+        try {
+          await plugin.all.call(this, m, chatUpdate)
+        } catch (e) {
+          console.error(e)
+        }
       }
       if (m.isBaileys) return
       m.exp += Math.ceil(Math.random() * 10)
@@ -87,7 +94,7 @@ module.exports = {
       let isOwner = isROwner || m.fromMe || global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isMods = global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isPrems = global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-      let groupMetadata = m.isGroup ? await this.groupMetadata(m.chat) : {}
+      let groupMetadata = m.isGroup ? this.chats.get(m.chat).metadata || await this.groupMetadata(m.chat) : {} || {}
       let participants = m.isGroup ? groupMetadata.participants : []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {}
       let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {}
@@ -113,7 +120,7 @@ module.exports = {
               [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
               [[[], new RegExp]]
         ).find(p => p[1])
-        if (typeof plugin.before == 'function') if (await plugin.before.call(this, m, {
+        if (typeof plugin.before === 'function') if (await plugin.before.call(this, m, {
           match,
           conn: this,
           participants,
@@ -127,6 +134,7 @@ module.exports = {
           isPrems,
           chatUpdate,
         })) continue
+        if (typeof plugin !== 'function') continue
     	if ((usedPrefix = (match[0] || '')[0])) {
           let noPrefix = m.text.replace(usedPrefix, '')
   	    let [command, ...args] = noPrefix.trim().split` `.filter(v=>v)
@@ -201,8 +209,7 @@ module.exports = {
             this.reply(m.chat, `Fffftttt`, m)
             continue 
           }
-          try {
-            await plugin.call(this, m, {
+      let extra = {
               match,
               usedPrefix,
               noPrefix,
@@ -221,11 +228,13 @@ module.exports = {
               isBotAdmin,
               isPrems,
               chatUpdate,
-            })
+            }
+            try {
+            await plugin.call(this, m, extra)
             if (!isPrems) m.limit = m.limit || plugin.limit || false
           } catch (e) {
             m.error = e
-            console.log(e)
+            console.error(e) 
             if (e) {
               let text = util.format(e)
               for (let key of Object.values(global.APIKeys))
@@ -233,7 +242,14 @@ module.exports = {
               m.reply(text)
             }
           } finally {
-            // m.reply(util.format(_user)) 
+            // m.reply(util.format(_user))
+            if (typeof plugin.after === 'function') {
+              try {
+                await plugin.after.call(this, m, extra)
+              } catch (e) {
+                console.error(e)
+              }
+            }
             if (m.limit) m.reply(':v')
           }
      	break
