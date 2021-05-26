@@ -2,7 +2,9 @@ let path = require('path');
 let util = require('util');
 let fs = require('fs');
 let handler  = async (m, { conn, usedPrefix: _p }) =>  {
-let pepek = `
+	let chat = global.DATABASE._data.chats[m.chat]
+    if(m.isGroup && !chat.gretong) return m.reply("```Fitur Ini Belum Diaktifkan Oleh Owner!```")
+    let pepek = `
 ─────────────────────
                        *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────

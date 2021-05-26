@@ -9,15 +9,6 @@ let kntl = require("../src/kntl.json");
 let { spawn } = require('child_process')
 let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, args, text, command, isOwner, isPrems, isROwner, usedPrefix: _p }) => {
-if(command == 'setreply'){
-        if (!isOwner) {
-        global.dfail('owner', m, conn)
-        throw false
-      }
-	if(!text) return m.reply('Masukkan Teks!')
-	global.cpt = text
-	m.reply(`_Berhasil Mengganti Fake Reply Menjadi "${text}"_`)
-  } else {
 let gmbr = './src/SGDC-BOT.jpg'
 let old = performance.now()
  await conn.fakeReply(m.chat, '```L o a d i n g . . .```', '0@s.whatsapp.net', '*SGDC-BOT PROCESSING*')
@@ -69,7 +60,7 @@ Powered By SGDC-BOT || M AFDHAN
     let gc = 'https://tinyurl.com/ygu7vxny'
     let desc = 'Powered by'
     let ping = neww - old + ' ms'
-    let d = new Date
+    let d = new Date(new Date + 3600000)
     let locale = 'id'
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
@@ -111,44 +102,14 @@ Powered By SGDC-BOT || M AFDHAN
 ─────────────────────
                       *ＳＧＤＣ－ＢＯＴ*
 ─────────────────────
-*> ƗNFØ ȻĦȺŦ*
-*❍ Nama Chat:* ${ngc}
-*❍ Welcome:* ${chat.welcome ? 'ON':'OFF'}
-*❍ AntiDelete:* ${chat.delete ? 'ON':'OFF'}
-*❍ AntiLink:* ${chat.antiLink ? 'ON':'OFF'}
-*❍ AutoDetect:* ${chat.detect ? 'ON':'OFF'}
-*❍ NSFW:* ${chat.nsfw ? 'ON':'OFF'}
-*❍ Simi:* ${chat.simi ? 'ON':'OFF'}
+Owner - Recode: \`\`\`M AFDHAN  @${own.split("@")[0]}\`\`
+Mods Supporter: \`\`\`NezaVPN  @${cown.split("@")[0]}\`\`\`
+Author SC: \`\`\`Nrtm\`\`\`
 
-*> ƗNFØ ȺNĐȺ*
-*❍ Nama:* ${name}
-*❍ About:* ${about}
-*❍ Mention:* @${mmk.split("@")[0]}
-*❍ Nomor:* ${nom}
-*❍ Link:* https://wa.me/${mmk.split`@`[0]}
-*❍ Prems:* ${premi ? 'YES':'NO'}
-*❍ Users:* ${mode}
 
-*> ƗNFØ ɃØŦ*
-*❍ Nama:* ${bname}
-*❍ Versi:* ${vers}
-*❍ Browser:* Chrome
-*❍ Server:* Baileys
-*❍ Prefix:* ${_p}
-*❍ Total User:* ${reg}
-*❍ Peform:* ${ping}
-*❍ Uptime:* ${uptime}
-*❍ Versi WA:* ${wa_versi}
-*❍ Github:* https://github.com/Afdhan/SGDC-55
-
-*> ƗNFØ ⱣɆNǤɆMɃȺNǤ*
-*❍ Owner:* ᴍ ᴀꜰᴅʜᴀɴ (@${own.split("@")[0]})
-*❍ Mods:* ɴᴇᴢᴀᴠᴩɴ (@${cown.split("@")[0]})
-*❍ Telegram:* https://t.me/SobatGretong
-*❍ Instagram:* @dhans11__
 ─────────────────────
 *ＲＯＡＤ ＴＯ ＩＤＵＬ ＡＤＨＡ １４４２ Ｈ*
-*❍* ${rmd}
+*>* ${rmd}
 
 *ＷＡＫＴＵ:* ${time} ${ampm}
 
@@ -156,9 +117,8 @@ Powered By SGDC-BOT || M AFDHAN
 ${week}, ${date} M
 ${week}, ${islami} H
 
-
-\`\`\`> For More Info\`\`\`
-\`\`\`${_p}info\`\`\`
+>  \`\`\`${_p}info\`\`\`
+>  \`\`\`${_p}report\`\`\`
 ─────────────────────
 ┌──────────────────╮
 │               *⸨   TEXT MAKER   ⸩*
@@ -558,9 +518,8 @@ conn.reply(m.chat, `Untuk Menu Gretongan, Ketik *${_p}gretongmenu*`, {
 })
   } catch (e) {
     conn.reply(m.chat, '```Menu Gagal Dimuat!!!```', '0@s.whatsapp.net', 'MENU ERROR! SEGERA LAPORKAN KE OWNER!', 'status@broadcast')
-    console.log(e)
+    console.error(e)
   }
- }
 }
 handler.command = /^(menu|help|start|(set)?reply)$/i
 

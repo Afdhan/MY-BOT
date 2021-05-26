@@ -4,6 +4,13 @@ let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => 
   let type = (args[0] || '').toLowerCase()
   let isAll = false
   switch (type) {
+    case 'gretong':
+    case 'gretongan':
+    case 'gretongers':
+    case 'grtg':
+    case 'phreaker':
+    chat.gretong = isEnable
+  	break
     case 'welcome':
     case 'wel':
       chat.welcome = isEnable
@@ -43,10 +50,11 @@ let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => 
       chat.antiLink = isEnable
       chat.welcome = isEnable
       chat.delete = isEnable
+      chat.gretong = isEnable
       break
     default:
       return m.reply(`
-List option: welcome | delete | simi | antilink | detect
+List option: welcome | delete | simi | antilink | gretong
 
 Contoh:
 ${usedPrefix}on welcome
