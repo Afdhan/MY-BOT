@@ -167,7 +167,7 @@ conn.on(`CB:action,,battery`, json => {
 })
 
 conn.on('CB:Blocklist', json => {
-    if (global.block.length > 2) return
+    //if (global.block.length > 2) return
     for (let i of json[1].blocklist) {
     global.block.push(i.replace('c.us', 's.whatsapp.net'))
     }
