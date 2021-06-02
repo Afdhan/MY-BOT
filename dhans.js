@@ -147,6 +147,7 @@ global.reloadHandler = function () {
   isInit = false
   return true
 }
+/*
 conn.on("CB:Call", json => {
     const chalk = require("chalk")
     const caller = json[2][0][1].m.chat
@@ -157,7 +158,7 @@ conn.on("CB:Call", json => {
     console.log(chalk.blue('Users is blocked!'))
    }, 1000);
 })
-
+*/
 conn.on(`CB:action,,battery`, json => {
     const chalk = require("chalk");
     const batteryLevelStr = json[2][0][1].value
