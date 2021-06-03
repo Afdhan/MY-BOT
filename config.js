@@ -1,12 +1,12 @@
 let sgdc = require('./sgdc.json')
 
 global.block = []
-global.owner = [(sgdc.owner), '6283129011845']
-global.mods = ['6282252655313','6283159600193']
+global.owner = [(sgdc.owner.afdhn), (sgdc.owner.neza)]
+global.mods = [(sgdc.mods.nz), (sgdc.mods.afd), (sgdc.mods.bot)]
 global.packname = (sgdc.packname)
 global.author = (sgdc.author)
-global.wait = "```[!]``` _Ｓｅｄａｎｇ Ｄｉｐｒｏｓｅｓ．．．_"
-global.error = "```[!] ERROR [!]``` _Terjadi Kesalahan!_"
+global.wait = (sgdc.wait)
+global.error = (sgdc.error)
 global.prems = ['6282252655313', '6283159600193', '6283129011845']
 global.APIs = { 
   nrtm: 'https://nurutomo.herokuapp.com',

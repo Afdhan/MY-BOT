@@ -47,15 +47,13 @@ if (opts['big-qr'] || opts['server']) conn.on('qr', qr => {
   generate(qr, { small: false })
   console.log(chalk.red('[') + chalk.cyan(' SGDC-BOT ') + chalk.red(']') + chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!'))
 })
-if (opts['server']) conn.on('qr', qr => { 
-  global.qr = qr 
-  console.log(chalk.red('[') + chalk.cyan(' SGDC-BOT ') + chalk.red(']') + chalk.green(' ~ Scan This QR Code With WhatsApp Web !!!'))
-})
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
   global.DATABASE.save()
   lastJSON = JSON.stringify(global.DATABASE.data)
 }, 60 * 1000)
+if (opts['server']) require('./server')(global.conn, PORT)
+
 
 if (opts['test']) {
   conn.user = {
@@ -147,8 +145,7 @@ global.reloadHandler = function () {
   isInit = false
   return true
 }
-/*
-conn.on("CB:Call", json => {
+/*conn.on("CB:Call", json => {
     const chalk = require("chalk")
     const caller = json[2][0][1].m.chat
     console.log(chalk.red("Calling Warn!!! " + caller))
@@ -157,8 +154,15 @@ conn.on("CB:Call", json => {
     .then(() => conn.blockUser(caller, "add"))
     console.log(chalk.blue('Users is blocked!'))
    }, 1000);
+})*/
+
+conn.on('CB:call', async function (json) {
+  const callerld = json [2][0][1].from;
+    await this.sendMessage(callerld, "Maaf anda di blokir!", 'conversation')
+    await this.sendMessage(callerld, `hadeh, jangan nelpon`, 'conversation')
+     this.blockUser(callerld, "add")
 })
-*/
+
 conn.on(`CB:action,,battery`, json => {
     const chalk = require("chalk");
     const batteryLevelStr = json[2][0][1].value
@@ -167,7 +171,7 @@ conn.on(`CB:action,,battery`, json => {
 })
 
 conn.on('CB:Blocklist', json => {
-    //if (global.block.length > 2) return
+    if (global.block.length > 2) return
     for (let i of json[1].blocklist) {
     global.block.push(i.replace('c.us', 's.whatsapp.net'))
     }

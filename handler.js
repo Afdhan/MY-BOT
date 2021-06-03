@@ -10,6 +10,15 @@ module.exports = {
     let m = chatUpdate.messages.all()[0]
     try {
       simple.smsg(this, m)
+      switch (m.mtype) {
+        case MessageType.image:
+        case MessageType.video:
+        case MessageType.audio:
+        case MessageType.document:
+        case MessageType.sticker:
+          if (!m.msg.url) await this.updateMediaMessage(m)
+          break
+      }
       m.exp = 0
       m.limit = false
       try {
@@ -320,9 +329,9 @@ module.exports = {
         }
       break
       case 'promote':
-        text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+        text = (chat.sPromote || this.spromote || conn.spromote || '````@user Sekarang Adalah Admin!```')
       case 'demote':
-        if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+        if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '```@user Sekarang Bukan Lagi Admin!```')
         text = text.replace('@user', '@' + participants[0].split('@')[0])
         if (chat.detect) this.sendMessage(jid, text, MessageType.extendedText, {
           contextInfo: {

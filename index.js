@@ -10,7 +10,7 @@ CFonts.say('=============================================', {
   colors: ['red'],
   gradient: false
 })
-CFonts.say(`${package.name}`, {
+CFonts.say(`SGDC-BOT`, {
   font: 'pallet',
   align: 'center',
   colors: ['whiteBright','red'],
@@ -38,12 +38,20 @@ CFonts.say(`Jika suatu Kejadian berawal dari sebuah Tindakan|Maka jangan ragu un
   space: false,
   gradient: true,
 })
-CFonts.say(`${package.name}@^${package.version}\n---------------------\nMUHAMMAD AFDHAN`, {
+CFonts.say(`SGDC-BOT@^1.6.5\n---------------------\nMUHAMMAD AFDHAN`, {
   font: 'console',
   align: 'center',
   colors: ['red']
 })
+
+var isRunning = false
+/**
+ * Start a js file
+ * @param {String} file `path/to/file`
+ */
 function start(file) {
+  if (isRunning) return
+  isRunning = true
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
@@ -53,6 +61,7 @@ function start(file) {
     switch (data) {
       case 'reset':
         p.kill()
+        isRunning = false
         start.apply(this, arguments)
         break
       case 'uptime':
@@ -61,6 +70,7 @@ function start(file) {
     }
   })
   p.on('exit', code => {
+    isRunning = false
     console.error('Exited with code:', code)
     if (code === 0) return
     fs.watchFile(args[0], () => {
