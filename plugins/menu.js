@@ -90,10 +90,10 @@ Powered By SGDC-BOT || M AFDHAN
     let about = (await conn.getStatus(mmk)).status
     let nom = PhoneNumber('+' + mmk.replace('@s.whatsapp.net', '')).getNumber('international')
     let mode
-    if(isROwner || mmk === own) mode = "```ROwner SGDC-BOT```"
-    else if(mmk === cown) mode = "```Owner SGDC-BOT```"
-    else if(premi) mode = "```Premium User```"
-    else mode = "```Free User```"
+    if(isROwner || mmk === own) mode = "ROwner SGDC-BOT"
+    else if(mmk === cown) mode = "Owner SGDC-BOT"
+    else if(premi) mode = "Premium User"
+    else mode = "Free User"
     let chat = global.DATABASE.data.chats[m.chat]
     let ngc
     if(m.isGroup) ngc = conn.getName(m.chat)
@@ -104,7 +104,7 @@ Powered By SGDC-BOT || M AFDHAN
 ─────────────────────
 Owner - Recode: \`\`\`M AFDHAN  @${own.split("@")[0]}\`\`
 Mods Supporter: \`\`\`NezaVPN  @${cown.split("@")[0]}\`\`\`
-Author SC: \`\`\`Nrtm\`\`\`
+Base Author: \`\`\`Nurutomo_wabot-aq\`\`\`
 
 
 ─────────────────────
@@ -156,7 +156,7 @@ ${week}, ${islami} H
 ├≽ \`\`\`${_p}nulis2\`\`\`
 ├≽ \`\`\`${_p}nulis3\`\`\`
 ├─────────────────
-│              *⸨   SERTI MAKER   ⸩*
+│              *⸨   SERTI MAKER   ⸩* (error)
 │
 ├≽ \`\`\`${_p}pubgserti\`\`\`
 ├≽ \`\`\`${_p}pubgserti2\`\`\`
@@ -208,7 +208,7 @@ ${week}, ${islami} H
 ├≽ \`\`\`${_p}tovideo\`\`\`
 ├≽ \`\`\`${_p}stimg\`\`\`
 ├─────────────────
-│         *⸨   STICKER EMOJI   ⸩*
+│         *⸨   STICKER EMOJI   ⸩* ( error )
 │
 ├≽ \`\`\`${_p}emo lg\`\`\`
 ├≽ \`\`\`${_p}emo htc\`\`\`
@@ -227,8 +227,8 @@ ${week}, ${islami} H
 ├─────────────────
 │         *⸨   RANDOM IMAGE   ⸩*
 │
-├≽ \`\`\`${_p}cecan\`\`\`
-├≽ \`\`\`${_p}cogan\`\`\`
+├≽ \`\`\`${_p}cecan\`\`\` (error)
+├≽ \`\`\`${_p}cogan\`\`\` (error)
 ├≽ \`\`\`${_p}meme\`\`\`
 ├≽ \`\`\`${_p}randmeme\`\`\`
 ├≽ \`\`\`${_p}darkjoke\`\`\`
@@ -256,7 +256,7 @@ ${week}, ${islami} H
 ├≽ \`\`\`${_p}githubstalk\`\`\`
 ├≽ \`\`\`${_p}twitterstalk\`\`\`
 ├≽ \`\`\`${_p}tiktokstalk\`\`\`
-├≽ \`\`\`${_p}igpost\`\`\`
+├≽ \`\`\`${_p}igpost\`\`\` (error)
 ├─────────────────
 │                   *⸨   SPAM   ⸩*
 │
